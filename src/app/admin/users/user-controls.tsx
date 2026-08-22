@@ -42,7 +42,11 @@ export function UserControls({ userId, role, isDisabled, csrfField }: UserContro
             <SubmitButton variant="danger" size="sm" pendingLabel="...">
               Confirm {role === 'ADMIN' ? 'demotion' : 'promotion'}
             </SubmitButton>
-            <button type="button" onClick={() => setConfirming(null)} className="text-link hover:underline">
+            <button
+              type="button"
+              onClick={() => setConfirming(null)}
+              className="text-link hover:underline"
+            >
               Cancel
             </button>
           </form>
@@ -62,7 +66,11 @@ export function UserControls({ userId, role, isDisabled, csrfField }: UserContro
             <SubmitButton variant="danger" size="sm" pendingLabel="...">
               Confirm {isDisabled ? 'enable' : 'disable'}
             </SubmitButton>
-            <button type="button" onClick={() => setConfirming(null)} className="text-link hover:underline">
+            <button
+              type="button"
+              onClick={() => setConfirming(null)}
+              className="text-link hover:underline"
+            >
               Cancel
             </button>
           </form>

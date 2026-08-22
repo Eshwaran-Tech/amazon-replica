@@ -23,9 +23,7 @@ export function ProfileForm({ currentName, csrfField }: ProfileFormProps) {
     <form action={formAction} className="space-y-3" noValidate>
       {csrfField}
 
-      {state.message && (
-        <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>
-      )}
+      {state.message && <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>}
 
       <TextField
         id="profile-name"

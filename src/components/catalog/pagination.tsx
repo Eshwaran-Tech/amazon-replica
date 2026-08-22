@@ -33,7 +33,10 @@ export function Pagination({ basePath, input, page, totalPages }: PaginationProp
     'inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border px-3 text-sm';
 
   return (
-    <nav aria-label="Pagination" className="mt-6 flex flex-wrap items-center justify-center gap-1.5">
+    <nav
+      aria-label="Pagination"
+      className="mt-6 flex flex-wrap items-center justify-center gap-1.5"
+    >
       <Link
         href={buildCatalogUrl(basePath, input, { page: Math.max(1, page - 1) })}
         aria-disabled={page === 1}
@@ -52,7 +55,10 @@ export function Pagination({ basePath, input, page, totalPages }: PaginationProp
         <>
           <Link
             href={buildCatalogUrl(basePath, input, { page: 1 })}
-            className={cn(linkClass, 'border-hairline bg-surface hover:bg-surface-muted hidden sm:inline-flex')}
+            className={cn(
+              linkClass,
+              'border-hairline bg-surface hover:bg-surface-muted hidden sm:inline-flex',
+            )}
           >
             1
           </Link>
@@ -89,7 +95,10 @@ export function Pagination({ basePath, input, page, totalPages }: PaginationProp
           )}
           <Link
             href={buildCatalogUrl(basePath, input, { page: totalPages })}
-            className={cn(linkClass, 'border-hairline bg-surface hover:bg-surface-muted hidden sm:inline-flex')}
+            className={cn(
+              linkClass,
+              'border-hairline bg-surface hover:bg-surface-muted hidden sm:inline-flex',
+            )}
           >
             {totalPages}
           </Link>

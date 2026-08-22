@@ -39,7 +39,10 @@ export function ProductCarousel({
 }: ProductCarouselProps) {
   if (products.length === 0) return null;
 
-  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const slug = title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
   const headingId = id ?? `carousel-${slug || 'section'}`;
 
   return (
@@ -61,10 +64,7 @@ export function ProductCarousel({
         style={{ scrollPaddingInline: '0.25rem' }}
       >
         {products.map((product, index) => (
-          <li
-            key={product.id}
-            className="w-36 shrink-0 snap-start sm:w-44 lg:w-48"
-          >
+          <li key={product.id} className="w-36 shrink-0 snap-start sm:w-44 lg:w-48">
             <Link
               href={`/products/${product.slug}`}
               className="hover:bg-surface-sunken block rounded-xl p-1.5 transition-colors"

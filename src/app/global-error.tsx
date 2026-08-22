@@ -1,5 +1,7 @@
 'use client';
 
+import { BRAND_NAME } from '@/lib/brand';
+
 /**
  * Last-resort boundary: catches errors thrown by the root layout itself, where
  * no shell exists to render into. It must supply its own <html> and <body>.
@@ -26,7 +28,7 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
         <main style={{ maxWidth: '32rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '1.5rem', margin: '0 0 0.75rem' }}>Service unavailable</h1>
           <p style={{ margin: '0 0 1.5rem', color: '#565d68', fontSize: '0.95rem' }}>
-            amazon could not start rendering this page. Please try again shortly.
+            {BRAND_NAME} could not start rendering this page. Please try again shortly.
           </p>
           {error.digest && (
             <p style={{ fontSize: '0.75rem', color: '#767d88' }}>

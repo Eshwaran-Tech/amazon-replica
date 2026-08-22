@@ -71,8 +71,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       violatedDirective: truncate(fields['violated-directive'] ?? fields['effectiveDirective'], 80),
       blockedUri: truncate(fields['blocked-uri'] ?? fields['blockedURL']),
       sourceFile: truncate(fields['source-file'] ?? fields['sourceFile']),
-      lineNumber:
-        typeof fields['line-number'] === 'number' ? fields['line-number'] : undefined,
+      lineNumber: typeof fields['line-number'] === 'number' ? fields['line-number'] : undefined,
     },
   });
 

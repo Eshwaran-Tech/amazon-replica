@@ -92,7 +92,7 @@ export function FlightSearchForm({ today, initial }: SearchFormProps) {
             type="button"
             onClick={swap}
             aria-label="Swap origin and destination"
-            className="border-hairline bg-surface-sunken hover:border-accent-500 absolute top-1/2 right-0 z-20 hidden -translate-y-1/2 translate-x-1/2 rounded-full border p-1.5 sm:block"
+            className="border-hairline bg-surface-sunken hover:border-accent-500 absolute top-1/2 right-0 z-20 hidden translate-x-1/2 -translate-y-1/2 rounded-full border p-1.5 sm:block"
           >
             <ArrowLeftRight className="text-accent-400 h-3.5 w-3.5" aria-hidden="true" />
           </button>

@@ -134,7 +134,10 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
       </div>
 
       {(listing.page > 1 || listing.hasMore) && (
-        <nav aria-label="User pages" className="mt-4 flex items-center justify-center gap-3 text-sm">
+        <nav
+          aria-label="User pages"
+          className="mt-4 flex items-center justify-center gap-3 text-sm"
+        >
           {listing.page > 1 && (
             <Link
               href={pageHref(q, listing.page - 1)}

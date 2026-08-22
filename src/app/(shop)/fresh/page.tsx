@@ -12,9 +12,10 @@ import {
   type CategoryTile,
 } from '@/components/stores/store-parts';
 import { getBySubcategory, getCategoryDeals } from '@/services/catalog';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
-  title: 'amazon fresh',
+  title: `${BRAND_NAME} Fresh`,
   description: 'Everyday groceries, staples and fresh food.',
 };
 
@@ -65,7 +66,7 @@ export default async function FreshPage() {
       <StoreHero
         word="fresh"
         accent="text-[#4a9c2d]"
-        tagline="Groceries, staples and everyday essentials from the amazon catalogue — same prices, same stock, one basket at checkout."
+        tagline={`Groceries, staples and everyday essentials from the ${BRAND_NAME} catalogue — same prices, same stock, one basket at checkout.`}
       />
 
       <BenefitCards

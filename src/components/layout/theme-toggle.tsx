@@ -50,7 +50,9 @@ export function ThemeToggle({ current, csrfField }: ThemeToggleProps) {
               title={THEME_LABELS[theme]}
               className={cn(
                 'flex cursor-pointer items-center justify-center rounded p-1.5 transition-colors',
-                active ? 'bg-white/20 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white',
+                active
+                  ? 'bg-white/20 text-white'
+                  : 'text-white/70 hover:bg-white/10 hover:text-white',
               )}
             >
               <input

@@ -58,9 +58,7 @@ export function ProductForm({ initial, categories, csrfField }: ProductFormProps
       {csrfField}
       {initial && <input type="hidden" name="productId" value={initial.productId} />}
 
-      {state.message && (
-        <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>
-      )}
+      {state.message && <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>}
 
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="sm:col-span-2">
@@ -221,7 +219,8 @@ export function ProductForm({ initial, categories, csrfField }: ProductFormProps
 
       <div className="space-y-1.5">
         <label htmlFor="p-specifications" className="block text-sm font-semibold">
-          Specifications <span className="text-ink-subtle font-normal">(Label: value, one per line)</span>
+          Specifications{' '}
+          <span className="text-ink-subtle font-normal">(Label: value, one per line)</span>
         </label>
         <textarea
           id="p-specifications"
@@ -244,15 +243,30 @@ export function ProductForm({ initial, categories, csrfField }: ProductFormProps
 
       <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
         <label className="flex min-h-9 items-center gap-2">
-          <input type="checkbox" name="isActive" defaultChecked={initial?.isActive ?? true} className="h-4 w-4" />
+          <input
+            type="checkbox"
+            name="isActive"
+            defaultChecked={initial?.isActive ?? true}
+            className="h-4 w-4"
+          />
           Active (visible in the store)
         </label>
         <label className="flex min-h-9 items-center gap-2">
-          <input type="checkbox" name="isFeatured" defaultChecked={initial?.isFeatured ?? false} className="h-4 w-4" />
+          <input
+            type="checkbox"
+            name="isFeatured"
+            defaultChecked={initial?.isFeatured ?? false}
+            className="h-4 w-4"
+          />
           Featured on the home page
         </label>
         <label className="flex min-h-9 items-center gap-2">
-          <input type="checkbox" name="isPrime" defaultChecked={initial?.isPrime ?? false} className="h-4 w-4" />
+          <input
+            type="checkbox"
+            name="isPrime"
+            defaultChecked={initial?.isPrime ?? false}
+            className="h-4 w-4"
+          />
           Prime badge
         </label>
       </div>

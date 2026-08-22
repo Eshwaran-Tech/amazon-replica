@@ -22,9 +22,7 @@ export function InventoryForm({ productId, csrfField }: InventoryFormProps) {
       {csrfField}
       <input type="hidden" name="productId" value={productId} />
 
-      {state.message && (
-        <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>
-      )}
+      {state.message && <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>}
 
       <TextField
         id="inv-stock"

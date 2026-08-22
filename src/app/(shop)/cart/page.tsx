@@ -125,7 +125,11 @@ export default async function CartPage() {
                       <form action={updateCartLineAction}>
                         <CsrfField />
                         <input type="hidden" name="productId" value={line.productId} />
-                        <input type="hidden" name="quantity" value={Math.max(1, line.quantity - 1)} />
+                        <input
+                          type="hidden"
+                          name="quantity"
+                          value={Math.max(1, line.quantity - 1)}
+                        />
                         <SubmitButton
                           variant="secondary"
                           size="sm"
@@ -136,7 +140,10 @@ export default async function CartPage() {
                         </SubmitButton>
                       </form>
 
-                      <span className="min-w-8 text-center text-sm font-semibold" aria-live="polite">
+                      <span
+                        className="min-w-8 text-center text-sm font-semibold"
+                        aria-live="polite"
+                      >
                         {line.quantity}
                       </span>
 
@@ -199,7 +206,9 @@ export default async function CartPage() {
 
           <dl className="mt-3 space-y-1.5 text-sm">
             <div className="flex justify-between">
-              <dt className="text-ink-muted">{t('cart.subtotal', { count: cart.totals.itemCount })}</dt>
+              <dt className="text-ink-muted">
+                {t('cart.subtotal', { count: cart.totals.itemCount })}
+              </dt>
               <dd>{formatPaise(cart.totals.subtotal)}</dd>
             </div>
             {cart.totals.discount > 0 && (
@@ -210,7 +219,9 @@ export default async function CartPage() {
             )}
             <div className="flex justify-between">
               <dt className="text-ink-muted">{t('cart.delivery')}</dt>
-              <dd>{cart.totals.shipping === 0 ? t('cart.free') : formatPaise(cart.totals.shipping)}</dd>
+              <dd>
+                {cart.totals.shipping === 0 ? t('cart.free') : formatPaise(cart.totals.shipping)}
+              </dd>
             </div>
             <div className="flex justify-between">
               <dt className="text-ink-muted">{t('cart.gst')}</dt>
@@ -236,7 +247,9 @@ export default async function CartPage() {
             {t('cart.checkout')}
           </Link>
 
-          <p className="text-ink-subtle mt-2 text-center text-[11px]">{t('cart.pricesConfirmed')}</p>
+          <p className="text-ink-subtle mt-2 text-center text-[11px]">
+            {t('cart.pricesConfirmed')}
+          </p>
         </aside>
       </div>
     </Container>

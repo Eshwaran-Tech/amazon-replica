@@ -1,13 +1,7 @@
 import { cn } from '@/lib/utils/cn';
 
 export type HeroTheme =
-  | 'fashion'
-  | 'electronics'
-  | 'gaming'
-  | 'mobiles'
-  | 'home'
-  | 'fitness'
-  | 'deals';
+  'fashion' | 'electronics' | 'gaming' | 'mobiles' | 'home' | 'fitness' | 'deals';
 
 /**
  * One object in a hero composition.
@@ -109,11 +103,9 @@ const PHONE =
   'M35 8h30a7 7 0 0 1 7 7v70a7 7 0 0 1-7 7H35a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7Zm9 70h12M42 14h16';
 const TABLET =
   'M10 20h80a6 6 0 0 1 6 6v48a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V26a6 6 0 0 1 6-6Zm88 22v14M50 78h.1';
-const SMARTWATCH =
-  'M34 30h32v40H34zM40 30V16h20v14M40 70v14h20V70M70 42h6v14h-6M50 42v10h8';
+const SMARTWATCH = 'M34 30h32v40H34zM40 30V16h20v14M40 70v14h20V70M70 42h6v14h-6M50 42v10h8';
 
-const MENS_SHIRT =
-  'M36 16 18 27l7 17 8-4v44h34V40l8 4 7-17-18-11-9 9h-10l-9-9Zm9 0a5 5 0 0 0 10 0';
+const MENS_SHIRT = 'M36 16 18 27l7 17 8-4v44h34V40l8 4 7-17-18-11-9 9h-10l-9-9Zm9 0a5 5 0 0 0 10 0';
 const WOMENS_DRESS =
   'M38 12h24l-5 13 13 49a7 7 0 0 1-7 9H37a7 7 0 0 1-7-9l13-49-5-13Zm5 13h14M36 52h28';
 const HANDBAG = 'M26 38h48l5 44H21l5-44Zm12 0V27a12 12 0 0 1 24 0v11M32 50h36';
@@ -132,12 +124,13 @@ const KETTLEBELL =
   'M50 18a15 15 0 0 1 15 15v3h3a21 21 0 0 1 19 27 25 25 0 0 1-74 0 21 21 0 0 1 19-27h3v-3a15 15 0 0 1 15-15Zm0 8a7 7 0 0 0-7 7v3h14v-3a7 7 0 0 0-7-7Z';
 const RUNNING_SHOE =
   'M10 52h18l12 10 20 4 16 6a10 10 0 0 1 8 10v6H10V52Zm18 0V38m14 24-6-14m20 18-6-12';
-const WATER_BOTTLE = 'M42 8h16v10H42zM38 18h24v14l4 8v44a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6V40l4-8V18Zm0 24h24';
+const WATER_BOTTLE =
+  'M42 8h16v10H42zM38 18h24v14l4 8v44a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6V40l4-8V18Zm0 24h24';
 
-const SOFA =
-  'M12 44a8 8 0 0 1 16 0v14h44V44a8 8 0 0 1 16 0v30H12V44Zm16 14h44M20 74v8m60-8v8';
+const SOFA = 'M12 44a8 8 0 0 1 16 0v14h44V44a8 8 0 0 1 16 0v30H12V44Zm16 14h44M20 74v8m60-8v8';
 const FLOOR_LAMP = 'M32 30 50 8l18 22H32Zm18 0v50m-14 8h28M40 40h20';
-const PLANT = 'M40 56h20l-3 34H43l-3-34Zm10 0V32m0 0c-10 0-16-8-14-18 10-2 16 6 14 18Zm0 0c10 2 18-4 18-14-10-4-18 4-18 14Z';
+const PLANT =
+  'M40 56h20l-3 34H43l-3-34Zm10 0V32m0 0c-10 0-16-8-14-18 10-2 16 6 14 18Zm0 0c10 2 18-4 18-14-10-4-18 4-18 14Z';
 
 const PRICE_TAG =
   'M54 12h26a6 6 0 0 1 6 6v26L48 82 16 50 54 12Zm16 14a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z';

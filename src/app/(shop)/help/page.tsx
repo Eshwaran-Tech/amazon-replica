@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Container } from '@/components/layout/container';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
   title: 'Help & customer service',
-  description: 'How ordering, payment, delivery, returns and your account work on amazon.',
+  description: `How ordering, payment, delivery, returns and your account work on ${BRAND_NAME}.`,
 };
 
 const TOPICS: Array<{ title: string; body: string; href?: string; linkLabel?: string }> = [

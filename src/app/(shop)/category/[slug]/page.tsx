@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { BRAND_NAME } from '@/lib/brand';
 import { notFound } from 'next/navigation';
 
 import { CatalogView } from '@/components/catalog/catalog-view';
@@ -29,14 +30,26 @@ async function resolveCategory(params: PageProps['params']) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const category = await resolveCategory(params);
 
+  // Written once and reused across the description, OG and Twitter tags, so
+  // the three cannot describe the page differently.
+  const description =
+    category.description ??
+    `Shop ${category.name} on ${BRAND_NAME}. Compare prices, read reviews and check out securely with fast delivery across India.`;
+
   return {
     title: category.name,
-    description: category.description ?? `Shop ${category.name} on amazon.`,
+    description,
     alternates: { canonical: `/category/${category.slug}` },
     openGraph: {
-      title: `${category.name} - amazon`,
-      description: category.description ?? undefined,
+      type: 'website',
+      title: `${category.name} | ${BRAND_NAME}`,
+      description,
       url: `/category/${category.slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${category.name} | ${BRAND_NAME}`,
+      description,
     },
   };
 }

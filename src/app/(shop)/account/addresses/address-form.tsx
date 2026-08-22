@@ -142,7 +142,10 @@ export function AddressForm({ address, csrfField }: AddressFormProps) {
         <SubmitButton pendingLabel="Saving...">
           {address ? 'Save changes' : 'Add address'}
         </SubmitButton>
-        <Link href="/account/addresses" className="text-link min-h-10 content-center px-2 text-sm font-semibold hover:underline">
+        <Link
+          href="/account/addresses"
+          className="text-link min-h-10 content-center px-2 text-sm font-semibold hover:underline"
+        >
           Cancel
         </Link>
       </div>

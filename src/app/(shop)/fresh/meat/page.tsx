@@ -13,9 +13,10 @@ import {
 } from '@/components/stores/store-parts';
 import { getBySubcategory } from '@/services/catalog';
 import type { ProductSummary } from '@/models/product';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
-  title: 'amazon fresh meat',
+  title: `${BRAND_NAME} Fresh Meat`,
   description: 'Chicken, mutton, seafood and cold cuts, cut to order.',
 };
 

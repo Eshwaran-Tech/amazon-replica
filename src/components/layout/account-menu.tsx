@@ -143,7 +143,10 @@ export function AccountMenu({ firstName, isAdmin, signOutForm }: AccountMenuProp
               </Link>
               <p className="mt-2 text-[12px] text-white/70">
                 {t('account.newCustomer')}{' '}
-                <Link href="/auth/register/details" className="text-[#6cb6ff] hover:text-[#ffb52b] hover:underline">
+                <Link
+                  href="/auth/register/details"
+                  className="text-[#6cb6ff] hover:text-[#ffb52b] hover:underline"
+                >
                   {t('account.startHere')}
                 </Link>
               </p>

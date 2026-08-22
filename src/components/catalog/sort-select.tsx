@@ -26,13 +26,7 @@ const LABELS: Record<(typeof PRODUCT_SORT_OPTIONS)[number], string> = {
  * Options come from the same `z.enum` the server validates against, so the UI
  * cannot offer a value the server would reject.
  */
-export function SortSelect({
-  basePath,
-  input,
-}: {
-  basePath: string;
-  input: ProductSearchInput;
-}) {
+export function SortSelect({ basePath, input }: { basePath: string; input: ProductSearchInput }) {
   const router = useRouter();
   const id = useId();
 

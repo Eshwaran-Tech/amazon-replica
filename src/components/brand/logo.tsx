@@ -1,15 +1,21 @@
 import Image from 'next/image';
 
 import { cn } from '@/lib/utils/cn';
+import { BRAND_NAME, BRAND_SUFFIX } from '@/lib/brand';
 
 /**
  * Brand configuration.
  *
  * The wordmark is data, not hard-coded markup, so the component works for any
- * brand name without editing JSX. Set these in `.env.local`:
+ * brand name without editing JSX. The name and suffix now come from
+ * `lib/brand.ts`, which is the single source every other surface reads too --
+ * page titles, Open Graph tags, structured data, email. Two copies of the brand
+ * would eventually disagree, and the header disagreeing with the `<title>` is
+ * precisely the inconsistency that weakens a branded search.
  *
- *   NEXT_PUBLIC_BRAND_NAME        wordmark text        (default "amazon")
- *   NEXT_PUBLIC_BRAND_SUFFIX      small suffix         (default ".in")
+ * The two image overrides stay local to this component, because only this
+ * component renders them:
+ *
  *   NEXT_PUBLIC_BRAND_LOGO        image, replaces the text wordmark entirely
  *   NEXT_PUBLIC_BRAND_LOGO_MARK   image for the compact mobile mark
  *
@@ -17,8 +23,6 @@ import { cn } from '@/lib/utils/cn';
  * would be fetched by the Next.js image optimiser, turning `/_next/image` into
  * a request forwarder. Anything not starting with a single `/` is ignored.
  */
-const BRAND_NAME = process.env.NEXT_PUBLIC_BRAND_NAME?.trim() || 'amazon';
-const BRAND_SUFFIX = process.env.NEXT_PUBLIC_BRAND_SUFFIX ?? '.in';
 const BRAND_LOGO = process.env.NEXT_PUBLIC_BRAND_LOGO;
 const BRAND_LOGO_MARK = process.env.NEXT_PUBLIC_BRAND_LOGO_MARK;
 

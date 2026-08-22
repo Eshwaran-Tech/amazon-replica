@@ -99,7 +99,10 @@ export function LanguageMenu({ current, csrfField, flag }: LanguageMenuProps) {
               <legend className="mb-2 text-[15px] font-bold">{t('lang.change')}</legend>
               <ul className="space-y-1">
                 {LANGUAGES.map((language, index) => (
-                  <li key={language.code} className={index === 1 ? 'mt-2 border-t border-white/15 pt-2' : ''}>
+                  <li
+                    key={language.code}
+                    className={index === 1 ? 'mt-2 border-t border-white/15 pt-2' : ''}
+                  >
                     <label className="flex min-h-8 cursor-pointer items-center gap-3 text-[14px] text-white/90 hover:text-white">
                       <input
                         type="radio"
@@ -107,7 +110,7 @@ export function LanguageMenu({ current, csrfField, flag }: LanguageMenuProps) {
                         value={language.code}
                         defaultChecked={language.code === current}
                         onChange={() => formRef.current?.requestSubmit()}
-                        className="accent-[#e77600] h-4 w-4"
+                        className="h-4 w-4 accent-[#e77600]"
                       />
                       <span>
                         {language.label} - {language.short}

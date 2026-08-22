@@ -20,7 +20,12 @@ export const metadata: Metadata = {
 const TILES: Array<{ href: string; icon: typeof Package; title: MessageKey; text: MessageKey }> = [
   { href: '/orders', icon: Package, title: 'acct.orders', text: 'acct.ordersText' },
   { href: '/account/addresses', icon: MapPin, title: 'acct.addresses', text: 'acct.addressesText' },
-  { href: '/account/security', icon: ShieldCheck, title: 'acct.security', text: 'acct.securityText' },
+  {
+    href: '/account/security',
+    icon: ShieldCheck,
+    title: 'acct.security',
+    text: 'acct.securityText',
+  },
 ];
 
 /**

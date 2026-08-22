@@ -8,10 +8,11 @@ import { displayIdentifier } from '@/lib/auth/identifier';
 import { safeRedirectPath } from '@/lib/security/redirect';
 
 import { IdentifierForm } from './identifier-form';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
   title: 'Sign in',
-  description: 'Sign in to your amazon account.',
+  description: `Sign in to your ${BRAND_NAME} account.`,
   robots: { index: false, follow: false },
 };
 
@@ -33,9 +34,12 @@ export default async function LoginPage({ searchParams }: PageProps) {
   const initial = flow ? displayIdentifier(flow.identifier).replace(/^\+91\s/, '') : '';
 
   const notices: string[] = [];
-  if (params.reset === '1') notices.push('Your password has been reset. Sign in with your new password.');
+  if (params.reset === '1')
+    notices.push('Your password has been reset. Sign in with your new password.');
   if (params.passwordChanged === '1') {
-    notices.push('Your password was changed and all devices were signed out. Sign in again to continue.');
+    notices.push(
+      'Your password was changed and all devices were signed out. Sign in again to continue.',
+    );
   }
 
   return (

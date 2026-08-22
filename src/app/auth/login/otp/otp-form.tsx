@@ -8,7 +8,15 @@ import { OtpDigits } from '@/components/ui/otp-digits';
 import { emptyFormState } from '@/lib/forms/state';
 import { useT } from '@/lib/i18n/client';
 
-import { AuthAlert, AuthButton, AuthCard, AuthDivider, AuthHeading, AuthLink, authLinkClass } from '../../ui';
+import {
+  AuthAlert,
+  AuthButton,
+  AuthCard,
+  AuthDivider,
+  AuthHeading,
+  AuthLink,
+  authLinkClass,
+} from '../../ui';
 
 interface OtpSignInFormProps {
   identifierLabel: string;

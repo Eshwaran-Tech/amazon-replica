@@ -24,11 +24,21 @@ export default function ImageCreditsPage() {
       <p className="text-ink-muted mt-2 text-sm leading-relaxed">
         Product photography in this store comes from two places. Studio catalogue shots are supplied
         by{' '}
-        <a className="underline" href="https://dummyjson.com" target="_blank" rel="noopener noreferrer">
+        <a
+          className="underline"
+          href="https://dummyjson.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           DummyJSON
         </a>
         , a public demo-data service for development. The remainder comes from{' '}
-        <a className="underline" href="https://openverse.org" target="_blank" rel="noopener noreferrer">
+        <a
+          className="underline"
+          href="https://openverse.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Openverse
         </a>
         , which indexes openly licensed images. Photographs released under CC0 or marked as public

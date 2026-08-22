@@ -14,8 +14,10 @@ import { ProductGallery } from '@/components/product/product-gallery';
 import { RatingStars } from '@/components/product/rating-stars';
 import { ReviewSection } from '@/components/reviews/review-section';
 import { JsonLd } from '@/components/seo/json-ld';
+import { breadcrumbSchema } from '@/lib/seo/structured-data';
 import { formatPaise, paiseToRupees } from '@/lib/utils/money';
 import { slugSchema } from '@/lib/validations/common';
+import { BRAND_NAME } from '@/lib/brand';
 import {
   getCategoryBySlug,
   getProductBySlug,
@@ -56,6 +58,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `/products/${product.slug}`,
       images: [{ url: product.thumbnail, alt: product.name }],
     },
+    // The product photo is the point of a shared product link, so it gets the
+    // large card rather than the thumbnail summary.
+    twitter: {
+      card: 'summary_large_image',
+      title: product.name,
+      description: product.description.slice(0, 200),
+      images: [product.thumbnail],
+    },
   };
 }
 
@@ -88,9 +98,7 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
             // rupee decimal is produced, and it is for output only.
             price: paiseToRupees(product.effectivePrice).toFixed(2),
             priceCurrency: 'INR',
-            availability: inStock
-              ? 'https://schema.org/InStock'
-              : 'https://schema.org/OutOfStock',
+            availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
           },
           ...(product.reviewCount > 0
             ? {
@@ -104,12 +112,18 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
         }}
       />
 
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          ...(category ? [{ name: category.name, path: `/category/${category.slug}` }] : []),
+          { name: product.name, path: `/products/${product.slug}` },
+        ])}
+      />
+
       <Breadcrumb
         items={[
           { label: 'Home', href: '/' },
-          ...(category
-            ? [{ label: category.name, href: `/category/${category.slug}` }]
-            : []),
+          ...(category ? [{ label: category.name, href: `/category/${category.slug}` }] : []),
           { label: product.name },
         ]}
       />
@@ -159,10 +173,7 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
               <ul className="mt-2 space-y-1.5">
                 {product.features.map((feature) => (
                   <li key={feature} className="flex gap-2 text-sm">
-                    <Check
-                      className="text-instock mt-0.5 h-4 w-4 shrink-0"
-                      aria-hidden="true"
-                    />
+                    <Check className="text-instock mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -216,7 +227,7 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
           <ul className="text-ink-muted mt-4 space-y-2 text-xs">
             <li className="flex items-center gap-2">
               <Truck className="h-4 w-4 shrink-0" aria-hidden="true" />
-              Dispatched by amazon
+              Dispatched by {BRAND_NAME}
             </li>
             <li className="flex items-center gap-2">
               <Undo2 className="h-4 w-4 shrink-0" aria-hidden="true" />

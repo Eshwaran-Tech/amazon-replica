@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { Container } from '@/components/layout/container';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
   title: 'Conditions of use',
@@ -30,7 +31,7 @@ const SECTIONS: Array<{ title: string; body: string }> = [
   },
   {
     title: 'About this store',
-    body: 'amazon is an original demonstration storefront. It is not affiliated with, endorsed by, or derived from any real retailer; brands and products shown are fictional.',
+    body: `${BRAND_NAME} is an original demonstration storefront. It is not affiliated with, endorsed by, or derived from any real retailer; brands and products shown are fictional.`,
   },
 ];
 

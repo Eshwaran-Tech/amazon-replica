@@ -132,7 +132,12 @@ export function CategoryForm({ initial, parents, csrfField }: CategoryFormProps)
       </div>
 
       <label className="flex min-h-9 items-center gap-2 text-sm">
-        <input type="checkbox" name="isActive" defaultChecked={initial?.isActive ?? true} className="h-4 w-4" />
+        <input
+          type="checkbox"
+          name="isActive"
+          defaultChecked={initial?.isActive ?? true}
+          className="h-4 w-4"
+        />
         Active (shown in navigation and listings)
       </label>
 
@@ -152,7 +157,13 @@ export function CategoryForm({ initial, parents, csrfField }: CategoryFormProps)
 }
 
 /** Two-step delete for empty categories (the service re-checks emptiness). */
-export function DeleteCategoryForm({ categoryId, csrfField }: { categoryId: string; csrfField: ReactNode }) {
+export function DeleteCategoryForm({
+  categoryId,
+  csrfField,
+}: {
+  categoryId: string;
+  csrfField: ReactNode;
+}) {
   const [state, formAction] = useActionState(deleteCategoryAction, emptyFormState);
   const [armed, setArmed] = useState(false);
 
@@ -180,7 +191,11 @@ export function DeleteCategoryForm({ categoryId, csrfField }: { categoryId: stri
       <SubmitButton variant="danger" size="sm" pendingLabel="...">
         Confirm
       </SubmitButton>
-      <button type="button" onClick={() => setArmed(false)} className="text-link text-sm hover:underline">
+      <button
+        type="button"
+        onClick={() => setArmed(false)}
+        className="text-link text-sm hover:underline"
+      >
         Keep
       </button>
     </form>

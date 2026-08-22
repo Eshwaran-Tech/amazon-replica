@@ -74,8 +74,8 @@ export default async function SecurityPage() {
         <div className="border-hairline bg-surface mt-4 rounded-2xl border p-4 sm:p-5">
           <h2 className="text-base font-bold">Change password</h2>
           <p className="text-ink-muted mt-1 text-sm">
-            After the change, every device -- including this one -- is signed out, and you sign
-            back in with the new password.
+            After the change, every device -- including this one -- is signed out, and you sign back
+            in with the new password.
           </p>
           <div className="mt-4">
             <PasswordForm csrfField={<CsrfField />} />

@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { AdminNav } from '@/components/admin/admin-nav';
 import { Logo } from '@/components/brand/logo';
 import { requirePageAdmin } from '@/lib/auth/guards';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
-  title: { default: 'Admin', template: '%s | amazon admin' },
+  title: { default: `Admin`, template: `%s | ${BRAND_NAME} admin` },
   robots: { index: false, follow: false, nocache: true },
 };
 
@@ -41,7 +42,10 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <div className="hidden border-t border-white/10 px-4 py-3 pb-14 text-xs lg:block">
           <p className="truncate text-white/60">Signed in as</p>
           <p className="truncate font-medium text-white/90">{session.user.name}</p>
-          <Link href="/" className="mt-2 inline-block text-white/70 hover:text-white hover:underline">
+          <Link
+            href="/"
+            className="mt-2 inline-block text-white/70 hover:text-white hover:underline"
+          >
             Back to store
           </Link>
         </div>

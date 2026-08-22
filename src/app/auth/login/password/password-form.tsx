@@ -7,7 +7,15 @@ import { passwordSignInAction, sendSignInOtpAction } from '@/actions/auth';
 import { emptyFormState } from '@/lib/forms/state';
 import { useT } from '@/lib/i18n/client';
 
-import { AuthAlert, AuthButton, AuthCard, AuthDivider, AuthHeading, AuthInput, AuthLink } from '../../ui';
+import {
+  AuthAlert,
+  AuthButton,
+  AuthCard,
+  AuthDivider,
+  AuthHeading,
+  AuthInput,
+  AuthLink,
+} from '../../ui';
 
 interface PasswordStepFormProps {
   identifierLabel: string;
@@ -52,7 +60,9 @@ export function PasswordStepForm({ identifierLabel, channel, csrfField }: Passwo
       <form action={otpAction}>
         {csrfField}
         <AuthButton variant="secondary" pendingLabel={t('auth.sendingCode')}>
-          {t('auth.getOtpOn', { where: channel === 'phone' ? t('auth.phone') : t('auth.emailWord') })}
+          {t('auth.getOtpOn', {
+            where: channel === 'phone' ? t('auth.phone') : t('auth.emailWord'),
+          })}
         </AuthButton>
       </form>
     </AuthCard>

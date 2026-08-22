@@ -26,12 +26,15 @@ export default function ProductsLoading() {
         Loading products
       </span>
 
-      <div className="animate-pulse lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-6" aria-hidden="true">
+      <div
+        className="animate-pulse lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-6"
+        aria-hidden="true"
+      >
         <div className="bg-surface hidden h-96 rounded-lg lg:block" />
 
         <div>
           <div className="bg-surface mb-3 h-20 rounded-lg" />
-          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 sm:gap-3 lg:gap-4">
+          <div className="3xl:grid-cols-5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4">
             {Array.from({ length: 12 }, (_, index) => (
               <div key={index} className="bg-surface space-y-3 rounded-lg p-3">
                 <div className="bg-surface-sunken aspect-square rounded" />

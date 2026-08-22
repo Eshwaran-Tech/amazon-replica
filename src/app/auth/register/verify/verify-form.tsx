@@ -8,7 +8,15 @@ import { OtpDigits } from '@/components/ui/otp-digits';
 import { emptyFormState } from '@/lib/forms/state';
 import { useT } from '@/lib/i18n/client';
 
-import { AuthAlert, AuthButton, AuthCard, AuthHeading, AuthLink, LegalNote, authLinkClass } from '../../ui';
+import {
+  AuthAlert,
+  AuthButton,
+  AuthCard,
+  AuthHeading,
+  AuthLink,
+  LegalNote,
+  authLinkClass,
+} from '../../ui';
 
 interface VerifySignUpFormProps {
   identifierLabel: string;
@@ -38,7 +46,8 @@ export function VerifySignUpForm({
       <AuthHeading>{t('auth.verifyHeading', { where })}</AuthHeading>
 
       <p className="mb-3 text-[13px]">
-        {t('auth.sentOtpToVerify', { where })} <span className="font-semibold">{identifierLabel}</span>{' '}
+        {t('auth.sentOtpToVerify', { where })}{' '}
+        <span className="font-semibold">{identifierLabel}</span>{' '}
         <AuthLink href={`/auth/register/details?via=${channel}`}>{t('auth.change')}</AuthLink>
       </p>
 

@@ -42,9 +42,7 @@ export function ReviewForm({ productId, review, csrfField }: ReviewFormProps) {
         <input type="hidden" name="productId" value={productId} />
       )}
 
-      {state.message && (
-        <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>
-      )}
+      {state.message && <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>}
 
       <fieldset>
         <legend className="text-sm font-semibold">
@@ -125,7 +123,11 @@ export function ReviewForm({ productId, review, csrfField }: ReviewFormProps) {
           placeholder="What did you like or dislike? How is it holding up?"
         />
         {state.fields?.comment && (
-          <p id={`review-comment-${productId}-error`} role="alert" className="text-deal text-sm font-medium">
+          <p
+            id={`review-comment-${productId}-error`}
+            role="alert"
+            className="text-deal text-sm font-medium"
+          >
             <span className="sr-only">Error: </span>
             {state.fields.comment}
           </p>

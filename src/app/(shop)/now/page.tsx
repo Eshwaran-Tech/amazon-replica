@@ -32,9 +32,10 @@ import { estimateDelivery, FALLBACK_PIN } from '@/services/delivery';
 import { isPrimeMember } from '@/services/prime';
 
 import { JoinPrimeStrip } from './join-prime-strip';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
-  title: 'amazon now',
+  title: `${BRAND_NAME} Now`,
   description: 'Everyday essentials, delivered fast — groceries, snacks, home and personal care.',
 };
 

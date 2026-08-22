@@ -69,8 +69,16 @@ function buildSections(
   const featured = [
     categoryRow(t('menu.mobilesComputers'), 'mobiles', 'computers'),
     categoryRow(t('menu.tvAppliances'), 'electronics', 'kitchen'),
-    { label: t('menu.mensFashion'), href: '/category/mens-clothing', children: subLinks('fashion') },
-    { label: t('menu.womensFashion'), href: '/category/womens-clothing', children: subLinks('fashion') },
+    {
+      label: t('menu.mensFashion'),
+      href: '/category/mens-clothing',
+      children: subLinks('fashion'),
+    },
+    {
+      label: t('menu.womensFashion'),
+      href: '/category/womens-clothing',
+      children: subLinks('fashion'),
+    },
   ].filter((row): row is MenuLink => row !== null);
 
   const featuredSlugs = new Set(['mobiles', 'computers', 'electronics', 'kitchen', 'fashion']);
@@ -137,7 +145,13 @@ const FOCUSABLE = 'a[href], button:not([disabled]), input, select, [tabindex]:no
  * on open and back to the trigger on close, Tab cycles inside, Escape closes,
  * and background scroll is locked.
  */
-export function AllMenu({ categories, userName, isAdmin, signOutForm, variant = 'bar' }: AllMenuProps) {
+export function AllMenu({
+  categories,
+  userName,
+  isAdmin,
+  signOutForm,
+  variant = 'bar',
+}: AllMenuProps) {
   const t = useT();
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
@@ -288,28 +302,36 @@ export function AllMenu({ categories, userName, isAdmin, signOutForm, variant = 
                       <div key={section.title} className="border-b border-white/10 py-2">
                         <h3 className="px-9 pt-2 pb-1 text-[18px] font-bold">{section.title}</h3>
                         <ul>
-                          {[...section.items, ...(showMore ? (section.more ?? []) : [])].map((item) => (
-                            <li key={`${section.title}-${item.label}`}>
-                              {item.children ? (
-                                <button
-                                  type="button"
-                                  onClick={() => setSubPanel(item)}
-                                  className={rowClass}
-                                  aria-haspopup="true"
-                                >
-                                  {item.label}
-                                  <ChevronRight className="h-4 w-4 text-white/60" aria-hidden="true" />
-                                </button>
-                              ) : (
-                                <Link href={item.href} onClick={close} className={rowClass}>
-                                  {item.label}
-                                  {item.chevron && (
-                                    <ChevronRight className="h-4 w-4 text-white/60" aria-hidden="true" />
-                                  )}
-                                </Link>
-                              )}
-                            </li>
-                          ))}
+                          {[...section.items, ...(showMore ? (section.more ?? []) : [])].map(
+                            (item) => (
+                              <li key={`${section.title}-${item.label}`}>
+                                {item.children ? (
+                                  <button
+                                    type="button"
+                                    onClick={() => setSubPanel(item)}
+                                    className={rowClass}
+                                    aria-haspopup="true"
+                                  >
+                                    {item.label}
+                                    <ChevronRight
+                                      className="h-4 w-4 text-white/60"
+                                      aria-hidden="true"
+                                    />
+                                  </button>
+                                ) : (
+                                  <Link href={item.href} onClick={close} className={rowClass}>
+                                    {item.label}
+                                    {item.chevron && (
+                                      <ChevronRight
+                                        className="h-4 w-4 text-white/60"
+                                        aria-hidden="true"
+                                      />
+                                    )}
+                                  </Link>
+                                )}
+                              </li>
+                            ),
+                          )}
                           {section.title === helpTitle && userName && (
                             <li className="px-9">{signOutForm}</li>
                           )}

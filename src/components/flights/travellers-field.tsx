@@ -25,10 +25,21 @@ interface TravellersFieldProps {
   childCount: number;
   infants: number;
   cabin: CabinClass;
-  onChange: (next: { adults: number; childCount: number; infants: number; cabin: CabinClass }) => void;
+  onChange: (next: {
+    adults: number;
+    childCount: number;
+    infants: number;
+    cabin: CabinClass;
+  }) => void;
 }
 
-export function TravellersField({ adults, childCount, infants, cabin, onChange }: TravellersFieldProps) {
+export function TravellersField({
+  adults,
+  childCount,
+  infants,
+  cabin,
+  onChange,
+}: TravellersFieldProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 

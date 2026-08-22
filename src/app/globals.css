@@ -302,8 +302,16 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(120% 80% at 20% 0%, color-mix(in srgb, var(--hero-glow) 26%, transparent), transparent 60%),
-      radial-gradient(90% 70% at 90% 20%, color-mix(in srgb, var(--hero-accent) 20%, transparent), transparent 65%),
+      radial-gradient(
+        120% 80% at 20% 0%,
+        color-mix(in srgb, var(--hero-glow) 26%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        90% 70% at 90% 20%,
+        color-mix(in srgb, var(--hero-accent) 20%, transparent),
+        transparent 65%
+      ),
       linear-gradient(160deg, var(--hero-base), #04060c 85%);
   }
 
@@ -321,7 +329,11 @@
     inset: -100% 0 0 0;
     background-image:
       linear-gradient(color-mix(in srgb, var(--hero-glow) 45%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in srgb, var(--hero-glow) 30%, transparent) 1px, transparent 1px);
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--hero-glow) 30%, transparent) 1px,
+        transparent 1px
+      );
     background-size: 90px 90px;
     /* Scrolling the grid toward the camera reads as forward motion. */
     animation: hero-grid-travel 5s linear infinite;

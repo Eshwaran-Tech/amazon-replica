@@ -22,8 +22,18 @@ import { cn } from '@/lib/utils/cn';
 
 const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 
 function toKey(year: number, month: number, day: number): string {
@@ -82,7 +92,9 @@ export function DateField({ name, label, value, min, onChange, route, onClear }:
 
   const months = [
     { year: view.year, month: view.month },
-    view.month === 11 ? { year: view.year + 1, month: 0 } : { year: view.year, month: view.month + 1 },
+    view.month === 11
+      ? { year: view.year + 1, month: 0 }
+      : { year: view.year, month: view.month + 1 },
   ];
 
   // Priced once per open/route/month rather than on every keystroke elsewhere.
@@ -116,7 +128,9 @@ export function DateField({ name, label, value, min, onChange, route, onClear }:
   const weekday = (() => {
     const parts = parseKey(value);
     if (!parts) return '';
-    return new Date(parts.year, parts.month, parts.day).toLocaleDateString('en-IN', { weekday: 'short' });
+    return new Date(parts.year, parts.month, parts.day).toLocaleDateString('en-IN', {
+      weekday: 'short',
+    });
   })();
 
   return (
@@ -136,7 +150,9 @@ export function DateField({ name, label, value, min, onChange, route, onClear }:
             <span className="text-ink-muted block text-[11px]">{label}</span>
             <span className="block truncate text-sm font-semibold">
               {label12}
-              {weekday && <span className="text-ink-subtle ml-1 text-[11px] font-normal">{weekday}</span>}
+              {weekday && (
+                <span className="text-ink-subtle ml-1 text-[11px] font-normal">{weekday}</span>
+              )}
             </span>
           </span>
         </button>

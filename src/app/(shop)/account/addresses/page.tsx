@@ -63,11 +63,7 @@ export default async function AddressesPage({ searchParams }: PageProps) {
         <div className="border-hairline bg-surface mt-4 max-w-2xl rounded-2xl border p-4 sm:p-5">
           <h2 className="text-base font-bold">{editing ? 'Edit address' : 'Add a new address'}</h2>
           <div className="mt-3">
-            <AddressForm
-              key={editing?.id ?? 'new'}
-              address={editing}
-              csrfField={<CsrfField />}
-            />
+            <AddressForm key={editing?.id ?? 'new'} address={editing} csrfField={<CsrfField />} />
           </div>
         </div>
       )}
@@ -85,7 +81,10 @@ export default async function AddressesPage({ searchParams }: PageProps) {
         )}
 
         {addresses.map((address) => (
-          <div key={address.id} className="border-hairline bg-surface flex flex-col rounded-2xl border p-4">
+          <div
+            key={address.id}
+            className="border-hairline bg-surface flex flex-col rounded-2xl border p-4"
+          >
             {address.isDefault && (
               <span className="border-hairline text-ink-muted mb-2 inline-flex w-fit items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold uppercase">
                 Default

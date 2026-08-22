@@ -98,7 +98,15 @@ export function AuthButton({
   );
 }
 
-export function AuthLink({ href, children, className }: { href: string; children: ReactNode; className?: string }) {
+export function AuthLink({
+  href,
+  children,
+  className,
+}: {
+  href: string;
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <Link href={href} className={cn(authLinkClass, className)}>
       {children}
@@ -106,7 +114,13 @@ export function AuthLink({ href, children, className }: { href: string; children
   );
 }
 
-export function AuthAlert({ tone, children }: { tone: 'error' | 'info' | 'success'; children: ReactNode }) {
+export function AuthAlert({
+  tone,
+  children,
+}: {
+  tone: 'error' | 'info' | 'success';
+  children: ReactNode;
+}) {
   const styles =
     tone === 'error'
       ? 'border-[#ff7a7a]/70 bg-[#ff7a7a]/10'
@@ -114,7 +128,10 @@ export function AuthAlert({ tone, children }: { tone: 'error' | 'info' | 'succes
         ? 'border-[#4ade80]/60 bg-[#4ade80]/10'
         : 'border-[#6cb6ff]/50 bg-[#6cb6ff]/10';
   return (
-    <div role="alert" className={cn('mb-3 rounded-[4px] border px-3 py-2.5 text-[13px] text-white', styles)}>
+    <div
+      role="alert"
+      className={cn('mb-3 rounded-[4px] border px-3 py-2.5 text-[13px] text-white', styles)}
+    >
       {tone === 'error' && <span className="font-bold text-[#ff7a7a]">There was a problem: </span>}
       {children}
     </div>

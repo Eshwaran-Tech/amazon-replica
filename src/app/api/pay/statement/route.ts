@@ -4,6 +4,7 @@ import { getSession } from '@/lib/auth/guards';
 import { checkRateLimit } from '@/lib/security/rate-limit';
 import { buildStatement, monthPeriod, statementCsv } from '@/services/statement';
 import { WALLET_ENTRY_TYPES, type WalletEntryType } from '@/models/wallet';
+import { BRAND_NAME } from '@/lib/brand';
 
 /**
  * The statement, as a CSV download.
@@ -43,7 +44,7 @@ export async function GET(request: Request): Promise<Response> {
     limit: 5000,
   });
 
-  const name = `amazon-pay-statement-${year}-${String(safeMonth + 1).padStart(2, '0')}.csv`;
+  const name = `${BRAND_NAME.toLowerCase()}-pay-statement-${year}-${String(safeMonth + 1).padStart(2, '0')}.csv`;
 
   return new NextResponse(statementCsv(statement), {
     headers: {

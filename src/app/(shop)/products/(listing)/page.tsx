@@ -3,10 +3,11 @@ import type { Metadata } from 'next';
 import { CatalogView } from '@/components/catalog/catalog-view';
 import { normaliseSearchParams, productSearchSchema } from '@/lib/validations/search';
 import { getCategoryTree, listProducts } from '@/services/catalog';
+import { BRAND_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
   title: 'All products',
-  description: 'Browse the full amazon catalogue with filters for brand, price and rating.',
+  description: `Browse the full ${BRAND_NAME} catalogue with filters for brand, price and rating.`,
 };
 
 interface PageProps {

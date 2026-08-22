@@ -136,7 +136,9 @@ export function FreshMenu({ label }: { label: string }) {
         aria-haspopup="true"
         className={cn(
           'flex min-h-11 items-center gap-1 rounded border px-2.5 text-[15px] whitespace-nowrap',
-          open ? 'border-white/60 bg-white/10' : 'hover:outline-hairline/60 border-transparent hover:outline',
+          open
+            ? 'border-white/60 bg-white/10'
+            : 'hover:outline-hairline/60 border-transparent hover:outline',
         )}
       >
         {label}
@@ -165,7 +167,9 @@ export function FreshMenu({ label }: { label: string }) {
                     aria-hidden="true"
                     className={cn('mt-1 h-0.5 w-12 rounded-full', store.tail)}
                   />
-                  <span className="text-ink-subtle mt-2 text-[11px] leading-tight">{store.label}</span>
+                  <span className="text-ink-subtle mt-2 text-[11px] leading-tight">
+                    {store.label}
+                  </span>
                 </Link>
               </li>
             ))}

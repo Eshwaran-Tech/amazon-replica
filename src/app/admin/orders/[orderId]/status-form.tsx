@@ -19,7 +19,13 @@ interface StatusFormProps {
   csrfField: ReactNode;
 }
 
-export function StatusForm({ orderId, currentStatus, nextStatuses, isPaid, csrfField }: StatusFormProps) {
+export function StatusForm({
+  orderId,
+  currentStatus,
+  nextStatuses,
+  isPaid,
+  csrfField,
+}: StatusFormProps) {
   const [state, formAction] = useActionState(updateOrderStatusAction, emptyFormState);
 
   return (
@@ -27,9 +33,7 @@ export function StatusForm({ orderId, currentStatus, nextStatuses, isPaid, csrfF
       {csrfField}
       <input type="hidden" name="orderId" value={orderId} />
 
-      {state.message && (
-        <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>
-      )}
+      {state.message && <Alert tone={state.ok ? 'success' : 'error'}>{state.message}</Alert>}
 
       <div className="space-y-1.5">
         <label htmlFor="next-status" className="block text-sm font-semibold">

@@ -7,7 +7,16 @@ import { identifyAction } from '@/actions/auth';
 import { emptyFormState } from '@/lib/forms/state';
 import { useT } from '@/lib/i18n/client';
 
-import { AuthAlert, AuthButton, AuthCard, AuthDivider, AuthHeading, AuthInput, AuthLink, LegalNote } from '../ui';
+import {
+  AuthAlert,
+  AuthButton,
+  AuthCard,
+  AuthDivider,
+  AuthHeading,
+  AuthInput,
+  AuthLink,
+  LegalNote,
+} from '../ui';
 
 interface IdentifierFormProps {
   initialIdentifier: string;
@@ -16,7 +25,12 @@ interface IdentifierFormProps {
   csrfField: ReactNode;
 }
 
-export function IdentifierForm({ initialIdentifier, next, notices, csrfField }: IdentifierFormProps) {
+export function IdentifierForm({
+  initialIdentifier,
+  next,
+  notices,
+  csrfField,
+}: IdentifierFormProps) {
   const t = useT();
   const [state, formAction] = useActionState(identifyAction, emptyFormState);
 

@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 
 import { Logo } from '@/components/brand/logo';
 import { getT } from '@/lib/i18n/server';
+import { BRAND_NAME } from '@/lib/brand';
 
 /**
  * Auth shell: a black page with the wordmark centred at the top, one narrow
@@ -17,7 +18,7 @@ export default async function AuthLayout({ children }: { children: ReactNode }) 
   return (
     <div className="flex min-h-dvh flex-col bg-black text-white">
       <header className="flex justify-center pt-4 pb-3">
-        <Link href="/" aria-label="amazon home" className="rounded px-2 py-1">
+        <Link href="/" aria-label={`${BRAND_NAME} home`} className="rounded px-2 py-1">
           <Logo />
         </Link>
       </header>
@@ -39,7 +40,7 @@ export default async function AuthLayout({ children }: { children: ReactNode }) 
           </Link>
         </nav>
         <p className="mt-3 text-center text-xs text-white/60">
-          &copy; 2026 amazon. An original demonstration storefront.
+          &copy; 2026 {BRAND_NAME}. An original demonstration storefront.
         </p>
       </footer>
     </div>

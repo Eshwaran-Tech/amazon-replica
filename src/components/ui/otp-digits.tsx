@@ -127,7 +127,7 @@ export function OtpDigits({ label, error, name = 'code' }: OtpDigitsProps) {
             onFocus={(event) => event.target.select()}
             className={cn(
               'h-11 w-full min-w-0 rounded-full text-center font-mono text-base font-bold',
-              'bg-surface-sunken text-ink outline-none transition-colors',
+              'bg-surface-sunken text-ink transition-colors outline-none',
               // White by default so the six boxes read clearly against the
               // dark card, orange once one is focused so the active box is
               // obvious at a glance. Two pixels: a hairline white ring
@@ -135,7 +135,7 @@ export function OtpDigits({ label, error, name = 'code' }: OtpDigitsProps) {
               'border-2',
               error
                 ? 'border-deal focus:ring-deal/30 focus:ring-2'
-                : 'border-white focus:border-accent-500 focus:ring-accent-500/40 focus:ring-2',
+                : 'focus:border-accent-500 focus:ring-accent-500/40 border-white focus:ring-2',
             )}
           />
         ))}

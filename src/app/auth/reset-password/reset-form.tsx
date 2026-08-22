@@ -50,7 +50,9 @@ export function ResetPasswordForm({ token, csrfField }: ResetPasswordFormProps) 
 
       <AuthButton pendingLabel="Saving...">Save changes and sign in</AuthButton>
 
-      <p className="text-[12px] text-white/60">Saving a new password signs you out on every device.</p>
+      <p className="text-[12px] text-white/60">
+        Saving a new password signs you out on every device.
+      </p>
     </form>
   );
 }

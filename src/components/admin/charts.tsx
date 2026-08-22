@@ -373,7 +373,9 @@ export function TrackBars({ rows, color = 'indigo' }: TrackBarsProps) {
     <ul className="space-y-2.5">
       {rows.map((row) => (
         <li key={row.label} className="flex items-center gap-3 text-sm">
-          <span className="text-ink-muted w-28 shrink-0 truncate text-xs font-medium">{row.label}</span>
+          <span className="text-ink-muted w-28 shrink-0 truncate text-xs font-medium">
+            {row.label}
+          </span>
           <span className="bg-surface-sunken relative h-2 flex-1 overflow-hidden rounded-full">
             <span
               className={`absolute inset-y-0 left-0 rounded-full ${fill}`}

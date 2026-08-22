@@ -160,7 +160,9 @@ export function AirportField({ name, label, value, onChange, placeholder }: Airp
           aria-expanded={open}
           aria-controls={listId}
           aria-autocomplete="list"
-          aria-activedescendant={open && rows[active] ? `${listId}-${rows[active].airport.code}` : undefined}
+          aria-activedescendant={
+            open && rows[active] ? `${listId}-${rows[active].airport.code}` : undefined
+          }
           autoComplete="off"
           placeholder={placeholder ?? 'Select Airport'}
           value={open ? query : (selected?.city ?? '')}
@@ -228,7 +230,11 @@ export function AirportField({ name, label, value, onChange, placeholder }: Airp
                   )}
                 >
                   <span aria-hidden="true" className="text-ink-subtle mt-0.5 shrink-0">
-                    {row.recent ? <Clock className="h-3.5 w-3.5" /> : <Plane className="h-3.5 w-3.5" />}
+                    {row.recent ? (
+                      <Clock className="h-3.5 w-3.5" />
+                    ) : (
+                      <Plane className="h-3.5 w-3.5" />
+                    )}
                   </span>
                   <span className="min-w-0">
                     <span className="block truncate text-sm">

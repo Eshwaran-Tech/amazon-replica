@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * "It looks like you are new to amazon" -- shown after the identifier step
+ * "It looks like you are new to <brand>" -- shown after the identifier step
  * finds no account. Without a flow (e.g. a direct visit from "Start here"),
  * it goes straight to the details form.
  */
@@ -42,7 +42,9 @@ export default async function NewToAmazonPage() {
       </p>
 
       <p className="mb-3 text-[13px]">
-        {t('auth.createUsing', { where: isPhone ? t('auth.mobileNumber') : t('auth.emailAddress') })}
+        {t('auth.createUsing', {
+          where: isPhone ? t('auth.mobileNumber') : t('auth.emailAddress'),
+        })}
       </p>
 
       <Link

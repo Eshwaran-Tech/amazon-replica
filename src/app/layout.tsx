@@ -7,6 +7,8 @@ import { LANGUAGE_COOKIE_NAME, languageByCode } from '@/lib/i18n/languages';
 import { THEME_COOKIE_NAME, themeAttribute, themeFromCookie } from '@/lib/theme';
 import { MESSAGES } from '@/lib/i18n/messages';
 
+import { BRAND_DESCRIPTION, BRAND_NAME, BRAND_TAGLINE, SITE_URL } from '@/lib/brand';
+
 import './globals.css';
 
 /**
@@ -20,25 +22,65 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
-
+/**
+ * Site-wide metadata.
+ *
+ * `metadataBase` is what makes every relative URL below -- and every canonical
+ * and Open Graph image on every nested page -- resolve to one absolute origin.
+ * Without it Next emits relative OG URLs, which most crawlers and every social
+ * scraper drop on the floor.
+ *
+ * The title is `Brand - what the shop sells`, in that order, because the brand
+ * has to be the first thing readable in a 60-character search result and in a
+ * browser tab cropped to twenty. Nested pages get `Page | Brand` from the
+ * template, which keeps the brand present without repeating it into stuffing.
+ */
 export const metadata: Metadata = {
-  metadataBase: new URL(appUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'amazon - Online Shopping for Electronics, Fashion, Home and more',
-    template: '%s | amazon',
+    default: `${BRAND_NAME} - ${BRAND_TAGLINE}`,
+    template: `%s | ${BRAND_NAME}`,
   },
-  description:
-    'Shop electronics, computers, mobiles, fashion, home, kitchen, books, beauty, sports, toys, grocery and automotive on amazon. Fast delivery and secure checkout.',
-  applicationName: 'amazon',
+  description: BRAND_DESCRIPTION,
+  applicationName: BRAND_NAME,
   referrer: 'strict-origin-when-cross-origin',
   formatDetection: { telephone: false, address: false, email: false },
+
+  // The homepage is the canonical root. Nested pages override this with their
+  // own path; without it, the same page reachable with a tracking parameter
+  // would compete against itself in the index.
+  alternates: { canonical: '/' },
+
   openGraph: {
     type: 'website',
-    siteName: 'amazon',
-    url: appUrl,
-    title: 'amazon - Online Shopping',
-    description: 'Shop millions of products with fast delivery and secure checkout.',
+    siteName: BRAND_NAME,
+    url: SITE_URL,
+    locale: 'en_IN',
+    title: `${BRAND_NAME} - ${BRAND_TAGLINE}`,
+    description: BRAND_DESCRIPTION,
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: BRAND_NAME }],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: `${BRAND_NAME} - ${BRAND_TAGLINE}`,
+    description: BRAND_DESCRIPTION,
+    images: ['/opengraph-image'],
+  },
+
+  // Explicit rather than implied. `max-image-preview: large` is what allows a
+  // product photo to appear at full size in Google Images and Discover; the
+  // default is a thumbnail.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 

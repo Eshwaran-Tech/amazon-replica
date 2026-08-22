@@ -31,7 +31,12 @@ interface CreateAccountFormProps {
  * number, and codes are how the account signs in from then on); email
  * sign-ups choose a password here, then prove the address with a code.
  */
-export function CreateAccountForm({ via, initialIdentifier, initialName, csrfField }: CreateAccountFormProps) {
+export function CreateAccountForm({
+  via,
+  initialIdentifier,
+  initialName,
+  csrfField,
+}: CreateAccountFormProps) {
   const t = useT();
   const [state, formAction] = useActionState(startSignUpAction, emptyFormState);
 
@@ -137,7 +142,13 @@ export function CreateAccountForm({ via, initialIdentifier, initialName, csrfFie
       </form>
 
       <p className="mt-3">
-        <AuthLink href={via === 'phone' ? '/auth/register/details?via=email' : '/auth/register/details?via=phone'}>
+        <AuthLink
+          href={
+            via === 'phone'
+              ? '/auth/register/details?via=email'
+              : '/auth/register/details?via=phone'
+          }
+        >
           {via === 'phone' ? t('auth.useEmailInstead') : t('auth.useMobileInstead')}
         </AuthLink>
       </p>

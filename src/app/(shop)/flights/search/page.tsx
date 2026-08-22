@@ -38,11 +38,7 @@ function todayKey(now: Date): string {
 }
 
 /** Rebuilds the current URL with one parameter changed, for the filter links. */
-function withParam(
-  base: Record<string, string>,
-  key: string,
-  value: string | undefined,
-): string {
+function withParam(base: Record<string, string>, key: string, value: string | undefined): string {
   const params = new URLSearchParams(base);
   if (value === undefined) params.delete(key);
   else params.set(key, value);
@@ -67,7 +63,8 @@ export default async function FlightResultsPage({ searchParams }: PageProps) {
   const cabin = (one(params.cabin) ?? 'ECONOMY') as CabinClass;
 
   const stops = (one(params.stops) ?? 'ANY') as 'ANY' | 'NONSTOP' | 'ONE';
-  const sort = (one(params.sort) ?? 'DEPARTURE') as 'DEPARTURE' | 'DURATION' | 'PRICE_ASC' | 'PRICE_DESC';
+  const sort = (one(params.sort) ?? 'DEPARTURE') as
+    'DEPARTURE' | 'DURATION' | 'PRICE_ASC' | 'PRICE_DESC';
   const airlineFilter = one(params.airline);
 
   const result = searchFlights({ from, to, date, travellers, cabin }, now);
@@ -93,7 +90,10 @@ export default async function FlightResultsPage({ searchParams }: PageProps) {
         <h1 className="text-xl font-bold sm:text-2xl">Flights</h1>
         <p className="text-deal mt-2 text-sm">{result.message}</p>
         <div className="mt-4">
-          <FlightSearchForm today={today} initial={{ from, to, date, adults, children, infants, cabin }} />
+          <FlightSearchForm
+            today={today}
+            initial={{ from, to, date, adults, children, infants, cabin }}
+          />
         </div>
       </Container>
     );
@@ -186,7 +186,9 @@ export default async function FlightResultsPage({ searchParams }: PageProps) {
                     href={withParam(base, 'stops', value === 'ANY' ? undefined : value)}
                     className={cn(
                       'block rounded-lg px-2 py-1 text-xs transition-colors',
-                      stops === value ? 'bg-accent-500/15 text-accent-400 font-semibold' : 'hover:bg-surface-sunken',
+                      stops === value
+                        ? 'bg-accent-500/15 text-accent-400 font-semibold'
+                        : 'hover:bg-surface-sunken',
                     )}
                   >
                     {label}
@@ -204,7 +206,9 @@ export default async function FlightResultsPage({ searchParams }: PageProps) {
                   href={withParam(base, 'airline', undefined)}
                   className={cn(
                     'block rounded-lg px-2 py-1 text-xs transition-colors',
-                    !airlineFilter ? 'bg-accent-500/15 text-accent-400 font-semibold' : 'hover:bg-surface-sunken',
+                    !airlineFilter
+                      ? 'bg-accent-500/15 text-accent-400 font-semibold'
+                      : 'hover:bg-surface-sunken',
                   )}
                 >
                   All airlines
@@ -253,7 +257,9 @@ export default async function FlightResultsPage({ searchParams }: PageProps) {
                 href={withParam(base, 'sort', value === 'DEPARTURE' ? undefined : value)}
                 className={cn(
                   'border-hairline rounded-full border px-2.5 py-1 text-xs transition-colors',
-                  sort === value ? 'border-accent-500 text-accent-400 font-semibold' : 'hover:bg-surface-sunken',
+                  sort === value
+                    ? 'border-accent-500 text-accent-400 font-semibold'
+                    : 'hover:bg-surface-sunken',
                 )}
               >
                 {label}
@@ -262,13 +268,17 @@ export default async function FlightResultsPage({ searchParams }: PageProps) {
           </div>
 
           <p className="text-ink-muted mb-3 text-sm">
-            {flights.length} of {result.flights.length} flight{result.flights.length === 1 ? '' : 's'}
+            {flights.length} of {result.flights.length} flight
+            {result.flights.length === 1 ? '' : 's'}
           </p>
 
           {flights.length === 0 ? (
             <p className="border-hairline bg-surface rounded-2xl border p-6 text-center text-sm">
               No flights match these filters.{' '}
-              <Link href={withParam(base, 'stops', undefined)} className="text-link hover:underline">
+              <Link
+                href={withParam(base, 'stops', undefined)}
+                className="text-link hover:underline"
+              >
                 Clear the stops filter
               </Link>
               .
@@ -303,7 +313,9 @@ function FlightCard({ flight, payingSeats }: { flight: FlightLeg; payingSeats: n
           </span>
           <span className="min-w-0">
             <span className="block truncate text-sm font-semibold">{flight.airline.name}</span>
-            <span className="text-ink-subtle block font-mono text-[11px]">{flight.flightNumber}</span>
+            <span className="text-ink-subtle block font-mono text-[11px]">
+              {flight.flightNumber}
+            </span>
           </span>
         </div>
 

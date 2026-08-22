@@ -24,7 +24,8 @@ export default async function CreateAccountPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const flow = await readAuthFlow();
   const flowKind = flow && !flow.exists ? flow.identifier.kind : null;
-  const via = params.via === 'email' ? 'email' : params.via === 'phone' ? 'phone' : (flowKind ?? 'phone');
+  const via =
+    params.via === 'email' ? 'email' : params.via === 'phone' ? 'phone' : (flowKind ?? 'phone');
 
   const initial =
     flow && !flow.exists && flow.identifier.kind === via

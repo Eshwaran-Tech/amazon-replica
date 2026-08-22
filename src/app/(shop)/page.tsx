@@ -5,6 +5,8 @@ import { HeroCarousel, type HeroSlide } from '@/components/home/hero-carousel';
 import { PromoBanners, type PromoBanner } from '@/components/home/promo-banners';
 import { SectionHeading } from '@/components/home/section-heading';
 import { Container } from '@/components/layout/container';
+import { JsonLd } from '@/components/seo/json-ld';
+import { organizationSchema, webSiteSchema } from '@/lib/seo/structured-data';
 import { getT } from '@/lib/i18n/server';
 import { ProductCarousel } from '@/components/product/product-carousel';
 import { ProductGrid } from '@/components/product/product-grid';
@@ -23,8 +25,8 @@ import {
 } from '@/services/catalog';
 
 // No `title` override here on purpose. The root layout's `title.template`
-// appends " | amazon", so setting the full brand name again produced
-// "amazon - Online Shopping ... | amazon". Falling through to `title.default`
+// appends " | Brand", so setting the full brand name again would produce
+// "Brand - Online Shopping ... | Brand". Falling through to `title.default`
 // gives the intended title exactly once.
 
 /**
@@ -188,6 +190,13 @@ export default async function HomePage() {
 
   return (
     <div className="pb-12">
+      {/* The two graphs that matter most for being found by name: Organization
+          ties the brand to this domain, WebSite declares the real search
+          endpoint. Both live on the homepage only -- repeating them on every
+          page adds bytes and no signal. */}
+      <JsonLd data={organizationSchema()} />
+      <JsonLd data={webSiteSchema()} />
+
       {/* Backdrops are attached only when the file is actually present in
           `public/hero/`, so nothing 404s while assets are still being added.
           Precedence: video > banner image > generated 3D scene.
@@ -247,7 +256,7 @@ export default async function HomePage() {
               Columns cap at 6 so the posters' baked text stays legible --
               twelve-across made the taglines unreadable mush. 12 tiles divide
               evenly at every step: 2x6, 3x4, 4x3, 6x2. */}
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 sm:gap-4">
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-6">
             {categories.map((category) => {
               const poster = categoryImageIfPresent(category.slug);
               const src = poster ?? category.image;

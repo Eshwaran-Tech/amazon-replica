@@ -34,9 +34,7 @@ export default async function AdminProductsPage({ searchParams }: PageProps) {
   return (
     <>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-xl font-bold sm:text-2xl">
-          {low ? 'Low-stock products' : 'Products'}
-        </h1>
+        <h1 className="text-xl font-bold sm:text-2xl">{low ? 'Low-stock products' : 'Products'}</h1>
         <Link
           href="/admin/products/new"
           className="bg-accent-500 hover:bg-accent-400 text-brand-950 inline-flex min-h-10 items-center rounded-md px-4 text-sm font-semibold"
@@ -147,7 +145,10 @@ export default async function AdminProductsPage({ searchParams }: PageProps) {
       </div>
 
       {(listing.page > 1 || listing.hasMore) && (
-        <nav aria-label="Product pages" className="mt-4 flex items-center justify-center gap-3 text-sm">
+        <nav
+          aria-label="Product pages"
+          className="mt-4 flex items-center justify-center gap-3 text-sm"
+        >
           {listing.page > 1 && (
             <Link
               href={pageHref(q, listing.page - 1, low)}

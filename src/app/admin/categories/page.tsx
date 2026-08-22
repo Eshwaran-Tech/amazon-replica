@@ -46,7 +46,9 @@ export default async function AdminCategoriesPage({ searchParams }: PageProps) {
 
       {(adding || editing) && (
         <div className="border-hairline bg-surface mt-4 max-w-2xl rounded-2xl border p-4 sm:p-5">
-          <h2 className="text-base font-bold">{editing ? `Edit "${editing.name}"` : 'Add a category'}</h2>
+          <h2 className="text-base font-bold">
+            {editing ? `Edit "${editing.name}"` : 'Add a category'}
+          </h2>
           <div className="mt-3">
             <CategoryForm
               key={editing?.id ?? 'new'}

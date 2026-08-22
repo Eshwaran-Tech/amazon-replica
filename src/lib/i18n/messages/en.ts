@@ -5,6 +5,8 @@
  *
  * `{name}`-style placeholders are filled by `formatMessage`.
  */
+
+import { BRAND_DOMAIN, BRAND_NAME, BRAND_PAY } from '@/lib/brand';
 export const en = {
   // ------------------------------------------------------------ header
   'header.deliverTo': 'Delivering to India',
@@ -19,7 +21,7 @@ export const en = {
   'header.all': 'All',
   'header.admin': 'Admin',
   'header.searchPlaceholder': 'Search products',
-  'header.searchLabel': 'Search amazon',
+  'header.searchLabel': `Search ${BRAND_NAME}`,
   'header.searchInCategory': 'Search in category',
   'header.search': 'Search',
   'header.suggestions': 'Search suggestions',
@@ -37,7 +39,7 @@ export const en = {
   'nav.mobiles': 'Mobiles',
   'nav.newReleases': 'New Releases',
   'nav.prime': 'Prime',
-  'nav.amazonPay': 'Amazon Pay',
+  'nav.amazonPay': `${BRAND_PAY}`,
   'nav.electronics': 'Electronics',
   'nav.customerService': 'Customer Service',
   'nav.homeKitchen': 'Home & Kitchen',
@@ -61,17 +63,17 @@ export const en = {
   'menu.fireTv': 'Fire TV',
   'menu.kindle': 'Kindle E-Readers & eBooks',
   'menu.audible': 'Audible Audiobooks',
-  'menu.primeVideo': 'Amazon Prime Video',
-  'menu.music': 'Amazon Music',
+  'menu.primeVideo': `${BRAND_NAME} Prime Video`,
+  'menu.music': `${BRAND_NAME} Music`,
   'menu.mobilesComputers': 'Mobiles, Computers',
   'menu.tvAppliances': 'TV, Appliances, Electronics',
   'menu.mensFashion': "Men's Fashion",
   'menu.womensFashion': "Women's Fashion",
   'menu.giftCards': 'Gift Cards & Mobile Recharges',
-  'menu.launchpad': 'Amazon Launchpad',
-  'menu.business': 'Amazon Business',
+  'menu.launchpad': `${BRAND_NAME} Launchpad`,
+  'menu.business': `${BRAND_NAME} Business`,
   'menu.handloom': 'Handloom and Handicrafts',
-  'menu.amazonPay': 'Amazon Pay',
+  'menu.amazonPay': `${BRAND_PAY}`,
   'menu.prime': 'Prime',
   'menu.todaysDeals': "Today's Deals",
   'menu.yourAccount': 'Your Account',
@@ -115,17 +117,17 @@ export const en = {
   // ---------------------------------------------------------- language
   'lang.change': 'Change Language',
   'lang.ariaChange': 'Change language. Currently India, {language}',
-  'lang.shoppingOn': 'You are shopping on amazon.in',
+  'lang.shoppingOn': `You are shopping on ${BRAND_DOMAIN}`,
   'lang.changeCountry': 'Change country/region',
   'lang.catalogueNote': 'Product names and descriptions are shown as listed by sellers.',
 
   // ------------------------------------------------------------ footer
   'footer.getToKnow': 'Get to know us',
-  'footer.about': 'About amazon',
+  'footer.about': `About ${BRAND_NAME}`,
   'footer.careers': 'Careers',
   'footer.press': 'Press releases',
   'footer.makeMoney': 'Make money with us',
-  'footer.sell': 'Sell on amazon',
+  'footer.sell': `Sell on ${BRAND_NAME}`,
   'footer.affiliate': 'Become an affiliate',
   'footer.advertise': 'Advertise your products',
   'footer.letUsHelp': 'Let us help you',
@@ -141,7 +143,7 @@ export const en = {
   'footer.imageCredits': 'Image credits',
   'footer.disclaimer':
     'amazon is an original demonstration storefront built to showcase a secure full-stack architecture. It is not affiliated with, endorsed by, or derived from any real retailer. All brands and products shown are fictional.',
-  'footer.copyright': '© {year} amazon. Prices shown in Indian Rupees.',
+  'footer.copyright': `© {year} ${BRAND_NAME}. Prices shown in Indian Rupees.`,
 
   // -------------------------------------------------------------- home
   'home.shopByCategory': 'Shop by Category',
@@ -193,7 +195,7 @@ export const en = {
   'auth.signInOrCreate': 'Sign in or create account',
   'auth.enterMobileOrEmail': 'Enter mobile number or email',
   'auth.continue': 'Continue',
-  'auth.byContinuing': "By continuing, you agree to amazon's",
+  'auth.byContinuing': `By continuing, you agree to ${BRAND_NAME}'s`,
   'auth.and': 'and',
   'auth.conditions': 'Conditions of Use',
   'auth.privacy': 'Privacy Notice',
@@ -216,7 +218,7 @@ export const en = {
   'auth.resendOtp': 'Resend OTP',
   'auth.sendOtp': 'Send OTP',
   'auth.signInWithPassword': 'Sign in with your password',
-  'auth.newToAmazon': 'It looks like you are new to amazon',
+  'auth.newToAmazon': `It looks like you are new to ${BRAND_NAME}`,
   'auth.createUsing': "Let's create an account using your {where}",
   'auth.proceedCreate': 'Proceed to create an account',
   'auth.alreadyCustomer': 'Already a customer?',
@@ -237,11 +239,11 @@ export const en = {
   'auth.useEmailInstead': 'Create account with your email instead',
   'auth.useMobileInstead': 'Create account with your mobile number instead',
   'auth.signInInstead': 'Sign in instead',
-  'auth.byCreating': "By creating an account or logging in, you agree to amazon's",
-  'auth.byCreatingShort': "By creating an account, you agree to amazon's",
+  'auth.byCreating': `By creating an account or logging in, you agree to ${BRAND_NAME}'s`,
+  'auth.byCreatingShort': `By creating an account, you agree to ${BRAND_NAME}'s`,
   'auth.verifyHeading': 'Verify {where}',
   'auth.sentOtpToVerify': "To verify your {where}, we've sent a One Time Password (OTP) to",
-  'auth.createYourAccount': 'Create your amazon account',
+  'auth.createYourAccount': `Create your ${BRAND_NAME} account`,
   'auth.checking': 'Checking...',
   'auth.signingIn': 'Signing in...',
   'auth.sendingCode': 'Sending code...',

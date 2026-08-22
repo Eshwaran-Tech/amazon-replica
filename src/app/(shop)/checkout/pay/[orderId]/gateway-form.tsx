@@ -108,8 +108,8 @@ export function GatewayForm({ orderId, method, totalFormatted, csrfField }: Gate
       {simState.message && !simState.ok && <Alert tone="error">{simState.message}</Alert>}
 
       <Alert tone="info">
-        Simulated {method === 'UPI' ? 'UPI' : 'net banking'} sandbox -- choose an outcome exactly
-        as you would on a bank&apos;s test page. No real money moves.
+        Simulated {method === 'UPI' ? 'UPI' : 'net banking'} sandbox -- choose an outcome exactly as
+        you would on a bank&apos;s test page. No real money moves.
       </Alert>
 
       <form action={simAction} className="space-y-3">

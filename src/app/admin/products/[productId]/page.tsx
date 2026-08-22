@@ -85,7 +85,9 @@ export default async function AdminEditProductPage({ params, searchParams }: Pag
               category: product.category,
               subcategory: product.subcategory ?? '',
               price: String(paiseToRupees(product.price)),
-              discountPrice: product.discountPrice ? String(paiseToRupees(product.discountPrice)) : '',
+              discountPrice: product.discountPrice
+                ? String(paiseToRupees(product.discountPrice))
+                : '',
               stock: product.stock,
               images: product.images.join('\n'),
               thumbnail: product.thumbnail,
@@ -97,7 +99,11 @@ export default async function AdminEditProductPage({ params, searchParams }: Pag
               isPrime: product.isPrime,
               isActive: product.isActive,
             }}
-            categories={categories.map(({ slug, name, parentSlug }) => ({ slug, name, parentSlug }))}
+            categories={categories.map(({ slug, name, parentSlug }) => ({
+              slug,
+              name,
+              parentSlug,
+            }))}
             csrfField={<CsrfField />}
           />
         </div>

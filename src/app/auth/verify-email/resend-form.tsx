@@ -19,7 +19,9 @@ export function ResendVerificationForm({ csrfField }: { csrfField: ReactNode }) 
   return (
     <form action={formAction} className="space-y-3">
       {csrfField}
-      {state.message && <AuthAlert tone={state.ok ? 'success' : 'error'}>{state.message}</AuthAlert>}
+      {state.message && (
+        <AuthAlert tone={state.ok ? 'success' : 'error'}>{state.message}</AuthAlert>
+      )}
       <AuthButton variant="secondary" pendingLabel="Sending...">
         Resend verification email
       </AuthButton>

@@ -110,7 +110,10 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
             {listing.orders.map((order) => (
               <tr key={order.id} className="hover:bg-surface-muted">
                 <td className="px-4 py-2.5">
-                  <Link href={`/admin/orders/${order.id}`} className="text-link font-mono hover:underline">
+                  <Link
+                    href={`/admin/orders/${order.id}`}
+                    className="text-link font-mono hover:underline"
+                  >
                     {order.orderNumber}
                   </Link>
                 </td>
@@ -141,7 +144,10 @@ export default async function AdminOrdersPage({ searchParams }: PageProps) {
       </div>
 
       {(listing.page > 1 || listing.hasMore) && (
-        <nav aria-label="Order pages" className="mt-4 flex items-center justify-center gap-3 text-sm">
+        <nav
+          aria-label="Order pages"
+          className="mt-4 flex items-center justify-center gap-3 text-sm"
+        >
           {listing.page > 1 && (
             <Link
               href={pageHref(status, q, listing.page - 1)}

@@ -98,9 +98,7 @@ export default async function AdminAuditPage({ searchParams }: PageProps) {
                   )}
                 </td>
                 <td className="text-ink-muted px-4 py-2 font-mono text-xs">
-                  <span className="block max-w-32 truncate">
-                    {entry.actorId ?? 'system'}
-                  </span>
+                  <span className="block max-w-32 truncate">{entry.actorId ?? 'system'}</span>
                   {entry.actorRole && <span className="text-ink-subtle">{entry.actorRole}</span>}
                 </td>
                 <td className="text-ink-muted px-4 py-2 font-mono text-xs">{entry.ip ?? '-'}</td>
@@ -127,7 +125,10 @@ export default async function AdminAuditPage({ searchParams }: PageProps) {
       </div>
 
       {(listing.page > 1 || listing.hasMore) && (
-        <nav aria-label="Audit pages" className="mt-4 flex items-center justify-center gap-3 text-sm">
+        <nav
+          aria-label="Audit pages"
+          className="mt-4 flex items-center justify-center gap-3 text-sm"
+        >
           {listing.page > 1 && (
             <Link
               href={pageHref(action, listing.page - 1)}

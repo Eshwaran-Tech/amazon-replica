@@ -34,12 +34,7 @@ const dateFormat = new Intl.DateTimeFormat('en-IN', {
   year: 'numeric',
 });
 
-function reviewsHref(
-  slug: string,
-  sort: ReviewSort,
-  stars: number | null,
-  page: number,
-): string {
+function reviewsHref(slug: string, sort: ReviewSort, stars: number | null, page: number): string {
   const params = new URLSearchParams();
   if (sort !== 'newest') params.set('rsort', sort);
   if (stars) params.set('rstars', String(stars));
@@ -84,7 +79,11 @@ export async function ReviewSection({
   const { breakdown } = listing;
 
   return (
-    <section id="reviews" aria-labelledby="reviews-heading" className="bg-surface mt-4 rounded-lg p-3 sm:p-4">
+    <section
+      id="reviews"
+      aria-labelledby="reviews-heading"
+      className="bg-surface mt-4 rounded-lg p-3 sm:p-4"
+    >
       <h2 id="reviews-heading" className="text-lg font-bold">
         Customer reviews
       </h2>
@@ -96,7 +95,9 @@ export async function ReviewSection({
             <>
               <div className="flex items-center gap-2">
                 <RatingStars rating={breakdown.average} size="md" />
-                <span className="text-base font-semibold">{breakdown.average.toFixed(1)} out of 5</span>
+                <span className="text-base font-semibold">
+                  {breakdown.average.toFixed(1)} out of 5
+                </span>
               </div>
               <p className="text-ink-muted mt-1 text-sm">
                 {breakdown.total} {breakdown.total === 1 ? 'review' : 'reviews'}
@@ -105,7 +106,8 @@ export async function ReviewSection({
               <ul className="mt-3 space-y-1.5">
                 {[5, 4, 3, 2, 1].map((star) => {
                   const count = breakdown.counts[star - 1] ?? 0;
-                  const share = breakdown.total > 0 ? Math.round((count / breakdown.total) * 100) : 0;
+                  const share =
+                    breakdown.total > 0 ? Math.round((count / breakdown.total) * 100) : 0;
                   return (
                     <li key={star}>
                       <Link
@@ -196,7 +198,10 @@ export async function ReviewSection({
         {/* ------------------------------------------------------- the list */}
         <div className="mt-5 lg:mt-0">
           {breakdown.total > 0 && (
-            <nav aria-label="Sort reviews" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+            <nav
+              aria-label="Sort reviews"
+              className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm"
+            >
               <span className="text-ink-muted">Sort by:</span>
               {REVIEW_SORT_OPTIONS.map((option) => (
                 <Link
@@ -204,9 +209,7 @@ export async function ReviewSection({
                   href={reviewsHref(productSlug, option, listing.starsFilter, 1)}
                   aria-current={sort === option ? 'true' : undefined}
                   className={
-                    sort === option
-                      ? 'text-ink font-semibold'
-                      : 'text-link hover:underline'
+                    sort === option ? 'text-ink font-semibold' : 'text-link hover:underline'
                   }
                 >
                   {SORT_LABELS[option]}
@@ -256,7 +259,10 @@ export async function ReviewSection({
           </ul>
 
           {(listing.page > 1 || listing.hasMore) && (
-            <nav aria-label="Review pages" className="mt-3 flex items-center justify-center gap-3 text-sm">
+            <nav
+              aria-label="Review pages"
+              className="mt-3 flex items-center justify-center gap-3 text-sm"
+            >
               {listing.page > 1 && (
                 <Link
                   href={reviewsHref(productSlug, sort, listing.starsFilter, listing.page - 1)}
