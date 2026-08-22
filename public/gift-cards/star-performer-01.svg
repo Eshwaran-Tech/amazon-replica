@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Star Performer gift card design">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(250 58% 34%)"/>
+      <stop offset="100%" stop-color="hsl(218 62% 20%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#wash)"/>
+  <!-- The motifs are drawn around (320, 140); scaling about that point fills the
+       face above the band instead of leaving a dead strip across the middle.
+       A uniform scale, so nothing that should be round comes out oval. -->
+  <g transform="translate(320 148) scale(1.26) translate(-320 -148)"><polygon points="122.7,60.8 126.8,70.9 137.6,71.7 129.3,78.6 132.0,89.2 122.7,83.4 113.5,89.2 116.2,78.6 107.8,71.7 118.7,70.9" fill="hsl(70 70% 70%)" opacity="0.6743905147421173"/><polygon points="46.7,197.4 50.9,207.9 62.2,208.7 53.5,215.9 56.2,226.9 46.7,220.9 37.1,226.9 39.9,215.9 31.2,208.7 42.5,207.9" fill="hsl(70 70% 70%)" opacity="0.8386436542263254"/><polygon points="415.0,72.8 418.0,80.4 426.2,81.0 419.9,86.2 421.9,94.2 415.0,89.8 408.0,94.2 410.0,86.2 403.7,81.0 411.9,80.4" fill="hsl(70 70% 70%)" opacity="0.8960288888774812"/><polygon points="375.7,155.0 378.2,161.1 384.8,161.5 379.7,165.8 381.3,172.2 375.7,168.7 370.1,172.2 371.7,165.8 366.6,161.5 373.2,161.1" fill="hsl(70 70% 70%)" opacity="0.8393619292881339"/><polygon points="500.5,97.7 504.8,108.3 516.2,109.1 507.4,116.4 510.2,127.5 500.5,121.5 490.8,127.5 493.6,116.4 484.8,109.1 496.2,108.3" fill="hsl(70 70% 70%)" opacity="0.646553694026079"/><polygon points="504.5,106.8 507.0,113.2 513.9,113.6 508.6,118.0 510.3,124.7 504.5,121.0 498.7,124.7 500.4,118.0 495.1,113.6 501.9,113.2" fill="hsl(70 70% 70%)" opacity="0.8028917651856318"/><polygon points="184.4,69.9 188.8,81.0 200.7,81.8 191.6,89.5 194.5,101.0 184.4,94.7 174.3,101.0 177.2,89.5 168.1,81.8 180.0,81.0" fill="hsl(70 70% 70%)" opacity="0.6488603271427564"/><polygon points="320.0,68.0 336.0,107.9 379.0,110.8 345.9,138.4 356.4,180.2 320.0,157.3 283.6,180.2 294.1,138.4 261.0,110.8 304.0,107.9" fill="hsl(286 92% 68%)" opacity="1"/></g>
+
+  <rect x="0" y="304" width="640" height="96" fill="rgba(0,0,0,0.34)"/>
+  <rect x="0" y="304" width="640" height="3" fill="hsl(286 92% 68%)"/>
+  <text x="320" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="hsl(0 0% 100%)">Star Performer</text>
+</svg>

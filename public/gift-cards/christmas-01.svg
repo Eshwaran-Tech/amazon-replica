@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Merry Christmas gift card design">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(150 58% 34%)"/>
+      <stop offset="100%" stop-color="hsl(118 62% 20%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#wash)"/>
+  <!-- The motifs are drawn around (320, 140); scaling about that point fills the
+       face above the band instead of leaving a dead strip across the middle.
+       A uniform scale, so nothing that should be round comes out oval. -->
+  <g transform="translate(320 148) scale(1.26) translate(-320 -148)"><path d="M320 92 L364 146 L276 146 Z" fill="hsl(186 92% 68%)"/><path d="M320 134 L398 188 L242 188 Z" fill="hsl(186 92% 68%)"/><path d="M320 176 L432 230 L208 230 Z" fill="hsl(186 92% 68%)"/><circle cx="259" cy="208" r="5" fill="hsl(330 70% 70%)"/><circle cx="281" cy="124" r="5" fill="hsl(330 70% 70%)"/><circle cx="253" cy="132" r="5" fill="hsl(330 70% 70%)"/><circle cx="383" cy="190" r="5" fill="hsl(330 70% 70%)"/><circle cx="320" cy="189" r="5" fill="hsl(330 70% 70%)"/><circle cx="328" cy="212" r="5" fill="hsl(330 70% 70%)"/><circle cx="384" cy="209" r="5" fill="hsl(330 70% 70%)"/><circle cx="266" cy="153" r="5" fill="hsl(330 70% 70%)"/><circle cx="298" cy="213" r="5" fill="hsl(330 70% 70%)"/><rect x="308" y="212" width="24" height="30" rx="4" fill="hsl(0 0% 100%)" opacity="0.7"/></g>
+
+  <rect x="0" y="304" width="640" height="96" fill="rgba(0,0,0,0.34)"/>
+  <rect x="0" y="304" width="640" height="3" fill="hsl(186 92% 68%)"/>
+  <text x="320" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="hsl(0 0% 100%)">Merry Christmas</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Kitchen">
+  <defs>
+    <linearGradient id="bg" gradientTransform="rotate(135)">
+      <stop offset="0%" stop-color="hsl(175 62% 93%)"/>
+      <stop offset="100%" stop-color="hsl(217 55% 84%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="12" fill="url(#bg)"/>
+  <g transform="translate(100 100) scale(2)" fill="none" stroke="hsl(175 48% 28%)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.88">
+    <path d="M20 46h60v20a16 16 0 0 1-16 16H36a16 16 0 0 1-16-16V46Zm-6 0h72M44 40h12M36 24c0 6 6 6 6 12M50 20c0 6 6 6 6 12M64 24c0 6 6 6 6 12"/>
+  </g>
+</svg>

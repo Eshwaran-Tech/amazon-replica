@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" preserveAspectRatio="xMidYMid slice" role="img">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="hsl(206 72% 58%)"/>
+      <stop offset="58%" stop-color="hsl(199 66% 72%)"/>
+      <stop offset="100%" stop-color="hsl(192 52% 84%)"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="34%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lamp" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="hsl(44 92% 72%)" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="hsl(44 92% 72%)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#sky)"/><circle cx="532" cy="130" r="41" fill="hsl(48 96% 82%)" opacity="0.75"/>
+  <rect x="0" y="258" width="800" height="262" fill="hsl(42 56% 80%)"/>
+  <g transform="translate(76 280)">
+      <rect x="0" y="14" width="72" height="9" rx="4" fill="hsl(40 26% 92%)"/>
+      <rect x="50" y="-3" width="24" height="19" rx="4" fill="hsl(40 26% 92%)" transform="rotate(-24 50 -3)"/>
+      <rect x="4" y="23" width="6" height="12" rx="3" fill="hsl(18 14% 30%)"/>
+      <rect x="62" y="23" width="6" height="12" rx="3" fill="hsl(18 14% 30%)"/>
+    </g><g transform="translate(283 280)">
+      <rect x="0" y="14" width="72" height="9" rx="4" fill="hsl(40 26% 92%)"/>
+      <rect x="50" y="-3" width="24" height="19" rx="4" fill="hsl(40 26% 92%)" transform="rotate(-24 50 -3)"/>
+      <rect x="4" y="23" width="6" height="12" rx="3" fill="hsl(18 14% 30%)"/>
+      <rect x="62" y="23" width="6" height="12" rx="3" fill="hsl(18 14% 30%)"/>
+    </g><g transform="translate(457 280)">
+      <rect x="0" y="14" width="72" height="9" rx="4" fill="hsl(40 26% 92%)"/>
+      <rect x="50" y="-3" width="24" height="19" rx="4" fill="hsl(40 26% 92%)" transform="rotate(-24 50 -3)"/>
+      <rect x="4" y="23" width="6" height="12" rx="3" fill="hsl(18 14% 30%)"/>
+      <rect x="62" y="23" width="6" height="12" rx="3" fill="hsl(18 14% 30%)"/>
+    </g>
+  <rect x="34" y="334" width="732" height="156" rx="16" fill="hsl(180 62% 42%)"/>
+  <rect x="34" y="334" width="732" height="156" rx="16" fill="url(#water)"/>
+  <rect x="363" y="428" width="129" height="4" rx="2" fill="#ffffff" opacity="0.12"/><rect x="529" y="378" width="89" height="4" rx="2" fill="#ffffff" opacity="0.18"/><rect x="614" y="368" width="179" height="4" rx="2" fill="#ffffff" opacity="0.33"/><rect x="268" y="364" width="85" height="4" rx="2" fill="#ffffff" opacity="0.38"/><rect x="415" y="447" width="203" height="4" rx="2" fill="#ffffff" opacity="0.33"/><rect x="630" y="437" width="63" height="4" rx="2" fill="#ffffff" opacity="0.30"/><rect x="593" y="439" width="144" height="4" rx="2" fill="#ffffff" opacity="0.18"/><rect x="185" y="365" width="148" height="4" rx="2" fill="#ffffff" opacity="0.21"/>
+  <path d="M613.6 462.1 Q 617.4 383.6 623.0 305.1" fill="none" stroke="hsl(68 42% 28%)" stroke-width="8" stroke-linecap="round"/><path d="M623.0 305.1 q -26.2 -19.6 -43.6 -12.6" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M623.0 305.1 q -21.3 -35.8 -35.5 -39.7" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M623.0 305.1 q -0.1 -48.5 -0.2 -60.8" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M623.0 305.1 q 12.5 -30.6 20.9 -30.9" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M623.0 305.1 q 27.1 -19.0 45.2 -11.6" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M623.0 305.1 q 25.3 -2.1 42.2 16.5" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M623.0 305.1 q 13.6 6.5 22.7 30.8" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M548.0 441.5 Q 542.8 392.8 535.0 344.1" fill="none" stroke="hsl(68 42% 28%)" stroke-width="8" stroke-linecap="round"/><path d="M535.0 344.1 q -27.3 -19.7 -45.5 -12.8" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M535.0 344.1 q -20.3 -41.5 -33.8 -49.1" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M535.0 344.1 q -1.5 -35.8 -2.5 -39.7" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M535.0 344.1 q 14.4 -29.4 24.1 -29.0" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M535.0 344.1 q 24.6 -20.1 41.1 -13.4" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M535.0 344.1 q 26.7 -4.9 44.4 11.8" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/><path d="M535.0 344.1 q 14.5 10.5 24.1 37.6" fill="none" stroke="hsl(108 42% 28%)" stroke-width="6" stroke-linecap="round"/>
+</svg>

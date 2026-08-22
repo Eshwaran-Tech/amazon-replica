@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 780" width="1920" height="780" preserveAspectRatio="xMidYMid slice" role="img">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(160 42% 11%)"/>
+      <stop offset="55%" stop-color="hsl(160 46% 7%)"/>
+      <stop offset="100%" stop-color="hsl(190 40% 5%)"/>
+    </linearGradient>
+    <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#05070c" stop-opacity="0.92"/>
+      <stop offset="45%" stop-color="#05070c" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#05070c" stop-opacity="0.1"/>
+    </linearGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="hsl(160 60% 70%)" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1920" height="780" fill="url(#base)"/>
+  <rect width="1920" height="780" fill="url(#grid)"/>
+  <circle cx="1641" cy="672" r="410" fill="url(#orb0)" opacity="0.5"/>
+    <radialGradient id="orb0" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="hsl(160 85% 60%)" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="hsl(160 85% 60%)" stop-opacity="0"/>
+    </radialGradient><circle cx="1466" cy="261" r="155" fill="url(#orb1)" opacity="0.5"/>
+    <radialGradient id="orb1" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="hsl(190 85% 60%)" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="hsl(190 85% 60%)" stop-opacity="0"/>
+    </radialGradient><circle cx="1710" cy="537" r="318" fill="url(#orb2)" opacity="0.5"/>
+    <radialGradient id="orb2" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="hsl(160 85% 60%)" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="hsl(160 85% 60%)" stop-opacity="0"/>
+    </radialGradient><circle cx="1515" cy="269" r="210" fill="url(#orb3)" opacity="0.5"/>
+    <radialGradient id="orb3" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="hsl(190 85% 60%)" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="hsl(190 85% 60%)" stop-opacity="0"/>
+    </radialGradient>
+  <rect x="1749" y="297" width="204" height="13" rx="6.6" fill="hsl(190 90% 65%)" opacity="0.199" transform="rotate(-11.0 1749 297)"/><rect x="1276" y="434" width="252" height="21" rx="10.4" fill="hsl(160 90% 65%)" opacity="0.065" transform="rotate(16.8 1276 434)"/><rect x="1732" y="529" width="254" height="16" rx="7.8" fill="hsl(160 90% 65%)" opacity="0.118" transform="rotate(-7.0 1732 529)"/><rect x="1256" y="300" width="306" height="12" rx="5.9" fill="hsl(190 90% 65%)" opacity="0.155" transform="rotate(5.5 1256 300)"/><rect x="1824" y="403" width="141" height="11" rx="5.7" fill="hsl(160 90% 65%)" opacity="0.177" transform="rotate(-26.6 1824 403)"/><rect x="1175" y="299" width="75" height="11" rx="5.7" fill="hsl(160 90% 65%)" opacity="0.073" transform="rotate(7.8 1175 299)"/><rect x="1542" y="582" width="153" height="27" rx="13.3" fill="hsl(190 90% 65%)" opacity="0.079" transform="rotate(17.9 1542 582)"/><rect x="1149" y="732" width="69" height="29" rx="14.4" fill="hsl(160 90% 65%)" opacity="0.207" transform="rotate(-24.5 1149 732)"/><rect x="1675" y="465" width="109" height="13" rx="6.7" fill="hsl(160 90% 65%)" opacity="0.127" transform="rotate(0.9 1675 465)"/><rect x="1375" y="418" width="89" height="31" rx="15.4" fill="hsl(190 90% 65%)" opacity="0.109" transform="rotate(27.9 1375 418)"/><rect x="1099" y="100" width="183" height="27" rx="13.4" fill="hsl(160 90% 65%)" opacity="0.164" transform="rotate(7.9 1099 100)"/><rect x="1355" y="424" width="172" height="11" rx="5.7" fill="hsl(160 90% 65%)" opacity="0.217" transform="rotate(1.6 1355 424)"/><rect x="1565" y="240" width="294" height="21" rx="10.3" fill="hsl(190 90% 65%)" opacity="0.179" transform="rotate(-9.2 1565 240)"/><rect x="1641" y="566" width="198" height="28" rx="14.0" fill="hsl(160 90% 65%)" opacity="0.143" transform="rotate(-26.6 1641 566)"/><rect x="1461" y="230" width="81" height="28" rx="14.1" fill="hsl(160 90% 65%)" opacity="0.114" transform="rotate(7.3 1461 230)"/><rect x="1184" y="744" width="80" height="13" rx="6.5" fill="hsl(190 90% 65%)" opacity="0.102" transform="rotate(11.2 1184 744)"/>
+  <!-- Left-to-right scrim: guarantees contrast for the headline regardless of
+       what the generated shapes land on. -->
+  <rect width="1920" height="780" fill="url(#scrim)"/>
+</svg>

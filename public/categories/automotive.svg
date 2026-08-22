@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Automotive">
+  <defs>
+    <linearGradient id="bg" gradientTransform="rotate(135)">
+      <stop offset="0%" stop-color="hsl(224 62% 93%)"/>
+      <stop offset="100%" stop-color="hsl(266 55% 84%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="12" fill="url(#bg)"/>
+  <g transform="translate(100 100) scale(2)" fill="none" stroke="hsl(224 48% 28%)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.88">
+    <path d="M14 58l6-20a8 8 0 0 1 8-6h44a8 8 0 0 1 8 6l6 20v14H14V58Zm0 0h72M30 38h40M28 72v6h12v-6m20 0v6h12v-6"/>
+  </g>
+</svg>

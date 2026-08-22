@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Sports">
+  <defs>
+    <linearGradient id="bg" gradientTransform="rotate(135)">
+      <stop offset="0%" stop-color="hsl(186 62% 93%)"/>
+      <stop offset="100%" stop-color="hsl(228 55% 84%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="12" fill="url(#bg)"/>
+  <g transform="translate(100 100) scale(2)" fill="none" stroke="hsl(186 48% 28%)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.88">
+    <path d="M14 40h8v20h-8zM78 40h8v20h-8zM26 32h10v36H26zM64 32h10v36H64zM36 48h28"/>
+  </g>
+</svg>

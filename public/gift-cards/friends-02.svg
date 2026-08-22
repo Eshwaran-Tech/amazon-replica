@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Just because gift card design">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(0 0% 100%)"/>
+      <stop offset="100%" stop-color="hsl(202 66% 90%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#wash)"/>
+  <!-- The motifs are drawn around (320, 140); scaling about that point fills the
+       face above the band instead of leaving a dead strip across the middle.
+       A uniform scale, so nothing that should be round comes out oval. -->
+  <g transform="translate(320 148) scale(1.26) translate(-320 -148)"><circle cx="97" cy="163" r="55" fill="hsl(190 78% 56%)" opacity="0.42"/><circle cx="183" cy="119" r="32" fill="hsl(238 84% 58%)" opacity="0.42"/><circle cx="253" cy="139" r="43" fill="hsl(190 78% 56%)" opacity="0.42"/><circle cx="322" cy="162" r="40" fill="hsl(238 84% 58%)" opacity="0.42"/><circle cx="399" cy="119" r="36" fill="hsl(190 78% 56%)" opacity="0.42"/><circle cx="489" cy="139" r="43" fill="hsl(238 84% 58%)" opacity="0.42"/><circle cx="549" cy="137" r="33" fill="hsl(190 78% 56%)" opacity="0.42"/></g>
+
+  <rect x="0" y="304" width="640" height="96" fill="rgba(255,255,255,0.78)"/>
+  <rect x="0" y="304" width="640" height="3" fill="hsl(190 78% 56%)"/>
+  <text x="320" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="hsl(196 58% 28%)">Just because</text>
+</svg>

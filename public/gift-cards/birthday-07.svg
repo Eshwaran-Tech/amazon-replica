@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Happy Birthday gift card design">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(0 0% 100%)"/>
+      <stop offset="100%" stop-color="hsl(352 66% 90%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#wash)"/>
+  <!-- The motifs are drawn around (320, 140); scaling about that point fills the
+       face above the band instead of leaving a dead strip across the middle.
+       A uniform scale, so nothing that should be round comes out oval. -->
+  <g transform="translate(320 148) scale(1.26) translate(-320 -148)"><g opacity="0.9">
+      <path d="M67 127 q -3 60 1 110" fill="none" stroke="hsl(346 58% 28%)" stroke-opacity="0.35" stroke-width="2"/>
+      <ellipse cx="67" cy="94" rx="34" ry="40" fill="hsl(340 78% 56%)"/>
+      <ellipse cx="57" cy="82" rx="8" ry="10" fill="#ffffff" opacity="0.45"/>
+    </g><g opacity="0.9">
+      <path d="M157 108 q -6 60 -3 110" fill="none" stroke="hsl(346 58% 28%)" stroke-opacity="0.35" stroke-width="2"/>
+      <ellipse cx="157" cy="77" rx="31" ry="37" fill="hsl(28 84% 58%)"/>
+      <ellipse cx="148" cy="66" rx="7" ry="9" fill="#ffffff" opacity="0.45"/>
+    </g><g opacity="0.9">
+      <path d="M252 124 q -1 60 -6 110" fill="none" stroke="hsl(346 58% 28%)" stroke-opacity="0.35" stroke-width="2"/>
+      <ellipse cx="252" cy="100" rx="24" ry="29" fill="hsl(340 78% 56%)"/>
+      <ellipse cx="245" cy="91" rx="6" ry="7" fill="#ffffff" opacity="0.45"/>
+    </g><g opacity="0.9">
+      <path d="M353 184 q 3 60 2 110" fill="none" stroke="hsl(346 58% 28%)" stroke-opacity="0.35" stroke-width="2"/>
+      <ellipse cx="353" cy="151" rx="33" ry="40" fill="hsl(28 84% 58%)"/>
+      <ellipse cx="343" cy="140" rx="8" ry="10" fill="#ffffff" opacity="0.45"/>
+    </g><g opacity="0.9">
+      <path d="M455 188 q 6 60 2 110" fill="none" stroke="hsl(346 58% 28%)" stroke-opacity="0.35" stroke-width="2"/>
+      <ellipse cx="455" cy="155" rx="33" ry="40" fill="hsl(340 78% 56%)"/>
+      <ellipse cx="445" cy="143" rx="8" ry="10" fill="#ffffff" opacity="0.45"/>
+    </g><g opacity="0.9">
+      <path d="M545 187 q 1 60 2 110" fill="none" stroke="hsl(346 58% 28%)" stroke-opacity="0.35" stroke-width="2"/>
+      <ellipse cx="545" cy="158" rx="29" ry="35" fill="hsl(28 84% 58%)"/>
+      <ellipse cx="536" cy="148" rx="7" ry="9" fill="#ffffff" opacity="0.45"/>
+    </g></g>
+
+  <rect x="0" y="304" width="640" height="96" fill="rgba(255,255,255,0.78)"/>
+  <rect x="0" y="304" width="640" height="3" fill="hsl(340 78% 56%)"/>
+  <text x="320" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="hsl(346 58% 28%)">Happy Birthday</text>
+</svg>

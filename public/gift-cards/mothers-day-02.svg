@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Happy Mother’s Day gift card design">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(0 0% 100%)"/>
+      <stop offset="100%" stop-color="hsl(332 66% 90%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#wash)"/>
+  <!-- The motifs are drawn around (320, 140); scaling about that point fills the
+       face above the band instead of leaving a dead strip across the middle.
+       A uniform scale, so nothing that should be round comes out oval. -->
+  <g transform="translate(320 148) scale(1.26) translate(-320 -148)"><path transform="translate(69.3 107.1) scale(1.072)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(320 78% 56%)" opacity="0.5601644103415311"/><path transform="translate(126.3 145.7) scale(1.086)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(8 84% 58%)" opacity="0.6383026164025069"/><path transform="translate(204.7 75.3) scale(1.078)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(320 78% 56%)" opacity="0.5677882621064783"/><path transform="translate(261.8 77.9) scale(1.091)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(8 84% 58%)" opacity="0.8339926172979177"/><path transform="translate(321.1 148.7) scale(0.930)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(320 78% 56%)" opacity="0.8311223051510752"/><path transform="translate(400.8 161.6) scale(1.204)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(8 84% 58%)" opacity="0.7642809683457017"/><path transform="translate(464.6 175.6) scale(0.893)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(320 78% 56%)" opacity="0.582968572806567"/><path transform="translate(536.5 107.3) scale(1.387)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(8 84% 58%)" opacity="0.7618230628781021"/><path transform="translate(594.0 130.0) scale(0.831)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(320 78% 56%)" opacity="0.7092989325523377"/></g>
+
+  <rect x="0" y="304" width="640" height="96" fill="rgba(255,255,255,0.78)"/>
+  <rect x="0" y="304" width="640" height="3" fill="hsl(320 78% 56%)"/>
+  <text x="320" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="700" fill="hsl(326 58% 28%)">Happy Mother’s Day</text>
+</svg>

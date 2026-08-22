@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="New Beginnings gift card design">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(355 62% 88%)"/>
+      <stop offset="100%" stop-color="hsl(155 70% 84%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#wash)"/>
+  <!-- The motifs are drawn around (320, 140); scaling about that point fills the
+       face above the band instead of leaving a dead strip across the middle.
+       A uniform scale, so nothing that should be round comes out oval. -->
+  <g transform="translate(320 148) scale(1.26) translate(-320 -148)"><path d="M320 210 L320 132" stroke="hsl(155 72% 50%)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M320 166 q -52 -14 -62 -58 q 46 -6 62 58 Z" fill="hsl(155 72% 50%)"/>
+  <path d="M320 148 q 52 -12 64 -54 q -48 -8 -64 54 Z" fill="hsl(5 62% 48%)"/></g>
+
+  <rect x="0" y="304" width="640" height="96" fill="rgba(255,255,255,0.78)"/>
+  <rect x="0" y="304" width="640" height="3" fill="hsl(155 72% 50%)"/>
+  <text x="320" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="hsl(5 52% 26%)">New Beginnings</text>
+</svg>

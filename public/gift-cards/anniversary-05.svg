@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Happy Anniversary gift card design">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(350 82% 92%)"/>
+      <stop offset="100%" stop-color="hsl(18 76% 82%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#wash)"/>
+  <!-- The motifs are drawn around (320, 140); scaling about that point fills the
+       face above the band instead of leaving a dead strip across the middle.
+       A uniform scale, so nothing that should be round comes out oval. -->
+  <g transform="translate(320 148) scale(1.26) translate(-320 -148)"><path transform="translate(72.5 135.9) scale(1.235)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(350 74% 52%)" opacity="0.6754475307650865"/><path transform="translate(129.7 132.3) scale(1.541)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(180 62% 46%)" opacity="0.9324888763017953"/><path transform="translate(195.6 80.5) scale(1.347)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(350 74% 52%)" opacity="0.6973482521250844"/><path transform="translate(261.0 142.3) scale(1.579)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(180 62% 46%)" opacity="0.9425371007993818"/><path transform="translate(330.6 85.5) scale(1.260)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(350 74% 52%)" opacity="0.7755565097555519"/><path transform="translate(403.3 101.4) scale(1.159)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(180 62% 46%)" opacity="0.7676005019806326"/><path transform="translate(457.3 94.8) scale(1.600)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(350 74% 52%)" opacity="0.6227548063732684"/><path transform="translate(528.5 140.3) scale(0.920)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(180 62% 46%)" opacity="0.8541540463455022"/><path transform="translate(593.9 122.2) scale(1.553)" d="M0 10 C -14 -6 -26 4 -16 16 L0 32 L16 16 C 26 4 14 -6 0 10 Z" fill="hsl(350 74% 52%)" opacity="0.8975837679579854"/></g>
+
+  <rect x="0" y="304" width="640" height="96" fill="rgba(255,255,255,0.78)"/>
+  <rect x="0" y="304" width="640" height="3" fill="hsl(350 74% 52%)"/>
+  <text x="320" y="364" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="700" fill="hsl(350 62% 24%)">Happy Anniversary</text>
+</svg>

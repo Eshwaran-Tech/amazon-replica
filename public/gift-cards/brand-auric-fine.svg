@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Auric Fine gift card">
+  <defs>
+    <linearGradient id="brandwash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(44 54% 24%)"/>
+      <stop offset="100%" stop-color="hsl(28 58% 14%)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#brandwash)"/>
+  <circle cx="544" cy="96" r="150" fill="hsl(28 72% 56%)" opacity="0.16"/>
+  <circle cx="72" cy="352" r="110" fill="hsl(44 78% 62%)" opacity="0.14"/>
+
+  <circle cx="82" cy="86" r="34" fill="hsl(44 76% 62%)"/>
+  <text x="82" y="99" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" fill="hsl(44 60% 14%)">A</text>
+
+  <text x="52" y="226" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#ffffff">Auric Fine</text>
+  <text x="54" y="262" font-family="system-ui, sans-serif" font-size="19" fill="#ffffff" opacity="0.72">Gold by weight, priced by the day</text>
+
+  <rect x="52" y="326" width="72" height="4" rx="2" fill="hsl(28 82% 62%)"/>
+  <text x="588" y="354" text-anchor="end" font-family="system-ui, sans-serif" font-size="17" fill="#ffffff" opacity="0.6">gift card</text>
+</svg>

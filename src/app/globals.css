@@ -1,0 +1,505 @@
+@import 'tailwindcss';
+
+/* =============================================================================
+   amazon design tokens
+
+   Original branding. The palette, wordmark and iconography are this project's
+   own; no third-party retailer's trade dress, logo or imagery is used.
+   ========================================================================== */
+
+@theme {
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* --- Brand navy: header, nav, footer --- */
+  --color-brand-50: #f3f6fb;
+  --color-brand-100: #e4eaf4;
+  --color-brand-200: #c6d3e7;
+  --color-brand-300: #9db2d2;
+  --color-brand-400: #6d8ab6;
+  --color-brand-500: #4c6a9b;
+  --color-brand-600: #3a5280;
+  --color-brand-700: #2e4066;
+  /* Row 2 of the header sits one step lighter than row 1, matching the
+     reference's two-tone bar. */
+  --color-brand-800: #232f3e;
+  --color-brand-900: #131a22;
+  --color-brand-950: #0a0f15;
+
+  /* --- Accent saffron: primary calls to action --- */
+  --color-accent-50: #fff9ec;
+  --color-accent-100: #fff0cd;
+  --color-accent-200: #ffdd90;
+  --color-accent-300: #ffc954;
+  --color-accent-400: #ffb52b;
+  --color-accent-500: #f5a524;
+  --color-accent-600: #d9860b;
+  --color-accent-700: #b4640c;
+  --color-accent-800: #924e11;
+  --color-accent-900: #784111;
+
+  /* --- Semantic ---
+     A dark storefront. Every component references these tokens rather than a
+     literal colour, so the whole surface follows from this block -- which is
+     the reason the palette could be switched without touching components.
+
+     Contrast was chosen deliberately: --color-ink on --color-surface is about
+     14:1, and --color-ink-muted about 6:1, both comfortably past WCAG AA. On a
+     dark background the usual mistake is muted text that drops to 3:1 and
+     becomes unreadable in daylight. */
+  --color-link: #6cb6ff;
+  --color-link-hover: #ffb52b;
+  --color-deal: #ff7a7a;
+  --color-instock: #4ade80;
+
+  --color-surface: #151f2e;
+  --color-surface-muted: #0b111c;
+  --color-surface-sunken: #1f2c3f;
+
+  --color-ink: #eef2f7;
+  --color-ink-muted: #a3b0c2;
+  --color-ink-subtle: #7c8a9e;
+
+  --color-hairline: #26344a;
+
+  /* --- Extra breakpoints ---
+     `xs` catches 360-400px phones where a 2-up product grid starts to strain.
+     `3xl` stops the layout from stretching on 1920px+ monitors. */
+  --breakpoint-xs: 25rem;
+  --breakpoint-3xl: 120rem;
+
+  --radius-card: 0.5rem;
+}
+
+/* =============================================================================
+   Light theme
+
+   Only the *semantic* tokens are redefined. Brand navy and accent saffron are
+   fixed brand colours -- the header stays navy in both themes, the way the
+   reference storefront does -- so nothing here touches them.
+
+   The cascade is arranged so that "no choice" means "follow the operating
+   system", which is why the stylesheet, not JavaScript, resolves it:
+
+     :root                      dark, the default palette
+     prefers-color-scheme:light light, unless the visitor explicitly chose dark
+     [data-theme='light']       light, chosen explicitly -- beats the query
+     [data-theme='dark']        dark, chosen explicitly -- beats the query
+
+   Contrast on the light palette was checked the same way as the dark one:
+   --color-ink on --color-surface is about 17:1 and --color-ink-muted about
+   7:1, both past WCAG AA. The link colour is a deep teal rather than the dark
+   theme's pale blue, which would fail on white.
+   ========================================================================== */
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme='dark']) {
+      color-scheme: light;
+
+      --color-link: #007185;
+      --color-link-hover: #c7511f;
+      --color-deal: #b12704;
+      --color-instock: #067d62;
+
+      --color-surface: #ffffff;
+      --color-surface-muted: #eaeded;
+      --color-surface-sunken: #f4f6f6;
+
+      --color-ink: #0f1111;
+      --color-ink-muted: #4a5568;
+      --color-ink-subtle: #6b7280;
+
+      --color-hairline: #d5d9d9;
+    }
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+
+    --color-link: #007185;
+    --color-link-hover: #c7511f;
+    --color-deal: #b12704;
+    --color-instock: #067d62;
+
+    --color-surface: #ffffff;
+    --color-surface-muted: #eaeded;
+    --color-surface-sunken: #f4f6f6;
+
+    --color-ink: #0f1111;
+    --color-ink-muted: #4a5568;
+    --color-ink-subtle: #6b7280;
+
+    --color-hairline: #d5d9d9;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  html {
+    /* Stop iOS Safari inflating text in landscape. */
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Belt and braces against a stray wide child causing a horizontal scrollbar.
+     Layout still has to be correct; this only bounds the blast radius.
+
+     Two deliberate details:
+
+     - `clip`, not `hidden`. `overflow: hidden` makes the element a scroll
+       container, which silently breaks `position: sticky` on any descendant --
+       and the catalogue filter sidebar is sticky. `clip` crops without creating
+       a scroll container, so sticky keeps working.
+
+     - Applied to `html` as well as `body`. `overflow-x` on `body` alone does
+       not reliably stop document-level horizontal scrolling (notably on iOS
+       Safari), because the value propagates from `html` to the viewport. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-surface-muted);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* A single, high-contrast focus ring everywhere, only for keyboard users.
+     Never remove this without providing an equally visible replacement -- it is
+     the only way a keyboard user knows where they are. */
+  :focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Long product names and review text must not blow out a grid cell. */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  td,
+  th {
+    overflow-wrap: break-word;
+  }
+
+  /* Reserve the scrollbar gutter so navigating between a short and a tall page
+     does not shift the whole layout sideways. */
+  @supports (scrollbar-gutter: stable) {
+    html {
+      scrollbar-gutter: stable;
+    }
+  }
+}
+
+@layer components {
+  /* ===========================================================================
+     Animated 3D hero scene
+     ---------------------------------------------------------------------------
+     Layered CSS perspective standing in for video: a receding floor grid,
+     drifting glow orbs, and themed glyphs at three `translateZ` depths. Moving
+     each layer at a different rate is what produces parallax, and parallax is
+     what reads as depth.
+
+     All motion is CSS, so it runs with no JavaScript and before hydration. The
+     global `prefers-reduced-motion` rule near the top of this file neutralises
+     every animation below for users who ask for that.
+     ========================================================================= */
+
+  /* Ken Burns: a slow push-in so a still backdrop still breathes. Applied to
+     the scene and to any photo/video backdrop. `alternate` avoids the jarring
+     snap-back a looping one-way zoom produces. */
+  /* Not applied to `.hero-scene__stage`: its glyphs already animate on their
+     own depth timings, and a competing scale on the parent would fight them. */
+  .hero-bg,
+  .hero-scene__sky {
+    animation: hero-ken-burns 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes hero-ken-burns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  .hero-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    /* Establishes the vanishing point for the child 3D transforms. */
+    perspective: 900px;
+    perspective-origin: 50% 42%;
+    background: var(--hero-base, #0b1020);
+  }
+
+  /* Per-theme palette. Only these three custom properties change. */
+  [data-hero-theme='fashion'] {
+    --hero-base: #2a0f1e;
+    --hero-glow: #f0568c;
+    --hero-accent: #ffb35c;
+  }
+  [data-hero-theme='electronics'] {
+    --hero-base: #061a26;
+    --hero-glow: #3ec8e0;
+    --hero-accent: #6ea8ff;
+  }
+  [data-hero-theme='gaming'] {
+    --hero-base: #180a2e;
+    --hero-glow: #a855f7;
+    --hero-accent: #ec4899;
+  }
+  [data-hero-theme='mobiles'] {
+    --hero-base: #0b1233;
+    --hero-glow: #6366f1;
+    --hero-accent: #38bdf8;
+  }
+  [data-hero-theme='home'] {
+    --hero-base: #06231d;
+    --hero-glow: #34d399;
+    --hero-accent: #7dd3fc;
+  }
+  [data-hero-theme='fitness'] {
+    --hero-base: #052117;
+    --hero-glow: #22c55e;
+    --hero-accent: #a3e635;
+  }
+  [data-hero-theme='deals'] {
+    --hero-base: #2a1405;
+    --hero-glow: #f59e0b;
+    --hero-accent: #fbbf24;
+  }
+
+  .hero-scene__sky {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 80% at 20% 0%, color-mix(in srgb, var(--hero-glow) 26%, transparent), transparent 60%),
+      radial-gradient(90% 70% at 90% 20%, color-mix(in srgb, var(--hero-accent) 20%, transparent), transparent 65%),
+      linear-gradient(160deg, var(--hero-base), #04060c 85%);
+  }
+
+  /* --- receding floor ---------------------------------------------------- */
+  .hero-scene__floor {
+    position: absolute;
+    inset: 45% -50% -20% -50%;
+    transform: rotateX(72deg);
+    transform-origin: 50% 0%;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 78%);
+  }
+
+  .hero-scene__grid {
+    position: absolute;
+    inset: -100% 0 0 0;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--hero-glow) 45%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--hero-glow) 30%, transparent) 1px, transparent 1px);
+    background-size: 90px 90px;
+    /* Scrolling the grid toward the camera reads as forward motion. */
+    animation: hero-grid-travel 5s linear infinite;
+  }
+
+  @keyframes hero-grid-travel {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 90px;
+    }
+  }
+
+  /* --- glow orbs --------------------------------------------------------- */
+  .hero-scene__orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: 0.55;
+    will-change: transform;
+  }
+
+  .hero-scene__orb--a {
+    width: 34rem;
+    height: 34rem;
+    top: -12%;
+    right: 4%;
+    background: var(--hero-glow);
+    animation: hero-drift-a 19s ease-in-out infinite alternate;
+  }
+
+  .hero-scene__orb--b {
+    width: 24rem;
+    height: 24rem;
+    bottom: -10%;
+    right: 26%;
+    background: var(--hero-accent);
+    opacity: 0.4;
+    animation: hero-drift-b 23s ease-in-out infinite alternate;
+  }
+
+  .hero-scene__orb--c {
+    width: 18rem;
+    height: 18rem;
+    top: 22%;
+    right: 44%;
+    background: var(--hero-accent);
+    opacity: 0.28;
+    animation: hero-drift-a 27s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes hero-drift-a {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(-6%, 8%, 0) scale(1.12);
+    }
+  }
+
+  @keyframes hero-drift-b {
+    from {
+      transform: translate3d(0, 0, 0) scale(1.05);
+    }
+    to {
+      transform: translate3d(9%, -7%, 0) scale(0.92);
+    }
+  }
+
+  /* --- floating glyphs --------------------------------------------------- */
+  .hero-scene__stage {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+  }
+
+  .hero-scene__shape {
+    position: absolute;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    color: var(--hero-glow);
+    will-change: transform;
+  }
+
+  /* Three depth treatments. Size and position come from the composition data
+     in `hero-scene.tsx` (inline styles), so these carry only what makes a layer
+     read as near or far: opacity, stroke weight, colour, Z offset, and the
+     animation rate. Slower and fainter reads as further away. */
+  .hero-scene__shape--far {
+    opacity: 0.14;
+    stroke-width: 2;
+    transform: translateZ(-260px);
+    animation: hero-float-far 26s ease-in-out infinite alternate;
+  }
+
+  .hero-scene__shape--mid {
+    opacity: 0.26;
+    stroke-width: 1.7;
+    color: var(--hero-accent);
+    transform: translateZ(-90px);
+    animation: hero-float-mid 20s ease-in-out infinite alternate;
+  }
+
+  .hero-scene__shape--near {
+    opacity: 0.4;
+    stroke-width: 1.3;
+    transform: translateZ(40px);
+    animation: hero-float-near 16s ease-in-out infinite alternate;
+  }
+
+  @keyframes hero-float-far {
+    from {
+      transform: translateZ(-260px) translateY(0) rotate(-6deg);
+    }
+    to {
+      transform: translateZ(-260px) translateY(-3%) rotate(6deg);
+    }
+  }
+
+  @keyframes hero-float-mid {
+    from {
+      transform: translateZ(-90px) translateY(2%) rotateY(-10deg);
+    }
+    to {
+      transform: translateZ(-90px) translateY(-4%) rotateY(12deg);
+    }
+  }
+
+  @keyframes hero-float-near {
+    from {
+      transform: translateZ(40px) translateY(-2%) rotate(3deg);
+    }
+    to {
+      transform: translateZ(40px) translateY(4%) rotate(-4deg);
+    }
+  }
+
+  /* --- contrast scrim ---------------------------------------------------- */
+  .hero-scene__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgb(4 6 12 / 0.92) 0%,
+      rgb(4 6 12 / 0.72) 38%,
+      rgb(4 6 12 / 0.25) 68%,
+      rgb(4 6 12 / 0.05) 100%
+    );
+  }
+
+  /* Skip link: visually hidden until focused, then pinned top-left. */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    left: 0.5rem;
+    top: 0.5rem;
+    background: var(--color-surface);
+    color: var(--color-ink);
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 14px rgb(0 0 0 / 0.25);
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

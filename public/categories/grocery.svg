@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Grocery">
+  <defs>
+    <linearGradient id="bg" gradientTransform="rotate(135)">
+      <stop offset="0%" stop-color="hsl(32 62% 93%)"/>
+      <stop offset="100%" stop-color="hsl(74 55% 84%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="12" fill="url(#bg)"/>
+  <g transform="translate(100 100) scale(2)" fill="none" stroke="hsl(32 48% 28%)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.88">
+    <path d="M16 38h68l-9 40a6 6 0 0 1-6 5H31a6 6 0 0 1-6-5l-9-40Zm18 0 8-20m24 20-8-20M35 52l4 26m11-26v26m11-26-4 26"/>
+  </g>
+</svg>
