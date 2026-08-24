@@ -26,7 +26,7 @@ import '@/lib/server-guard';
  * The shared half of FASTag and metro.
  *
  * Both are the same object with a different label on it: a prepaid account with
- * a derived balance, topped up out of the Amazon Pay wallet. Everything that is
+ * a derived balance, topped up out of the Eshwaran Pay wallet. Everything that is
  * identical between them lives here so the two services differ only where they
  * actually differ -- a tag is keyed by a registration number, a card by a card
  * number, and their fare rules have nothing in common.
@@ -170,7 +170,7 @@ export async function topUp(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough. Add money and try again.',
     };
   }
 

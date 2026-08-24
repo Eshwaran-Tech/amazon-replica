@@ -6,7 +6,7 @@ import type { Paise } from '@/lib/utils/money';
  * App store and Play credit.
  *
  * A **scoped balance**, and the scope is the whole point. This is not the
- * Amazon Pay wallet with a different label on it: it buys digital content and
+ * Eshwaran Pay wallet with a different label on it: it buys digital content and
  * nothing else, it cannot be withdrawn, and it is spent before the wallet is
  * when a rental is paid for. That is exactly what a store credit is, and
  * pretending it were interchangeable with money would be the lie.

@@ -70,7 +70,7 @@ export default async function ConfirmationPage({ params }: PageProps) {
           <p className="text-ink-muted mt-2 text-sm">
             {formatPaise(order.total)} was taken from your{' '}
             <Link href="/pay/balance" className="text-link hover:underline">
-              Amazon Pay balance
+              Eshwaran Pay balance
             </Link>
             .
           </p>

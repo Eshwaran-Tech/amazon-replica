@@ -23,7 +23,7 @@ import { listPolicies } from '@/services/insurance-purchase';
 
 export const metadata: Metadata = {
   title: 'Vehicle insurance',
-  description: 'Compare motor cover for a car or a bike and pay from your Amazon Pay balance.',
+  description: 'Compare motor cover for a car or a bike and pay from your Eshwaran Pay balance.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -50,7 +50,7 @@ const FEATURES = [
   {
     icon: Wallet,
     title: 'Paid from your balance',
-    body: 'The premium leaves your Amazon Pay balance and lands in the same ledger as everything else you buy here.',
+    body: 'The premium leaves your Eshwaran Pay balance and lands in the same ledger as everything else you buy here.',
   },
   {
     icon: BadgeCheck,
@@ -82,7 +82,7 @@ export default async function InsurancePage({ searchParams }: Props) {
     <Container size="default" className="space-y-5 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -365,14 +365,14 @@ export default async function InsurancePage({ searchParams }: Props) {
         </Link>
 
         <Link
-          href="/help/amazon-pay"
+          href="/help/pay"
           className="border-hairline bg-surface hover:border-accent-500/60 flex items-start gap-3 rounded-2xl border p-4 transition-colors"
         >
           <span className="bg-accent-500/15 text-accent-400 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
             <CircleHelp className="h-5 w-5" aria-hidden="true" />
           </span>
           <span>
-            <span className="block text-sm font-bold">Questions about Amazon Pay</span>
+            <span className="block text-sm font-bold">Questions about Eshwaran Pay</span>
             <span className="text-ink-muted mt-0.5 block text-xs leading-relaxed">
               How the balance works, what a refund does, and where to raise a complaint.
             </span>

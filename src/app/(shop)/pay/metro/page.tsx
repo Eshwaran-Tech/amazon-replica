@@ -22,7 +22,7 @@ import { CardForms } from './card-forms';
 
 export const metadata: Metadata = {
   title: 'Metro card',
-  description: 'Recharge a metro card from your Amazon Pay balance and check what a journey costs.',
+  description: 'Recharge a metro card from your Eshwaran Pay balance and check what a journey costs.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -75,7 +75,7 @@ export default async function MetroPage({ searchParams }: Props) {
     <Container size="default" className="space-y-4 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -90,12 +90,12 @@ export default async function MetroPage({ searchParams }: Props) {
             Metro card
           </h1>
           <p className="text-ink-muted mt-1 text-sm">
-            One card per city, topped up from your Amazon Pay balance.
+            One card per city, topped up from your Eshwaran Pay balance.
           </p>
         </div>
         {wallet && (
           <p className="text-ink-muted text-sm">
-            Amazon Pay balance{' '}
+            Eshwaran Pay balance{' '}
             <span className="text-ink font-bold">{formatPaise(wallet.balance)}</span>
           </p>
         )}
@@ -106,7 +106,7 @@ export default async function MetroPage({ searchParams }: Props) {
         <p className="text-ink-muted">
           <span className="text-ink font-bold">No gate can see this card.</span> The networks are
           this store&rsquo;s own; the stations are real places and the fares follow the real slab
-          structure. The balance moves your actual Amazon Pay money — a journey appears on the card
+          structure. The balance moves your actual Eshwaran Pay money — a journey appears on the card
           only when you record one.
         </p>
       </div>
@@ -320,7 +320,7 @@ export default async function MetroPage({ searchParams }: Props) {
             <ul className="divide-hairline divide-y text-sm">
               {[
                 { label: 'FASTag and tolls', href: '/pay/fastag' },
-                { label: 'Add money to Amazon Pay', href: '/pay/balance' },
+                { label: 'Add money to Eshwaran Pay', href: '/pay/balance' },
                 { label: 'Train tickets', href: '/trains' },
                 { label: 'Ledger statement', href: '/pay/statement' },
               ].map((row) => (
@@ -341,7 +341,7 @@ export default async function MetroPage({ searchParams }: Props) {
       <p className="text-ink-subtle text-xs leading-relaxed">
         A recharge is at least ₹{MIN_METRO_TOP_UP}. The card&rsquo;s balance is summed from its
         ledger rather than kept in a column, so it and the ledger cannot drift apart — the same rule
-        the Amazon Pay balance follows.
+        the Eshwaran Pay balance follows.
       </p>
     </Container>
   );

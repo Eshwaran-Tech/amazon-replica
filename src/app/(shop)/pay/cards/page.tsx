@@ -75,7 +75,7 @@ export default async function PaymentOptionsPage() {
         <ul className="divide-hairline divide-y">
           {[
             { label: 'Instalments and what they cost', href: '/pay/emi' },
-            { label: 'Amazon Pay balance and statement', href: '/pay/balance' },
+            { label: 'Eshwaran Pay balance and statement', href: '/pay/balance' },
             { label: 'Your rewards', href: '/pay/rewards' },
             { label: 'Raise or review a ticket', href: '/pay/tickets' },
           ].map((row) => (

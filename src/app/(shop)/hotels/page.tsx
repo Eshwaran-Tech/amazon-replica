@@ -12,7 +12,7 @@ import { addDays, todayKey } from '@/services/hotels';
 export const metadata: Metadata = {
   title: 'Hotels',
   description:
-    'Search hotels across India and abroad, and pay for a stay from your Amazon Pay balance.',
+    'Search hotels across India and abroad, and pay for a stay from your Eshwaran Pay balance.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -67,7 +67,7 @@ export default async function HotelsPage() {
               {
                 icon: ShieldCheck,
                 title: 'One ledger',
-                body: 'A stay is a line in your Amazon Pay balance, next to every other thing this store has charged you.',
+                body: 'A stay is a line in your Eshwaran Pay balance, next to every other thing this store has charged you.',
               },
             ].map((item) => (
               <li key={item.title} className="border-hairline bg-surface rounded-xl border p-4">
@@ -128,7 +128,7 @@ export default async function HotelsPage() {
           photographed, because there is no building to photograph. No room is held with any hotel;
           what is real is the charge to your{' '}
           <Link href="/pay/balance" className="text-link hover:underline">
-            Amazon Pay balance
+            Eshwaran Pay balance
           </Link>
           .
         </p>

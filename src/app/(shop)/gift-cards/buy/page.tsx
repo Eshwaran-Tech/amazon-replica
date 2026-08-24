@@ -84,7 +84,7 @@ export default async function BuyGiftCardPage({ searchParams }: PageProps) {
     ? `${brand.name} Gift Card`
     : voucher
       ? voucher.name
-      : `${design ? occasionNoun(design.occasion) : 'Amazon Pay'} Gift Card`;
+      : `${design ? occasionNoun(design.occasion) : 'Eshwaran Pay'} Gift Card`;
 
   return (
     <>
@@ -187,7 +187,7 @@ export default async function BuyGiftCardPage({ searchParams }: PageProps) {
           The amount is summed on the server from the denomination and the quantity — this page
           sends no total. The code is minted when the payment clears and is redeemable once, through{' '}
           <Link href="/gift-cards/vouchers" className="text-link hover:underline">
-            Add to Amazon Pay balance
+            Add to Eshwaran Pay balance
           </Link>
           .
         </p>

@@ -25,7 +25,7 @@ import { TagForms } from './tag-forms';
 export const metadata: Metadata = {
   title: 'FASTag',
   description:
-    'Buy a FASTag, recharge it from your Amazon Pay balance, and see what a route costs.',
+    'Buy a FASTag, recharge it from your Eshwaran Pay balance, and see what a route costs.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -75,7 +75,7 @@ export default async function FastagPage({ searchParams }: Props) {
     <Container size="default" className="space-y-4 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -90,12 +90,12 @@ export default async function FastagPage({ searchParams }: Props) {
             FASTag
           </h1>
           <p className="text-ink-muted mt-1 text-sm">
-            One tag per vehicle, topped up from your Amazon Pay balance.
+            One tag per vehicle, topped up from your Eshwaran Pay balance.
           </p>
         </div>
         {wallet && (
           <p className="text-ink-muted text-sm">
-            Amazon Pay balance{' '}
+            Eshwaran Pay balance{' '}
             <span className="text-ink font-bold">{formatPaise(wallet.balance)}</span>
           </p>
         )}
@@ -106,7 +106,7 @@ export default async function FastagPage({ searchParams }: Props) {
         <p className="text-ink-muted">
           <span className="text-ink font-bold">No plaza can see this tag.</span> The issuers are
           invented and nothing here is registered with any tolling authority. The balance is real —
-          it moves your actual Amazon Pay money — and the toll figures apply the real rules. A
+          it moves your actual Eshwaran Pay money — and the toll figures apply the real rules. A
           crossing appears on the tag only when you record one.
         </p>
       </div>
@@ -296,7 +296,7 @@ export default async function FastagPage({ searchParams }: Props) {
               <ul className="divide-hairline divide-y text-sm">
                 {[
                   { label: 'Metro card recharge', href: '/pay/metro' },
-                  { label: 'Add money to Amazon Pay', href: '/pay/balance' },
+                  { label: 'Add money to Eshwaran Pay', href: '/pay/balance' },
                   { label: 'Vehicle insurance', href: '/insurance' },
                   { label: 'Ledger statement', href: '/pay/statement' },
                 ].map((row) => (
@@ -318,7 +318,7 @@ export default async function FastagPage({ searchParams }: Props) {
       <p className="text-ink-subtle text-xs leading-relaxed">
         A recharge is at least ₹{MIN_TAG_TOP_UP}. The amount is validated on the server against the
         issuer&rsquo;s book, and the tag&rsquo;s balance is summed from its ledger rather than kept
-        in a column — the same rule the Amazon Pay balance follows.
+        in a column — the same rule the Eshwaran Pay balance follows.
       </p>
     </Container>
   );

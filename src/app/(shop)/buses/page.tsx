@@ -39,7 +39,7 @@ const POPULAR_ROUTES: Array<[string, string]> = [
  * a results page with the same filters and sorts.
  *
  * **What is not reproduced.** The reference is "powered by redBus" and its
- * promo strip offers cashback on an Amazon Pay ICICI Bank credit card. Those
+ * promo strip offers cashback on an Eshwaran Pay ICICI Bank credit card. Those
  * are a real company's mark and a real bank's product. The operators listed in
  * its results -- Mahadev Travels, VRL, KSRTC and the rest -- are real
  * businesses, and inventing a 1.7-star rating for one of them is a false
@@ -106,7 +106,7 @@ export default function BusesPage() {
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {[
-              { icon: Wallet, text: 'Pay from your Amazon Pay balance' },
+              { icon: Wallet, text: 'Pay from your Eshwaran Pay balance' },
               { icon: BadgePercent, text: 'No booking or convenience fee' },
               { icon: ShieldCheck, text: 'Fares hold while you choose' },
             ].map((item) => (

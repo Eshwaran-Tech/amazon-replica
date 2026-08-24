@@ -189,7 +189,7 @@ export default async function SeatSelectionPage({ searchParams }: PageProps) {
         server from the seats you chose. No seat is reserved with any real bus company — what is
         real is the charge to your{' '}
         <Link href="/pay/balance" className="text-link hover:underline">
-          Amazon Pay balance
+          Eshwaran Pay balance
         </Link>
         .
       </p>

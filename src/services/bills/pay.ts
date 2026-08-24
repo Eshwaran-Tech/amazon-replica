@@ -36,7 +36,7 @@ import '@/lib/server-guard';
  *
  * **Nothing here is settled with any biller.** This store has no integration
  * with a discom, a bank or a municipality, and every page says so. What is real
- * is that the money leaves the Amazon Pay balance and lands in the same ledger
+ * is that the money leaves the Eshwaran Pay balance and lands in the same ledger
  * as everything else, with a reference that ties the two together.
  */
 
@@ -191,7 +191,7 @@ async function settle(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough. Add money and try again.',
     };
   }
 

@@ -17,7 +17,7 @@ import '@/lib/server-guard';
 /**
  * Rentals and channel subscriptions.
  *
- * Paid out of **App Store credit first, and the Amazon Pay wallet for whatever
+ * Paid out of **App Store credit first, and the Eshwaran Pay wallet for whatever
  * is left**. Credit is the more restricted instrument -- it buys digital
  * content and cannot be withdrawn -- so spending it first is both what a
  * customer would want and what every store that issues credit does. A customer
@@ -111,8 +111,8 @@ async function purchase(
       code: 'INSUFFICIENT_BALANCE',
       message:
         credit > 0
-          ? 'Your App Store credit and Amazon Pay balance together are not enough. Add money and try again.'
-          : 'Your Amazon Pay balance is not enough. Add money and try again.',
+          ? 'Your App Store credit and Eshwaran Pay balance together are not enough. Add money and try again.'
+          : 'Your Eshwaran Pay balance is not enough. Add money and try again.',
     };
   }
 

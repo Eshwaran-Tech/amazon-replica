@@ -25,7 +25,7 @@ import { DELIVERY_OPTIONS, designsFor, sampleDesigns } from '@/services/gift-sto
 export const metadata: Metadata = {
   title: 'Gift Cards',
   description:
-    'Send an Amazon Pay gift card for any occasion, or buy a brand card, paid from your Amazon Pay balance.',
+    'Send an Eshwaran Pay gift card for any occasion, or buy a brand card, paid from your Eshwaran Pay balance.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -59,7 +59,7 @@ export default async function GiftCardsPage() {
             Gift Cards
           </h1>
           <p className="text-ink-muted mt-1 text-sm">
-            Paid from your Amazon Pay balance. The code is minted when you pay, and it works once.
+            Paid from your Eshwaran Pay balance. The code is minted when you pay, and it works once.
           </p>
 
           <ul className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-7">
@@ -96,7 +96,7 @@ export default async function GiftCardsPage() {
         {/* ------------------------------------------------ how it is sent */}
         <section aria-labelledby="delivery">
           <h2 id="delivery" className="text-base font-bold">
-            Explore popular Amazon Pay Gift Cards
+            Explore popular Eshwaran Pay Gift Cards
           </h2>
           <ul className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {DELIVERY_OPTIONS.map((option) => (
@@ -258,7 +258,7 @@ export default async function GiftCardsPage() {
           anything. The card faces are drawn here rather than licensed. What is real is the money:
           buying debits your{' '}
           <Link href="/pay/balance" className="text-link hover:underline">
-            Amazon Pay balance
+            Eshwaran Pay balance
           </Link>{' '}
           and mints a code that credits somebody else&apos;s, exactly once.
         </p>

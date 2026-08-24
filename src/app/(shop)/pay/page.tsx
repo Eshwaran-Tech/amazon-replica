@@ -48,12 +48,12 @@ import { getWalletSummary } from '@/services/wallet';
 import { cn } from '@/lib/utils/cn';
 
 export const metadata: Metadata = {
-  title: 'Amazon Pay',
-  description: 'Your Amazon Pay balance, recharges, bill payments, gift cards and transactions.',
+  title: 'Eshwaran Pay',
+  description: 'Your Eshwaran Pay balance, recharges, bill payments, gift cards and transactions.',
 };
 
 /**
- * The Amazon Pay landing page.
+ * The Eshwaran Pay landing page.
  *
  * Laid out to the reference: a balance card down the left, then grouped tiles
  * (Travel, Recharges, Bill Payments, ...) and a stack of promotional rows.
@@ -149,7 +149,7 @@ const GROUPS: TileGroup[] = [
     tiles: [
       { label: 'Add Gift Card', icon: Gift, href: '/pay/gift-cards' },
       { label: 'Gift Cards', icon: Gift, href: '/gift-cards' },
-      { label: 'Amazon Vouchers', icon: Ticket, href: '/gift-cards/vouchers' },
+      { label: 'Eshwaran Vouchers', icon: Ticket, href: '/gift-cards/vouchers' },
       { label: 'Brand Vouchers', icon: Ticket, href: '/gift-cards/brands' },
       { label: 'Birthday Gift Cards', icon: Gift, href: '/gift-cards/birthday' },
       { label: 'Wedding Gift Cards', icon: Gift, href: '/gift-cards/wedding' },
@@ -164,7 +164,7 @@ const GROUPS: TileGroup[] = [
       { label: 'Your Rewards', icon: Percent, href: '/pay/rewards' },
       { label: 'EMI', icon: CalendarClock, href: '/pay/emi' },
       { label: 'Your Saved Cards', icon: CreditCard, href: '/pay/cards' },
-      { label: 'Help and FAQs', icon: CircleHelp, href: '/help/amazon-pay' },
+      { label: 'Help and FAQs', icon: CircleHelp, href: '/help/pay' },
       { label: 'Ledger statement', icon: ScrollText, href: '/pay/statement' },
       { label: 'Complaint History', icon: BookOpen, href: '/pay/tickets' },
     ],
@@ -256,7 +256,7 @@ function TileItem({ tile }: { tile: Tile }) {
   );
 }
 
-export default async function AmazonPayPage() {
+export default async function PayPage() {
   const liveCount = GROUPS.flatMap((group) => group.tiles).filter((tile) => tile.href).length;
   const totalCount = GROUPS.flatMap((group) => group.tiles).length;
 
@@ -267,7 +267,7 @@ export default async function AmazonPayPage() {
 
   return (
     <Container size="wide" className="py-5 sm:py-7">
-      <h1 className="text-xl font-bold sm:text-2xl">Amazon Pay</h1>
+      <h1 className="text-xl font-bold sm:text-2xl">Eshwaran Pay</h1>
 
       {/* Said plainly rather than discovered by clicking. */}
       <p className="text-ink-muted mt-1 text-sm">
@@ -285,7 +285,7 @@ export default async function AmazonPayPage() {
           >
             <div className="flex items-baseline justify-between gap-2">
               <h2 id="pay-balance" className="text-sm font-bold">
-                Amazon Pay Balance
+                Eshwaran Pay Balance
               </h2>
               <Link
                 href="/pay/balance"
@@ -382,7 +382,7 @@ export default async function AmazonPayPage() {
           </ul>
 
           <p className="text-ink-subtle px-1 text-xs leading-relaxed">
-            Amazon Pay is a demonstration surface in this project. Nothing here moves money, and no
+            Eshwaran Pay is a demonstration surface in this project. Nothing here moves money, and no
             payment instrument is stored. See{' '}
             <Link href="/help" className="text-link hover:underline">
               Help &amp; customer service

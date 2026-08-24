@@ -435,7 +435,7 @@ export default async function QuotesPage({ searchParams }: Props) {
                   idv={idv}
                   claimFreeYears={claimFreeYears}
                   addOnIds={chosen}
-                  label={`Pay ${formatPaise(quote.total)} from Amazon Pay`}
+                  label={`Pay ${formatPaise(quote.total)} from Eshwaran Pay`}
                   csrfField={<CsrfField />}
                 />
               </article>
@@ -446,7 +446,7 @@ export default async function QuotesPage({ searchParams }: Props) {
             <Info className="text-link mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
             <p className="text-ink-muted">
               <span className="text-ink font-bold">No cover is being sold.</span> These insurers are
-              invented and these rates are illustrative. Paying moves money out of your Amazon Pay
+              invented and these rates are illustrative. Paying moves money out of your Eshwaran Pay
               balance and records what it was for; it does not put a contract of insurance in force
               anywhere.
             </p>

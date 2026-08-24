@@ -18,13 +18,13 @@ const TOPICS: Array<{ title: string; body: string; href?: string; linkLabel?: st
   },
   {
     title: 'Returns and refunds',
-    body: 'Orders can be cancelled until they are shipped. A paid order that is cancelled is refunded in full to the original payment method; refunds typically reach you within 5-7 business days. An order paid from your Amazon Pay balance is refunded to that balance immediately.',
+    body: 'Orders can be cancelled until they are shipped. A paid order that is cancelled is refunded in full to the original payment method; refunds typically reach you within 5-7 business days. An order paid from your Eshwaran Pay balance is refunded to that balance immediately.',
     href: '/orders',
     linkLabel: 'Cancel an order',
   },
   {
     title: 'Payments',
-    body: 'Your Amazon Pay balance, cards, UPI, net banking and cash on delivery are accepted. Paying from your balance settles the order as it is placed. Online payments are confirmed by the payment provider before an order is confirmed -- never by the browser.',
+    body: 'Your Eshwaran Pay balance, cards, UPI, net banking and cash on delivery are accepted. Paying from your balance settles the order as it is placed. Online payments are confirmed by the payment provider before an order is confirmed -- never by the browser.',
   },
   {
     title: 'Delivery',

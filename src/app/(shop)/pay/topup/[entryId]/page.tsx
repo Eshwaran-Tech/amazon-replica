@@ -45,7 +45,7 @@ export default async function TopUpPage({ params }: PageProps) {
     <Container size="narrow" className="py-6 sm:py-8">
       <nav aria-label="Breadcrumb" className="text-ink-muted mb-3 text-sm">
         <Link href="/pay/balance" className="hover:text-link hover:underline">
-          Amazon Pay balance
+          Eshwaran Pay balance
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›

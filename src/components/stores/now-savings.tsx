@@ -95,7 +95,7 @@ export function SavingsPanel({ children }: { children: React.ReactNode }) {
           <div className="sm:pl-4">
             <Column
               title="Cashback"
-              lines={['Credited to your Amazon Pay', 'balance as the order is placed']}
+              lines={['Credited to your Eshwaran Pay', 'balance as the order is placed']}
             />
           </div>
         </div>

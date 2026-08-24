@@ -144,7 +144,7 @@ export default function CorporateGiftingPage() {
             Workplace card designs
           </h2>
           <p className="text-ink-muted mt-1 text-xs">
-            Every one buyable now, from your Amazon Pay balance, one at a time or fifty.
+            Every one buyable now, from your Eshwaran Pay balance, one at a time or fifty.
           </p>
 
           <div className="mt-4 space-y-5">

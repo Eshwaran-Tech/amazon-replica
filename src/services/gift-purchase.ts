@@ -28,7 +28,7 @@ import '@/lib/server-guard';
  * Buying a gift card.
  *
  * The loop this closes is the whole point of the storefront: paying debits your
- * Amazon Pay balance and mints a real card, whose code someone else can redeem
+ * Eshwaran Pay balance and mints a real card, whose code someone else can redeem
  * into theirs through the existing `redeemGiftCard`. Nothing here is a mock-up
  * of a purchase -- money moves, a card exists, and the code works exactly once.
  *
@@ -190,7 +190,7 @@ export async function buyGiftCard(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough. Add money and try again.',
     };
   }
 

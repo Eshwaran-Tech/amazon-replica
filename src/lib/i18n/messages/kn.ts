@@ -203,7 +203,7 @@ export const kn: Messages = {
   'auth.resendOtp': 'OTP ಮರುಕಳುಹಿಸಿ',
   'auth.sendOtp': 'OTP ಕಳುಹಿಸಿ',
   'auth.signInWithPassword': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್‌ನೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
-  'auth.newToAmazon': `ನೀವು ${BRAND_NAME} ಗೆ ಹೊಸಬರೆಂದು ತೋರುತ್ತದೆ`,
+  'auth.newToBrand': `ನೀವು ${BRAND_NAME} ಗೆ ಹೊಸಬರೆಂದು ತೋರುತ್ತದೆ`,
   'auth.createUsing': 'ನಿಮ್ಮ {where} ಬಳಸಿ ಖಾತೆ ರಚಿಸೋಣ',
   'auth.proceedCreate': 'ಖಾತೆ ರಚಿಸಲು ಮುಂದುವರಿಯಿರಿ',
   'auth.alreadyCustomer': 'ಈಗಾಗಲೇ ಗ್ರಾಹಕರೇ?',

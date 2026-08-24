@@ -10,7 +10,7 @@ import { WALLET_ENTRY_TYPES, type WalletEntryType } from '@/models/wallet';
 import { buildStatement, monthPeriod, recentMonths } from '@/services/statement';
 
 export const metadata: Metadata = {
-  title: 'Amazon Pay statement',
+  title: 'Eshwaran Pay statement',
   robots: { index: false, follow: false },
 };
 
@@ -106,7 +106,7 @@ export default async function StatementPage({ searchParams }: PageProps) {
     <Container size="wide" className="space-y-4 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›

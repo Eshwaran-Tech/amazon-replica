@@ -90,7 +90,7 @@ export const EMI_ISSUERS: readonly EmiIssuer[] = [
   },
   {
     id: 'pay-later',
-    name: 'Amazon Pay Later',
+    name: 'Eshwaran Pay Later',
     kind: 'PAY_LATER',
     annualRate: 18,
     processingPercent: 2,
@@ -122,6 +122,6 @@ export const EMI_EXCLUSIONS: readonly string[] = [
   'Gift cards and vouchers, which are cash equivalents',
   'Digital downloads and subscriptions',
   'Orders below the issuer’s minimum transaction value',
-  'Orders paid partly from the Amazon Pay balance',
+  'Orders paid partly from the Eshwaran Pay balance',
   'Items sold by a seller who has not enabled instalments',
 ];

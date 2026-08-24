@@ -230,7 +230,7 @@ export default async function BookTrainPage({ searchParams }: PageProps) {
         this page sends no amount. No berth is reserved with Indian Railways; what is real is the
         charge to your{' '}
         <Link href="/pay/balance" className="text-link hover:underline">
-          Amazon Pay balance
+          Eshwaran Pay balance
         </Link>
         .
       </p>

@@ -236,7 +236,7 @@ export async function renewPolicyAction(_prev: FormState, formData: FormData): P
 
   return {
     ok: true,
-    message: `Renewed. ${formatPaise(result.premium)} paid from your Amazon Pay balance, and the new policy is ${result.policyNumber}.`,
+    message: `Renewed. ${formatPaise(result.premium)} paid from your Eshwaran Pay balance, and the new policy is ${result.policyNumber}.`,
   };
 }
 

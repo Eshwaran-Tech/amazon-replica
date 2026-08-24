@@ -218,7 +218,7 @@ export const en = {
   'auth.resendOtp': 'Resend OTP',
   'auth.sendOtp': 'Send OTP',
   'auth.signInWithPassword': 'Sign in with your password',
-  'auth.newToAmazon': `It looks like you are new to ${BRAND_NAME}`,
+  'auth.newToBrand': `It looks like you are new to ${BRAND_NAME}`,
   'auth.createUsing': "Let's create an account using your {where}",
   'auth.proceedCreate': 'Proceed to create an account',
   'auth.alreadyCustomer': 'Already a customer?',

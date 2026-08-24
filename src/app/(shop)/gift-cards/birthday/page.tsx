@@ -6,7 +6,7 @@ import { findOccasion } from '@/data/gift-occasions';
 
 export const metadata: Metadata = {
   title: 'Birthday Gift Cards',
-  description: 'Birthday gift cards, paid from your Amazon Pay balance.',
+  description: 'Birthday gift cards, paid from your Eshwaran Pay balance.',
 };
 
 /**

@@ -203,7 +203,7 @@ export const te: Messages = {
   'auth.resendOtp': 'OTP మళ్ళీ పంపండి',
   'auth.sendOtp': 'OTP పంపండి',
   'auth.signInWithPassword': 'మీ పాస్‌వర్డ్‌తో సైన్ ఇన్ చేయండి',
-  'auth.newToAmazon': `మీరు ${BRAND_NAME} కు కొత్తవారిలా ఉన్నారు`,
+  'auth.newToBrand': `మీరు ${BRAND_NAME} కు కొత్తవారిలా ఉన్నారు`,
   'auth.createUsing': 'మీ {where}తో ఖాతా సృష్టిద్దాం',
   'auth.proceedCreate': 'ఖాతా సృష్టించడానికి కొనసాగండి',
   'auth.alreadyCustomer': 'ఇప్పటికే కస్టమరా?',

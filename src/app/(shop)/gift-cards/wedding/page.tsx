@@ -6,7 +6,7 @@ import { findOccasion } from '@/data/gift-occasions';
 
 export const metadata: Metadata = {
   title: 'Wedding & Engagement Gift Cards',
-  description: 'Wedding and engagement gift cards, paid from your Amazon Pay balance.',
+  description: 'Wedding and engagement gift cards, paid from your Eshwaran Pay balance.',
 };
 
 /**

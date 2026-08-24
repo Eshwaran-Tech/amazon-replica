@@ -31,7 +31,7 @@ const PAYMENT_METHOD_LABELS: Record<PaymentMethod, string> = {
   UPI: 'UPI',
   NETBANKING: 'Net banking',
   COD: 'Cash on delivery',
-  WALLET: 'Amazon Pay balance',
+  WALLET: 'Eshwaran Pay balance',
 };
 
 const dateFormat = new Intl.DateTimeFormat('en-IN', {
@@ -189,7 +189,7 @@ export default async function OrderDetailPage({ params, searchParams }: PageProp
             <p className="text-instock mt-1 text-xs">
               {formatPaise(order.total)} was returned to your{' '}
               <Link href="/pay/balance" className="text-link hover:underline">
-                Amazon Pay balance
+                Eshwaran Pay balance
               </Link>
               .
             </p>

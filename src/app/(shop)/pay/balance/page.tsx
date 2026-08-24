@@ -12,12 +12,12 @@ import type { WalletEntryType } from '@/models/wallet';
 import { getWalletSummary, listWalletEntries } from '@/services/wallet';
 
 export const metadata: Metadata = {
-  title: 'Amazon Pay balance',
-  description: 'Your Amazon Pay balance, wallet, gift cards and vouchers.',
+  title: 'Eshwaran Pay balance',
+  description: 'Your Eshwaran Pay balance, wallet, gift cards and vouchers.',
 };
 
 /**
- * The Amazon Pay balance screen, reached from "Add Money" on `/pay`.
+ * The Eshwaran Pay balance screen, reached from "Add Money" on `/pay`.
  *
  * Laid out to the reference: the balance and its breakdown on the left above
  * the top-up panel, and a column of onward links on the right.
@@ -113,7 +113,7 @@ export default async function PayBalancePage({ searchParams }: PageProps) {
     <Container size="default" className="py-5 sm:py-7">
       <nav aria-label="Breadcrumb" className="text-ink-muted mb-3 text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -121,7 +121,7 @@ export default async function PayBalancePage({ searchParams }: PageProps) {
         <span className="text-ink">Balance</span>
       </nav>
 
-      <h1 className="text-xl font-bold sm:text-2xl">Amazon Pay balance</h1>
+      <h1 className="text-xl font-bold sm:text-2xl">Eshwaran Pay balance</h1>
 
       {added === '1' && (
         <div className="mt-3">
@@ -209,7 +209,7 @@ export default async function PayBalancePage({ searchParams }: PageProps) {
             className="border-hairline bg-surface overflow-hidden rounded-2xl border"
           >
             <h2 id="do-more" className="border-hairline border-b px-4 py-3 text-sm font-bold">
-              Do more with Amazon Pay Balance
+              Do more with Eshwaran Pay Balance
             </h2>
             <ul className="divide-hairline divide-y">
               {DO_MORE.map((row) => (
@@ -303,7 +303,7 @@ export default async function PayBalancePage({ searchParams }: PageProps) {
             gateway, gift cards you have redeemed, and everything you have spent. Vouchers have no
             ledger yet, so that row is genuinely zero rather than sample data — see the{' '}
             <Link href="/pay" className="text-link hover:underline">
-              Amazon Pay
+              Eshwaran Pay
             </Link>{' '}
             directory, where unavailable services are marked.
             <span className="mt-2 flex items-start gap-1.5">

@@ -107,7 +107,7 @@ export async function buyMotorPolicyAction(
     message:
       'Cover in place. ' +
       formatPaise(result.premium) +
-      ' paid from your Amazon Pay balance. Policy ' +
+      ' paid from your Eshwaran Pay balance. Policy ' +
       result.policyNumber +
       '.',
   };
@@ -177,7 +177,7 @@ export async function buyHealthPolicyAction(
     message:
       'Cover in place. ' +
       formatPaise(result.premium) +
-      ' paid from your Amazon Pay balance. Policy ' +
+      ' paid from your Eshwaran Pay balance. Policy ' +
       result.policyNumber +
       '.',
   };

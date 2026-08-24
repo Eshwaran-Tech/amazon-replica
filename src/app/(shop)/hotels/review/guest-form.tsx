@@ -99,7 +99,7 @@ export function GuestForm({ stay, total, balance, signedIn, defaultName, csrfFie
         )}
 
         <p className="text-ink-subtle text-center text-xs">
-          Paid from your Amazon Pay balance ({formatPaise(balance)}).
+          Paid from your Eshwaran Pay balance ({formatPaise(balance)}).
           {short && signedIn && (
             <span className="text-deal"> {formatPaise(total - balance)} short.</span>
           )}

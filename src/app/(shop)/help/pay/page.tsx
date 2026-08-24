@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { Container } from '@/components/layout/container';
 
 export const metadata: Metadata = {
-  title: 'Amazon Pay help',
+  title: 'Eshwaran Pay help',
   description: 'Help topics for balance, gift cards, recharges, travel and payments.',
 };
 
 /**
- * Amazon Pay help.
+ * Eshwaran Pay help.
  *
  * Laid out to the reference: a sidebar of topics, grouped link lists, and a
  * recommended shortlist.
@@ -30,7 +30,7 @@ const GROUPS: Array<{ heading: string; topics: Topic[] }> = [
   {
     heading: 'Your balance',
     topics: [
-      { label: 'See your Amazon Pay balance', href: '/pay/balance' },
+      { label: 'See your Eshwaran Pay balance', href: '/pay/balance' },
       { label: 'Read your statement', href: '/pay/statement' },
       { label: 'Add money to your balance', href: '/pay/balance' },
       { label: 'Download a statement as CSV', href: '/pay/statement' },
@@ -81,7 +81,7 @@ const GROUPS: Array<{ heading: string; topics: Topic[] }> = [
 ];
 
 const RECOMMENDED: Topic[] = [
-  { label: 'Amazon Pay balance', href: '/pay/balance' },
+  { label: 'Eshwaran Pay balance', href: '/pay/balance' },
   { label: 'Statement and downloads', href: '/pay/statement' },
   { label: 'Gift cards', href: '/gift-cards' },
   { label: 'Instalments', href: '/pay/emi' },
@@ -96,7 +96,7 @@ const ANSWERS: Array<{ question: string; answer: string }> = [
       'Only settled entries move it. A top-up that is still pending, or one that failed, is listed on the statement but changes nothing — the balance column shows a dash against those rows for that reason.',
   },
   {
-    question: 'Can I get money out of my Amazon Pay balance?',
+    question: 'Can I get money out of my Eshwaran Pay balance?',
     answer:
       'No. The balance is spendable in this store and nowhere else, and there is no withdrawal path. Anything credited to it — a refund, cashback, a redeemed gift card — stays there until it is spent.',
   },
@@ -112,7 +112,7 @@ const ANSWERS: Array<{ question: string; answer: string }> = [
   },
 ];
 
-export default function AmazonPayHelpPage() {
+export default function PayHelpPage() {
   return (
     <Container size="wide" className="py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted mb-3 text-sm">
@@ -122,7 +122,7 @@ export default function AmazonPayHelpPage() {
         <span className="mx-1.5" aria-hidden="true">
           ›
         </span>
-        <span className="text-ink">Amazon Pay</span>
+        <span className="text-ink">Eshwaran Pay</span>
       </nav>
 
       <div className="gap-6 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:items-start">
@@ -161,7 +161,7 @@ export default function AmazonPayHelpPage() {
           <header>
             <h1 className="flex items-center gap-2 text-lg font-bold sm:text-xl">
               <LifeBuoy className="text-accent-400 h-5 w-5" aria-hidden="true" />
-              Amazon Pay
+              Eshwaran Pay
             </h1>
             <p className="text-ink-muted mt-1 text-sm">
               Balance, gift cards, recharges, travel and payments — and what to do when one of them

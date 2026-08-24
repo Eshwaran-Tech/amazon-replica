@@ -27,7 +27,7 @@ import '@/lib/server-guard';
  * **This store issues no insurance.** Nothing below creates a contract of
  * insurance, and no risk is carried by anybody -- see the notes in
  * `data/insurers.ts` and `data/health-plans.ts`. What it does is move money out
- * of the Amazon Pay wallet and write down what it was for, so a premium behaves
+ * of the Eshwaran Pay wallet and write down what it was for, so a premium behaves
  * like every other charge in this codebase: one ledger, one reference.
  *
  * **The premium is recomputed on the server.** The form carries a vehicle, an
@@ -200,7 +200,7 @@ async function persist(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough for this premium. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough for this premium. Add money and try again.',
     };
   }
 

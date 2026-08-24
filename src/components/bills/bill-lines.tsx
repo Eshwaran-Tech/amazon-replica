@@ -107,7 +107,7 @@ export function NoBillerNotice({ what, noun = 'bill' }: { what: string; noun?: s
         <span className="text-ink font-bold">No {what} can see this.</span> This store has no
         connection to any biller, so the {noun} below is worked out from the number you typed and is
         the same every time for that number. The{' '}
-        <span className="text-ink font-bold">money is real</span> — it leaves your Amazon Pay
+        <span className="text-ink font-bold">money is real</span> — it leaves your Eshwaran Pay
         balance — and the <span className="text-ink font-bold">arithmetic is real</span>: the tariff
         structure, the slabs and the charges are how this bill is genuinely put together.
       </p>

@@ -35,7 +35,7 @@ import '@/lib/server-guard';
  * A scoped balance, derived from a ledger. The rules that make it a credit
  * rather than a second wallet:
  *
- *  - It is **spent before the Amazon Pay balance** on anything it covers, which
+ *  - It is **spent before the Eshwaran Pay balance** on anything it covers, which
  *    is what `spendCredit` is for and why the video rentals call it.
  *  - It **cannot be withdrawn**, and there is deliberately no path here that
  *    moves it back into the wallet.
@@ -129,7 +129,7 @@ export type TopUpResult =
     };
 
 /**
- * Buys credit out of the Amazon Pay balance.
+ * Buys credit out of the Eshwaran Pay balance.
  *
  * The bonus is computed here from the amount, never taken from the form -- so a
  * tampered bonus field has nowhere to land.
@@ -173,7 +173,7 @@ export async function topUpCredit(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough. Add money and try again.',
     };
   }
 

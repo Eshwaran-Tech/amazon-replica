@@ -52,7 +52,7 @@ const METHOD_LABELS: Record<PaymentMethod, string> = {
   UPI: 'UPI',
   NETBANKING: 'Net banking',
   COD: 'Cash on delivery',
-  WALLET: 'Amazon Pay balance',
+  WALLET: 'Eshwaran Pay balance',
 };
 
 const cardClass = 'border-hairline bg-surface rounded-2xl border p-4 sm:p-5';

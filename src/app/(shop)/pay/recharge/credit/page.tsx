@@ -34,7 +34,7 @@ export const dynamic = 'force-dynamic';
  *
  * **This is not the wallet with a different name on it**, and the page leads
  * with why. Store credit is *scoped*: it buys digital content here and nothing
- * else, it cannot be withdrawn, and it is **spent before the Amazon Pay balance**
+ * else, it cannot be withdrawn, and it is **spent before the Eshwaran Pay balance**
  * whenever you rent something or take a channel. That last part is not a claim —
  * `services/video.ts` genuinely draws on it first.
  *
@@ -76,7 +76,7 @@ export default async function CreditPage({ searchParams }: Props) {
     <Container size="default" className="space-y-4 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -91,13 +91,13 @@ export default async function CreditPage({ searchParams }: Props) {
             App Store and Play credit
           </h1>
           <p className="text-ink-muted mt-1 max-w-prose text-sm">
-            A separate balance for digital content — spent before your Amazon Pay balance whenever
+            A separate balance for digital content — spent before your Eshwaran Pay balance whenever
             you rent or subscribe to something here.
           </p>
         </div>
         {wallet && (
           <p className="text-ink-muted text-sm">
-            Amazon Pay balance{' '}
+            Eshwaran Pay balance{' '}
             <span className="text-ink font-bold">{formatPaise(wallet.balance)}</span>
           </p>
         )}

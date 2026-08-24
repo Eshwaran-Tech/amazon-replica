@@ -203,7 +203,7 @@ export const bn: Messages = {
   'auth.resendOtp': 'OTP আবার পাঠান',
   'auth.sendOtp': 'OTP পাঠান',
   'auth.signInWithPassword': 'আপনার পাসওয়ার্ড দিয়ে সাইন ইন করুন',
-  'auth.newToAmazon': `মনে হচ্ছে আপনি ${BRAND_NAME}-এ নতুন`,
+  'auth.newToBrand': `মনে হচ্ছে আপনি ${BRAND_NAME}-এ নতুন`,
   'auth.createUsing': 'আপনার {where} দিয়ে একটি অ্যাকাউন্ট তৈরি করা যাক',
   'auth.proceedCreate': 'অ্যাকাউন্ট তৈরি করতে এগিয়ে যান',
   'auth.alreadyCustomer': 'ইতিমধ্যে গ্রাহক?',

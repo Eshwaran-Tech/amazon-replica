@@ -73,7 +73,7 @@ export function findDelivery(id: string | null | undefined): DeliveryOption | un
   return DELIVERY_OPTIONS.find((option) => option.id === wanted);
 }
 
-/** Denominations an Amazon Pay gift card is sold in, in whole rupees. */
+/** Denominations an Eshwaran Pay gift card is sold in, in whole rupees. */
 export const DENOMINATIONS = [100, 250, 500, 1000, 2000, 5000, 10_000] as const;
 
 /** A custom amount is allowed between these, as the reference permits. */
@@ -89,7 +89,7 @@ export const MAX_MESSAGE = 240;
 /**
  * Voucher kinds.
  *
- * The reference shows four balances. This store keeps one Amazon Pay balance
+ * The reference shows four balances. This store keeps one Eshwaran Pay balance
  * and records which kind a voucher was, because pretending to hold four
  * separately spendable pots would be a lie the checkout would immediately
  * expose. What each kind means is printed on the page.
@@ -303,7 +303,7 @@ export interface GiftListing {
 export function designListings(): GiftListing[] {
   return allDesigns().map((design) => ({
     id: design.id,
-    title: `Amazon Pay Gift Card | ${design.occasion.name}`,
+    title: `Eshwaran Pay Gift Card | ${design.occasion.name}`,
     subtitle: design.greeting,
     artwork: design.artwork,
     fromRupees: MIN_AMOUNT_RUPEES,

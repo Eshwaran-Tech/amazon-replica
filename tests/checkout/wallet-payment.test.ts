@@ -23,7 +23,7 @@ import { ensurePaymentIntent } from '@/services/payment';
 import { completeTopUp, createTopUp, getWalletSummary } from '@/services/wallet';
 
 /**
- * Paying for an order from the Amazon Pay balance.
+ * Paying for an order from the Eshwaran Pay balance.
  *
  * The point of this method is that the money and the order move together, so
  * the assertions are against the ledger and the order document rather than

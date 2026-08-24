@@ -17,7 +17,7 @@ import '@/lib/server-guard';
 /**
  * Train ticket booking.
  *
- * Paid from the Amazon Pay wallet, like everything else this store sells, so
+ * Paid from the Eshwaran Pay wallet, like everything else this store sells, so
  * one ledger holds the lot.
  *
  * The train and the class are re-derived from the route, date, number and class
@@ -180,7 +180,7 @@ export async function bookTrain(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough. Add money and try again.',
     };
   }
 

@@ -151,7 +151,7 @@ export async function setAutoReloadAction(
   return {
     ok: true,
     message: enabled
-      ? `On. When the balance falls below ₹${threshold}, ₹${amount} will be added from your Amazon Pay balance.`
+      ? `On. When the balance falls below ₹${threshold}, ₹${amount} will be added from your Eshwaran Pay balance.`
       : 'Automatic reload is off. Nothing will be charged without you pressing it.',
   };
 }

@@ -44,7 +44,7 @@ import '@/lib/server-guard';
  *     returns it instead of charging twice.
  *
  *  4. **A wallet payment is part of the same transaction.** When the customer
- *     pays from their Amazon Pay balance, the balance is read and the debit is
+ *     pays from their Eshwaran Pay balance, the balance is read and the debit is
  *     written inside this transaction, alongside the stock decrement and the
  *     order insert. Either all of it happened or none of it did: there is no
  *     window in which the wallet is charged for an order that does not exist,
@@ -227,7 +227,7 @@ export async function placeOrder(
       const isCod = input.paymentMethod === 'COD';
       const isWallet = input.paymentMethod === 'WALLET';
 
-      // ---- charging the Amazon Pay balance ------------------------------
+      // ---- charging the Eshwaran Pay balance ------------------------------
       // Read inside the transaction, so the figure the charge is checked
       // against is the one the debit is written against. Two checkouts by the
       // same customer cannot both pass: both also clear the same cart
@@ -238,7 +238,7 @@ export async function placeOrder(
           failure = {
             ok: false,
             code: 'INSUFFICIENT_BALANCE',
-            message: `Your Amazon Pay balance is ${formatPaise(balance)}, which does not cover ${formatPaise(totals.total)}. Add money or choose another payment method.`,
+            message: `Your Eshwaran Pay balance is ${formatPaise(balance)}, which does not cover ${formatPaise(totals.total)}. Add money or choose another payment method.`,
           };
           await session.abortTransaction();
           return;
@@ -280,7 +280,7 @@ export async function placeOrder(
             at: now,
             byUserId: null,
             note: isWallet
-              ? 'Order placed and paid from Amazon Pay balance'
+              ? 'Order placed and paid from Eshwaran Pay balance'
               : isCod
                 ? 'Order placed (cash on delivery)'
                 : 'Order placed, awaiting payment',

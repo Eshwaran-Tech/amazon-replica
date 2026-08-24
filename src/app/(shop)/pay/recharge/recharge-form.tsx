@@ -273,7 +273,7 @@ export function RechargeForm({ operators, circles, plans, balance, signedIn, csr
               </a>
             )}
             <p className="text-ink-subtle text-center text-xs">
-              Paid from your Amazon Pay balance ({formatPaise(balance)}).
+              Paid from your Eshwaran Pay balance ({formatPaise(balance)}).
               {plan && balance < plan.paise && (
                 <span className="text-deal"> {formatPaise(plan.paise - balance)} short.</span>
               )}

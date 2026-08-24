@@ -223,7 +223,7 @@ export function PassengerForm({
         </div>
 
         <p className="text-ink-subtle mt-2 text-center text-xs">
-          Paid from your Amazon Pay balance ({formatPaise(balance)}).
+          Paid from your Eshwaran Pay balance ({formatPaise(balance)}).
           {filled > 0 && balance < total && (
             <span className="text-deal"> {formatPaise(total - balance)} short.</span>
           )}

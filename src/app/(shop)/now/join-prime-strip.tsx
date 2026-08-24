@@ -80,7 +80,7 @@ export function JoinPrimeStrip({
       </form>
 
       <p className="text-ink-subtle mt-1.5 text-[11px]">
-        Charged to your Amazon Pay balance. The benefit applies to the next order you place.
+        Charged to your Eshwaran Pay balance. The benefit applies to the next order you place.
       </p>
     </div>
   );

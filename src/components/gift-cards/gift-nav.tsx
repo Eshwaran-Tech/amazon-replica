@@ -17,7 +17,7 @@ export const GIFT_TABS = [
   { href: '/gift-cards/wedding', label: 'Wedding & Engagement' },
   { href: '/gift-cards/occasions', label: 'By Occasion' },
   { href: '/gift-cards/brands', label: 'By Brand' },
-  { href: '/gift-cards/vouchers', label: 'Add to Amazon Pay balance' },
+  { href: '/gift-cards/vouchers', label: 'Add to Eshwaran Pay balance' },
   { href: '/gift-cards/corporate', label: 'Corporate Gifting' },
 ] as const;
 

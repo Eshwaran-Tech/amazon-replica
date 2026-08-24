@@ -14,7 +14,7 @@ import {
 
 export const metadata: Metadata = {
   title: 'Brand Gift Cards',
-  description: 'Gift cards for the brands this store carries, paid from your Amazon Pay balance.',
+  description: 'Gift cards for the brands this store carries, paid from your Eshwaran Pay balance.',
 };
 
 /**
@@ -40,7 +40,7 @@ export default function BrandGiftCardsPage() {
             Brand Gift Cards Store
           </h1>
           <p className="text-ink-muted mt-1 text-sm">
-            A simple way to shop and save on brands. Paid from your Amazon Pay balance.
+            A simple way to shop and save on brands. Paid from your Eshwaran Pay balance.
           </p>
         </header>
 
@@ -90,7 +90,7 @@ export default function BrandGiftCardsPage() {
           none of them borrows a real retailer&apos;s name or mark. What is real is the mechanism:
           buying one debits your{' '}
           <Link href="/pay/balance" className="text-link hover:underline">
-            Amazon Pay balance
+            Eshwaran Pay balance
           </Link>{' '}
           and mints a code that redeems exactly once.
         </p>

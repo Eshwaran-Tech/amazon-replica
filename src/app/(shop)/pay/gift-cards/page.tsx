@@ -11,8 +11,8 @@ import { getWalletSummary } from '@/services/wallet';
 import { RedeemGiftCardForm } from './redeem-form';
 
 export const metadata: Metadata = {
-  title: 'Amazon Pay Gift card',
-  description: 'Add a gift card to your Amazon Pay balance.',
+  title: 'Eshwaran Pay Gift card',
+  description: 'Add a gift card to your Eshwaran Pay balance.',
 };
 
 /**
@@ -32,7 +32,7 @@ export default async function GiftCardsPage() {
     <Container size="default" className="py-5 sm:py-7">
       <nav aria-label="Breadcrumb" className="text-ink-muted mb-3 text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -40,7 +40,7 @@ export default async function GiftCardsPage() {
         <span className="text-ink">Gift cards</span>
       </nav>
 
-      <h1 className="text-xl font-bold sm:text-2xl">Amazon Pay Gift card</h1>
+      <h1 className="text-xl font-bold sm:text-2xl">Eshwaran Pay Gift card</h1>
 
       <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-5">
         {/* --------------------------------------------------------- left */}

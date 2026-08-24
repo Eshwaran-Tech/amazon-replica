@@ -54,7 +54,7 @@ export default async function TicketsPage({ searchParams }: PageProps) {
     <Container size="default" className="space-y-4 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -120,8 +120,8 @@ export default async function TicketsPage({ searchParams }: PageProps) {
         A ticket is stored against your account and nothing else happens to it — there is no support
         desk behind this page, and it will not pretend there is. For what the store can actually
         answer, the{' '}
-        <Link href="/help/amazon-pay" className="text-link hover:underline">
-          Amazon Pay help topics
+        <Link href="/help/pay" className="text-link hover:underline">
+          Eshwaran Pay help topics
         </Link>{' '}
         cover most of it.
       </p>

@@ -68,7 +68,7 @@ export async function ensurePaymentIntent(
       message:
         order.paymentMethod === 'COD'
           ? 'This order is payable on delivery.'
-          : 'This order was paid from your Amazon Pay balance.',
+          : 'This order was paid from your Eshwaran Pay balance.',
     };
   }
 

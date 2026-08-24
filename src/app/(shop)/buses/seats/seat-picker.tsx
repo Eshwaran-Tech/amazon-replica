@@ -218,7 +218,7 @@ export function SeatPicker({
         )}
 
         <p className="text-ink-subtle text-center text-xs">
-          Paid from your Amazon Pay balance ({formatPaise(balance)}).
+          Paid from your Eshwaran Pay balance ({formatPaise(balance)}).
           {picked.length > 0 && balance < total && (
             <span className="text-deal"> {formatPaise(total - balance)} short.</span>
           )}

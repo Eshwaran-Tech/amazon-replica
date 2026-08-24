@@ -6,7 +6,7 @@
  * a gift card is a promise that a named business will honour it, and these
  * businesses do not exist to honour anything.
  *
- * What is real is the mechanism: buying one debits your Amazon Pay balance and
+ * What is real is the mechanism: buying one debits your Eshwaran Pay balance and
  * mints a code that only spends at that brand, and the store says so.
  */
 

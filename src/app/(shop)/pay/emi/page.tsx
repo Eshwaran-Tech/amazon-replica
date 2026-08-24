@@ -64,7 +64,7 @@ const FAQS: Array<{ heading: string; items: Faq[] }> = [
           <>
             To the issuer, on the card statement, at the same time as everything else on it. The
             store has no repayment schedule of its own and cannot take an instalment from your
-            Amazon Pay balance.
+            Eshwaran Pay balance.
           </>
         ),
       },
@@ -152,7 +152,7 @@ export default function EmiPage() {
     <Container size="default" className="space-y-5 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›

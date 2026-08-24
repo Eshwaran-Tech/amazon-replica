@@ -269,7 +269,7 @@ export default async function OccasionsPage({ searchParams }: PageProps) {
         <p className="text-ink-subtle mt-5 text-xs leading-relaxed">
           <Gift className="mr-1 inline h-3.5 w-3.5 align-text-bottom" aria-hidden="true" />
           Every card face here is drawn by this store, and every brand on it is invented. What is
-          real is the money: buying one debits your Amazon Pay balance and mints a code that works
+          real is the money: buying one debits your Eshwaran Pay balance and mints a code that works
           exactly once.
         </p>
       </Container>

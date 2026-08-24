@@ -15,7 +15,7 @@ import type { Address, PaymentMethod } from '@/models/types';
 interface CheckoutFormProps {
   addresses: Address[];
   csrfField: ReactNode;
-  /** Spendable Amazon Pay balance, for the wallet option. */
+  /** Spendable Eshwaran Pay balance, for the wallet option. */
   walletBalance: number;
   /** The summary's total, used only to grey out a wallet that cannot cover it. */
   orderTotal: number;
@@ -189,7 +189,7 @@ export function CheckoutForm({
               className="mt-1"
             />
             <span className="text-sm">
-              <span className="font-semibold">Amazon Pay balance</span>
+              <span className="font-semibold">Eshwaran Pay balance</span>
               <br />
               <span className="text-ink-muted text-xs">
                 {walletCovers ? (

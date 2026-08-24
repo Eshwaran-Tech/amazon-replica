@@ -203,7 +203,7 @@ export const ta: Messages = {
   'auth.resendOtp': 'OTP ஐ மீண்டும் அனுப்பு',
   'auth.sendOtp': 'OTP அனுப்பு',
   'auth.signInWithPassword': 'உங்கள் கடவுச்சொல்லுடன் உள்நுழைக',
-  'auth.newToAmazon': `நீங்கள் ${BRAND_NAME} இல் புதியவர் போல் தெரிகிறது`,
+  'auth.newToBrand': `நீங்கள் ${BRAND_NAME} இல் புதியவர் போல் தெரிகிறது`,
   'auth.createUsing': 'உங்கள் {where} ஐப் பயன்படுத்தி ஒரு கணக்கை உருவாக்குவோம்',
   'auth.proceedCreate': 'கணக்கை உருவாக்கத் தொடர்க',
   'auth.alreadyCustomer': 'ஏற்கனவே வாடிக்கையாளரா?',

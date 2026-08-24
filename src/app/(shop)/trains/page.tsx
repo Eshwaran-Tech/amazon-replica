@@ -12,7 +12,7 @@ import { formatTime, todayKey } from '@/services/trains';
 export const metadata: Metadata = {
   title: 'Train tickets',
   description:
-    'Search trains between Indian stations and pay for a ticket from your Amazon Pay balance.',
+    'Search trains between Indian stations and pay for a ticket from your Eshwaran Pay balance.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -45,7 +45,7 @@ export default async function TrainsPage() {
           <p className="mt-3 text-center text-xs text-slate-300">
             Fares are charged to your{' '}
             <Link href="/pay/balance" className="text-accent-400 hover:underline">
-              Amazon Pay balance
+              Eshwaran Pay balance
             </Link>
             . No card, no gateway.
           </p>
@@ -68,7 +68,7 @@ export default async function TrainsPage() {
               {
                 icon: ReceiptText,
                 title: 'One ledger',
-                body: 'A ticket is a line in your Amazon Pay balance, next to every other thing this store has charged you.',
+                body: 'A ticket is a line in your Eshwaran Pay balance, next to every other thing this store has charged you.',
               },
               {
                 icon: ShieldCheck,
@@ -137,7 +137,7 @@ export default async function TrainsPage() {
           Station names, codes and the distances between them are real. Every service on the results
           page — its number, its name, its timings and its fares — is this store&apos;s own,
           generated from that distance and the same on every reload. No berth is reserved with
-          Indian Railways; what is real is the charge to your Amazon Pay balance.
+          Indian Railways; what is real is the charge to your Eshwaran Pay balance.
         </p>
       </Container>
     </>

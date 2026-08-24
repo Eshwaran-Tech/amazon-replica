@@ -65,7 +65,7 @@ export default async function InsurancePremiumPage() {
         </div>
         {wallet && (
           <p className="text-ink-muted text-sm">
-            Amazon Pay balance{' '}
+            Eshwaran Pay balance{' '}
             <span className="text-ink font-bold">{formatPaise(wallet.balance)}</span>
           </p>
         )}

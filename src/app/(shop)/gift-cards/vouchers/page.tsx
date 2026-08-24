@@ -13,8 +13,8 @@ import { VOUCHER_TYPES } from '@/services/gift-store';
 import { RedeemGiftCardForm } from '../../pay/gift-cards/redeem-form';
 
 export const metadata: Metadata = {
-  title: 'Add to Amazon Pay balance',
-  description: 'Add a gift card or voucher code to your Amazon Pay balance.',
+  title: 'Add to Eshwaran Pay balance',
+  description: 'Add a gift card or voucher code to your Eshwaran Pay balance.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -30,7 +30,7 @@ const ICONS = {
  * Adding a code to the balance.
  *
  * The reference shows four voucher balances side by side. This store keeps
- * **one** Amazon Pay balance and says so, because four separately spendable
+ * **one** Eshwaran Pay balance and says so, because four separately spendable
  * pots is a claim the checkout would immediately contradict -- there is one
  * ledger, and a rupee redeemed from a Fresh voucher buys a book just as well.
  *
@@ -51,7 +51,7 @@ export default async function VouchersPage() {
         <div>
           <h1 className="text-lg font-bold sm:text-xl">Vouchers &amp; gift cards</h1>
           <p className="text-ink-muted mt-1 text-sm">
-            Add a code and its value lands in your Amazon Pay balance.
+            Add a code and its value lands in your Eshwaran Pay balance.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ export default async function VouchersPage() {
 
           {/* --------------------------------------------------- the balance */}
           <aside className="border-hairline bg-surface space-y-3 rounded-2xl border p-4 lg:sticky lg:top-4">
-            <h2 className="text-sm font-bold">Your Amazon Pay balance</h2>
+            <h2 className="text-sm font-bold">Your Eshwaran Pay balance</h2>
 
             <dl className="space-y-1.5 text-sm">
               <div className="flex justify-between gap-2">

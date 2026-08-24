@@ -140,7 +140,7 @@ export function OccasionStore({
         <p className="text-ink-subtle text-xs leading-relaxed">
           Every face here is drawn by this store. Buying one debits your{' '}
           <Link href="/pay/balance" className="text-link hover:underline">
-            Amazon Pay balance
+            Eshwaran Pay balance
           </Link>{' '}
           and mints a code that credits somebody else&apos;s, exactly once.
         </p>

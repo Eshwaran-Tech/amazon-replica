@@ -50,7 +50,7 @@ function metaOf(title: VideoTitle): string {
  *
  * The four bands of the reference: the membership pitch, rentals, add-on
  * channels, and the free tier. Renting and subscribing are real -- both charge
- * the Amazon Pay wallet and write a dated entitlement, so what the page says
+ * the Eshwaran Pay wallet and write a dated entitlement, so what the page says
  * you own is what the database says you own.
  *
  * The titles, channels and posters are this project's own. The reference
@@ -122,7 +122,7 @@ export default async function PrimeVideoPage() {
                 balance={summary.balance}
               />
               <p className="text-ink-subtle mt-2 text-xs">
-                Paid from your Amazon Pay balance ({formatPaise(summary.balance)}).{' '}
+                Paid from your Eshwaran Pay balance ({formatPaise(summary.balance)}).{' '}
                 <Link href="/pay/balance" className="text-link hover:underline">
                   Add money
                 </Link>
@@ -213,7 +213,7 @@ export default async function PrimeVideoPage() {
         <h2 className="text-lg font-bold sm:text-xl">Movie rentals on Prime Video</h2>
         <p className="text-ink-muted mt-1 text-sm">
           Early access to new films, before they reach the included catalogue. {RENTAL_WINDOW_HOURS}
-          -hour viewing window, charged to your Amazon Pay balance.
+          -hour viewing window, charged to your Eshwaran Pay balance.
         </p>
 
         <div className="mt-4">
@@ -238,7 +238,7 @@ export default async function PrimeVideoPage() {
             Your favourite subscriptions all in one place
           </h2>
           <p className="text-ink-muted mt-1 text-sm">
-            Add a channel to your account and it is billed monthly from your Amazon Pay balance —
+            Add a channel to your account and it is billed monthly from your Eshwaran Pay balance —
             one place to start it, one place to see what it cost.
           </p>
           <p className="text-ink-subtle mt-2 text-xs">

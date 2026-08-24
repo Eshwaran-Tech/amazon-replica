@@ -203,7 +203,7 @@ export const ml: Messages = {
   'auth.resendOtp': 'OTP വീണ്ടും അയയ്ക്കുക',
   'auth.sendOtp': 'OTP അയയ്ക്കുക',
   'auth.signInWithPassword': 'നിങ്ങളുടെ പാസ്‌വേഡ് ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യുക',
-  'auth.newToAmazon': `നിങ്ങൾ ${BRAND_NAME}-ൽ പുതിയ ആളാണെന്ന് തോന്നുന്നു`,
+  'auth.newToBrand': `നിങ്ങൾ ${BRAND_NAME}-ൽ പുതിയ ആളാണെന്ന് തോന്നുന്നു`,
   'auth.createUsing': 'നിങ്ങളുടെ {where} ഉപയോഗിച്ച് ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കാം',
   'auth.proceedCreate': 'അക്കൗണ്ട് സൃഷ്ടിക്കാൻ തുടരുക',
   'auth.alreadyCustomer': 'ഇതിനകം ഉപഭോക്താവാണോ?',

@@ -298,7 +298,7 @@ export default async function ReviewStayPage({ searchParams }: PageProps) {
         this page sends no figure. No room is held with any hotel; what is real is the charge to
         your{' '}
         <Link href="/pay/balance" className="text-link hover:underline">
-          Amazon Pay balance
+          Eshwaran Pay balance
         </Link>
         .
       </p>

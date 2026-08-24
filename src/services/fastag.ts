@@ -31,8 +31,8 @@ import '@/lib/server-guard';
 /**
  * FASTag.
  *
- * A tag is issued against a vehicle registration, topped up out of the Amazon
- * Pay wallet, and read at a plaza. This store has no feed from any plaza, so
+ * A tag is issued against a vehicle registration, topped up out of the
+ * Eshwaran Pay wallet, and read at a plaza. This store has no feed from any plaza, so
  * the two things it can do honestly are the two things it does: **hold a real
  * balance** and **work out what a corridor costs**.
  *

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
  * finds no account. Without a flow (e.g. a direct visit from "Start here"),
  * it goes straight to the details form.
  */
-export default async function NewToAmazonPage() {
+export default async function NewToBrandPage() {
   if (await getSession()) redirect('/');
 
   const flow = await readAuthFlow();
@@ -31,7 +31,7 @@ export default async function NewToAmazonPage() {
 
   return (
     <AuthCard>
-      <AuthHeading>{t('auth.newToAmazon')}</AuthHeading>
+      <AuthHeading>{t('auth.newToBrand')}</AuthHeading>
 
       <p className="mb-3 text-[13px]">
         {isPhone && <span className="mr-1 font-semibold">IN</span>}

@@ -17,7 +17,7 @@ import '@/lib/server-guard';
 /**
  * Prepaid mobile recharge.
  *
- * Paid out of the Amazon Pay wallet, like Prime and the video rentals, so every
+ * Paid out of the Eshwaran Pay wallet, like Prime and the video rentals, so every
  * rupee this store takes lands in one ledger.
  *
  * **What the operator lookup really is.** A real recharge page asks the
@@ -87,7 +87,7 @@ export async function rechargeNumber(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough. Add money and try again.',
     };
   }
 

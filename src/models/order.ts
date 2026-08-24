@@ -27,7 +27,7 @@ export interface OrderItemDoc {
 }
 
 export interface OrderPaymentDoc {
-  /** `wallet` means it was settled from the Amazon Pay ledger, not a gateway. */
+  /** `wallet` means it was settled from the Eshwaran Pay ledger, not a gateway. */
   provider: 'mock' | 'stripe' | 'wallet';
   /** Provider-side intent/charge id. Not secret, but not shown to the customer. */
   intentId?: string | null;

@@ -28,7 +28,7 @@ import { getWalletSummary } from '@/services/wallet';
 export const metadata: Metadata = {
   title: 'Bill payments',
   description:
-    'Electricity, water, gas, telecom, tax and fees — paid from your Amazon Pay balance.',
+    'Electricity, water, gas, telecom, tax and fees — paid from your Eshwaran Pay balance.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -73,7 +73,7 @@ export default async function BillsHubPage() {
     <Container size="default" className="space-y-4 py-5">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -93,7 +93,7 @@ export default async function BillsHubPage() {
         </div>
         {wallet && (
           <p className="text-ink-muted text-sm">
-            Amazon Pay balance{' '}
+            Eshwaran Pay balance{' '}
             <span className="text-ink font-bold">{formatPaise(wallet.balance)}</span>
           </p>
         )}
@@ -104,7 +104,7 @@ export default async function BillsHubPage() {
           <span className="text-ink font-bold">No biller can see any of this.</span> This store has
           no connection to a discom, a bank or a municipality, so each bill is worked out from the
           number you type and is the same every time for that number. The money is real and leaves
-          your Amazon Pay balance; the tariffs, slabs, minimum dues and penalties are the real
+          your Eshwaran Pay balance; the tariffs, slabs, minimum dues and penalties are the real
           published structures.
         </p>
       </div>

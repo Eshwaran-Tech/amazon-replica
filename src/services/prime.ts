@@ -15,7 +15,7 @@ import '@/lib/server-guard';
 /**
  * Prime membership.
  *
- * Paid for out of the Amazon Pay wallet, which is why this store's wallet had
+ * Paid for out of the Eshwaran Pay wallet, which is why this store's wallet had
  * to be real before this could be: joining writes a DEBIT to the same ledger
  * top-ups credit, so the balance on `/pay` and the membership here can never
  * disagree about whether the money moved.
@@ -117,7 +117,7 @@ export async function joinPrime(
     return {
       ok: false,
       code: 'INSUFFICIENT_BALANCE',
-      message: 'Your Amazon Pay balance is not enough for this plan. Add money and try again.',
+      message: 'Your Eshwaran Pay balance is not enough for this plan. Add money and try again.',
     };
   }
 

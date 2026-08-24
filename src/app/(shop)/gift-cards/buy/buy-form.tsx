@@ -312,7 +312,7 @@ export function BuyGiftForm({
         </div>
 
         <p className="text-ink-subtle mt-2 text-center text-xs">
-          Paid from your Amazon Pay balance ({formatPaise(balance)}).
+          Paid from your Eshwaran Pay balance ({formatPaise(balance)}).
           {signedIn && short && ready && (
             <span className="text-deal"> {formatPaise(total - balance)} short.</span>
           )}

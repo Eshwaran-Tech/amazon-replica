@@ -15,7 +15,7 @@ import { RechargeForm } from './recharge-form';
 
 export const metadata: Metadata = {
   title: 'Mobile Recharge',
-  description: 'Prepaid mobile recharge, paid from your Amazon Pay balance.',
+  description: 'Prepaid mobile recharge, paid from your Eshwaran Pay balance.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -54,7 +54,7 @@ export default async function RechargePage() {
     <Container size="narrow" className="space-y-4 py-5 sm:py-7">
       <nav aria-label="Breadcrumb" className="text-ink-muted text-sm">
         <Link href="/pay" className="hover:text-link hover:underline">
-          Amazon Pay
+          Eshwaran Pay
         </Link>
         <span className="mx-1.5" aria-hidden="true">
           ›
@@ -192,7 +192,7 @@ export default async function RechargePage() {
           correct it if it is wrong. What is real is the money: the plan price is read on the server
           and debited from your{' '}
           <Link href="/pay/balance" className="text-link hover:underline">
-            Amazon Pay balance
+            Eshwaran Pay balance
           </Link>
           .
         </span>

@@ -138,7 +138,7 @@ export function CreditForms({
 
           <SubmitButton fullWidth pendingLabel="Adding...">
             {rupees > 0
-              ? `Pay ₹${rupees.toLocaleString('en-IN')} from Amazon Pay`
+              ? `Pay ₹${rupees.toLocaleString('en-IN')} from Eshwaran Pay`
               : 'Enter an amount'}
           </SubmitButton>
 

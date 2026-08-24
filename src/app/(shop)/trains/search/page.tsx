@@ -347,7 +347,7 @@ export default async function TrainSearchPage({ searchParams }: PageProps) {
               every reload. The services themselves are this store&apos;s own. No berth is reserved
               with Indian Railways; the charge to your{' '}
               <Link href="/pay/balance" className="text-link hover:underline">
-                Amazon Pay balance
+                Eshwaran Pay balance
               </Link>{' '}
               is real.
             </p>
