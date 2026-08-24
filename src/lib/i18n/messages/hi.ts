@@ -109,7 +109,8 @@ export const hi: Messages = {
   'lang.ariaChange': 'भाषा बदलें। वर्तमान में भारत, {language}',
   'lang.shoppingOn': `आप ${BRAND_DOMAIN} पर खरीदारी कर रहे हैं`,
   'lang.changeCountry': 'देश/क्षेत्र बदलें',
-  'lang.catalogueNote': 'उत्पादों के नाम और विवरण विक्रेताओं द्वारा सूचीबद्ध रूप में दिखाए जाते हैं।',
+  'lang.catalogueNote':
+    'उत्पादों के नाम और विवरण विक्रेताओं द्वारा सूचीबद्ध रूप में दिखाए जाते हैं।',
 
   'footer.getToKnow': 'हमें जानें',
   'footer.about': `${BRAND_NAME} के बारे में`,
@@ -130,8 +131,7 @@ export const hi: Messages = {
   'footer.returns': 'रिटर्न और रिफ़ंड',
   'footer.security': 'सुरक्षा',
   'footer.imageCredits': 'छवि क्रेडिट',
-  'footer.disclaimer':
-    'amazon एक मूल प्रदर्शन स्टोरफ्रंट है जो एक सुरक्षित फुल-स्टैक आर्किटेक्चर दिखाने के लिए बनाया गया है। यह किसी वास्तविक रिटेलर से संबद्ध, समर्थित या व्युत्पन्न नहीं है। दिखाए गए सभी ब्रांड और उत्पाद काल्पनिक हैं।',
+  'footer.disclaimer': `${BRAND_NAME} एक मूल प्रदर्शन स्टोरफ्रंट है जो एक सुरक्षित फुल-स्टैक आर्किटेक्चर दिखाने के लिए बनाया गया है। यह किसी वास्तविक रिटेलर से संबद्ध, समर्थित या व्युत्पन्न नहीं है। दिखाए गए सभी ब्रांड और उत्पाद काल्पनिक हैं।`,
   'footer.copyright': `© {year} ${BRAND_NAME}. कीमतें भारतीय रुपये में दिखाई गई हैं।`,
 
   'home.shopByCategory': 'श्रेणी के अनुसार खरीदें',
@@ -218,7 +218,8 @@ export const hi: Messages = {
   'auth.reenterPassword': 'पासवर्ड फिर से दर्ज करें',
   'auth.verifyNumberNote':
     'आपका नंबर सत्यापित करने के लिए हम आपको एक अस्थायी कोड वाला टेक्स्ट संदेश भेजेंगे। संदेश और डेटा शुल्क लागू हो सकते हैं।',
-  'auth.verifyEmailNote': 'आपका ईमेल सत्यापित करने के लिए हम आपको एक वन टाइम पासवर्ड (OTP) भेजेंगे।',
+  'auth.verifyEmailNote':
+    'आपका ईमेल सत्यापित करने के लिए हम आपको एक वन टाइम पासवर्ड (OTP) भेजेंगे।',
   'auth.verifyMobile': 'मोबाइल नंबर सत्यापित करें',
   'auth.verifyEmail': 'ईमेल सत्यापित करें',
   'auth.useEmailInstead': 'इसके बजाय ईमेल से खाता बनाएँ',
@@ -227,7 +228,8 @@ export const hi: Messages = {
   'auth.byCreating': `खाता बनाकर या लॉग इन करके, आप ${BRAND_NAME} की इन शर्तों से सहमत होते हैं:`,
   'auth.byCreatingShort': `खाता बनाकर, आप ${BRAND_NAME} की इन शर्तों से सहमत होते हैं:`,
   'auth.verifyHeading': '{where} सत्यापित करें',
-  'auth.sentOtpToVerify': 'आपका {where} सत्यापित करने के लिए, हमने एक वन टाइम पासवर्ड (OTP) भेजा है:',
+  'auth.sentOtpToVerify':
+    'आपका {where} सत्यापित करने के लिए, हमने एक वन टाइम पासवर्ड (OTP) भेजा है:',
   'auth.createYourAccount': `अपना ${BRAND_NAME} खाता बनाएँ`,
   'auth.checking': 'जाँच हो रही है...',
   'auth.signingIn': 'साइन इन हो रहा है...',

@@ -1,3 +1,4 @@
+import { BRAND_NAME } from '@/lib/brand';
 import { ChevronDown, MapPin, ShoppingCart, User } from 'lucide-react';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
@@ -83,7 +84,7 @@ const NAV_ITEMS: Array<{
  *          returns & orders | cart
  *   Row 2  [= All] | category links | promo slot
  *
- * The branding is amazon's own. The *layout* is a widely used e-commerce
+ * The branding is this store's own. The *layout* is a widely used e-commerce
  * pattern; the wordmark, icon and palette are not copied from any retailer.
  *
  * Responsive strategy -- three designed layouts, not one scaled down:
@@ -147,7 +148,7 @@ export async function Header({ cartCount = 0 }: HeaderProps) {
 
           <Link
             href="/"
-            aria-label="amazon home"
+            aria-label={`${BRAND_NAME} home`}
             className="hover:outline-hairline/60 shrink-0 rounded border border-transparent px-1 py-1 hover:outline"
           >
             <Logo className="hidden sm:inline-flex" />

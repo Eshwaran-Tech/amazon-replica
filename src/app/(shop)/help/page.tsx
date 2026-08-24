@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Container } from '@/components/layout/container';
-import { BRAND_NAME } from '@/lib/brand';
+import { BRAND_NAME, SUPPORT_EMAIL } from '@/lib/brand';
 
 export const metadata: Metadata = {
   title: 'Help & customer service',
@@ -50,8 +50,8 @@ export default function HelpPage() {
       <h1 className="text-xl font-bold sm:text-2xl">Help &amp; Customer Service</h1>
       <p className="text-ink-muted mt-1 text-sm">
         The essentials of how this store works. For anything else, write to{' '}
-        <a href="mailto:support@amazonnext.local" className="text-link hover:underline">
-          support@amazonnext.local
+        <a href={`mailto:${SUPPORT_EMAIL}`} className="text-link hover:underline">
+          {SUPPORT_EMAIL}
         </a>
         .
       </p>

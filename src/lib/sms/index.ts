@@ -1,3 +1,4 @@
+import { BRAND_NAME } from '@/lib/brand';
 import { rememberDevOtp } from '@/lib/auth/dev-otp-inbox';
 import { env } from '@/lib/env';
 import { logError } from '@/lib/security/logger';
@@ -49,7 +50,7 @@ export async function sendOtpSms(to: string, code: string, ttlMinutes: number): 
   await sendSms({
     to,
     body:
-      `${code} is your amazon one-time password (OTP). It is valid for ${ttlMinutes} minutes. ` +
-      'Do not share it with anyone -- amazon will never ask you for it.',
+      `${code} is your ${BRAND_NAME} one-time password (OTP). It is valid for ${ttlMinutes} minutes. ` +
+      `Do not share it with anyone -- ${BRAND_NAME} will never ask you for it.`,
   });
 }

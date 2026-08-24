@@ -42,7 +42,11 @@ function captureCode(): { read: () => string } {
   let last = '';
   const spy = vi.spyOn(console, 'info').mockImplementation((message: unknown) => {
     const text = String(message);
-    const match = /\b(\d{6})\b is your amazon/.exec(text) ?? /OTP\) is: (\d{6})/.exec(text);
+    // Deliberately brand-agnostic: the SMS body opens with the code and the
+    // email body buries it after "(OTP) is:". Matching the brand name here
+    // coupled the suite to the wordmark, so renaming the store silently broke
+    // the capture and only the SMS assertion noticed.
+    const match = /\b(\d{6})\b is your\b/.exec(text) ?? /OTP\) is: (\d{6})/.exec(text);
     if (match?.[1]) last = match[1];
   });
   return {

@@ -1,3 +1,4 @@
+import { BRAND_NAME } from '@/lib/brand';
 import Link from 'next/link';
 
 import { Logo } from '@/components/brand/logo';
@@ -78,7 +79,7 @@ export async function Footer() {
 
       <div className="bg-brand-950 py-6">
         <Container size="wide" className="flex flex-col items-center gap-3 text-center">
-          <Link href="/" aria-label="amazon home">
+          <Link href="/" aria-label={`${BRAND_NAME} home`}>
             <Logo />
           </Link>
           <p className="text-xs text-white/60">{t('footer.disclaimer')}</p>

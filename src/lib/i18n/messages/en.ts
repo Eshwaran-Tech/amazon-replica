@@ -141,8 +141,7 @@ export const en = {
   'footer.returns': 'Returns and refunds',
   'footer.security': 'Security',
   'footer.imageCredits': 'Image credits',
-  'footer.disclaimer':
-    'amazon is an original demonstration storefront built to showcase a secure full-stack architecture. It is not affiliated with, endorsed by, or derived from any real retailer. All brands and products shown are fictional.',
+  'footer.disclaimer': `${BRAND_NAME} is an original demonstration storefront built to showcase a secure full-stack architecture. It is not affiliated with, endorsed by, or derived from any real retailer. All brands and products shown are fictional.`,
   'footer.copyright': `© {year} ${BRAND_NAME}. Prices shown in Indian Rupees.`,
 
   // -------------------------------------------------------------- home

@@ -1,4 +1,5 @@
 import { ObjectId, type Filter } from 'mongodb';
+import { BRAND_NAME } from '@/lib/brand';
 
 import {
   auditLogsCollection,
@@ -9,11 +10,29 @@ import {
 } from '@/lib/db/collections';
 import { slugify } from '@/lib/utils/slug';
 import { recordAudit, recordAuditAndAlert } from '@/lib/security/audit';
-import { LOW_STOCK_THRESHOLD, computeDiscountPercentage, toAdminProductView, type AdminProductView, type ProductDoc } from '@/models/product';
+import {
+  LOW_STOCK_THRESHOLD,
+  computeDiscountPercentage,
+  toAdminProductView,
+  type AdminProductView,
+  type ProductDoc,
+} from '@/models/product';
 import { toCategoryView, type CategoryDoc, type CategoryView } from '@/models/category';
-import { toAdminOrderView, toOrderSummaryView, type AdminOrderView, type OrderDoc, type OrderSummaryView } from '@/models/order';
+import {
+  toAdminOrderView,
+  toOrderSummaryView,
+  type AdminOrderView,
+  type OrderDoc,
+  type OrderSummaryView,
+} from '@/models/order';
 import { primaryContact, toAdminUserView, type AdminUserView, type UserDoc } from '@/models/user';
-import { canTransitionOrderStatus, ORDER_STATUS_TRANSITIONS, type AuditAction, type OrderStatus, type UserRole } from '@/models/types';
+import {
+  canTransitionOrderStatus,
+  ORDER_STATUS_TRANSITIONS,
+  type AuditAction,
+  type OrderStatus,
+  type UserRole,
+} from '@/models/types';
 import { executeCancellation } from '@/services/orders';
 import type { AdjustInventoryInput } from '@/lib/validations/admin';
 import type { CategoryCreateInput, CategoryUpdateInput } from '@/lib/validations/category';
@@ -38,9 +57,7 @@ export interface AdminActor {
   ip: string;
 }
 
-export type AdminResult<T = undefined> =
-  | { ok: true; value: T }
-  | { ok: false; message: string };
+export type AdminResult<T = undefined> = { ok: true; value: T } | { ok: false; message: string };
 
 const PAGE_SIZE = 20;
 
@@ -303,7 +320,10 @@ export async function adminListCategories(): Promise<AdminCategoryRow[]> {
   }));
 }
 
-async function assertValidParent(parentSlug: string | null, ownSlug: string): Promise<string | null> {
+async function assertValidParent(
+  parentSlug: string | null,
+  ownSlug: string,
+): Promise<string | null> {
   if (!parentSlug) return null;
   const categories = await categoriesCollection();
   const parent = await categories.findOne({ slug: parentSlug });
@@ -372,7 +392,10 @@ export async function updateCategory(
     // Becoming a subcategory is only possible with no children of its own --
     // the taxonomy is two levels, and orphaning grandchildren silently is worse
     // than refusing.
-    const child = await categories.findOne({ parentSlug: current.slug }, { projection: { _id: 1 } });
+    const child = await categories.findOne(
+      { parentSlug: current.slug },
+      { projection: { _id: 1 } },
+    );
     if (child) {
       return { ok: false, message: 'This category has subcategories, so it must stay top-level.' };
     }
@@ -502,7 +525,10 @@ export async function adminGetOrder(orderId: string): Promise<AdminOrderDetail |
   return {
     order: toAdminOrderView(doc),
     customer: owner
-      ? { name: owner.name, contact: primaryContact({ email: owner.email ?? null, phone: owner.phone ?? null }) }
+      ? {
+          name: owner.name,
+          contact: primaryContact({ email: owner.email ?? null, phone: owner.phone ?? null }),
+        }
       : null,
     nextStatuses: ORDER_STATUS_TRANSITIONS[doc.orderStatus],
   };
@@ -531,7 +557,7 @@ export async function adminUpdateOrderStatus(
   if (nextStatus === 'CANCELLED') {
     const result = await executeCancellation(
       { _id: order._id },
-      { actorId: actor.id, note: note || 'Cancelled by amazon', ip: actor.ip },
+      { actorId: actor.id, note: note || `Cancelled by ${BRAND_NAME}`, ip: actor.ip },
     );
     if (!result.ok) return { ok: false, message: result.message };
   } else {

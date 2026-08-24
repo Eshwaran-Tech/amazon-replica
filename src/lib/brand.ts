@@ -34,6 +34,16 @@ export const BRAND_PAY = `${BRAND_NAME} Pay`;
 export const BRAND_LEGAL_NAME = process.env.NEXT_PUBLIC_BRAND_LEGAL_NAME?.trim() || BRAND_NAME;
 
 /**
+ * Where a customer writes for help.
+ *
+ * Derived from the brand domain rather than hard-coded, for the same reason
+ * everything else here is: a support address on some other company's domain is
+ * worse than no address at all.
+ */
+export const SUPPORT_EMAIL =
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() || `support@${BRAND_DOMAIN.toLowerCase()}`;
+
+/**
  * The canonical origin, with no trailing slash.
  *
  * Everything that builds an absolute URL -- canonicals, the sitemap,

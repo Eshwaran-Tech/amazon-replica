@@ -1,4 +1,5 @@
 'use client';
+import { BRAND_NAME } from '@/lib/brand';
 
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -180,7 +181,7 @@ export function FreshMenu({ label }: { label: string }) {
             onClick={() => setOpen(false)}
             className="text-link mt-4 inline-block text-sm hover:underline"
           >
-            Shop all groceries on amazon
+            Shop all groceries on {BRAND_NAME}
           </Link>
         </div>
       )}

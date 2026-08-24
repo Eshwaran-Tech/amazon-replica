@@ -1,3 +1,6 @@
+import type { Transporter } from 'nodemailer';
+
+import { BRAND_NAME } from '@/lib/brand';
 import { rememberDevOtp } from '@/lib/auth/dev-otp-inbox';
 import { env } from '@/lib/env';
 import { logError } from '@/lib/security/logger';
@@ -47,14 +50,92 @@ async function sendViaConsole(message: EmailMessage): Promise<void> {
   );
 }
 
+export interface SmtpConnection {
+  host: string;
+  port: number;
+  secure: boolean;
+  auth?: { user: string; pass: string };
+}
+
+/**
+ * Turns an SMTP connection URL into explicit settings.
+ *
+ * Parsed here rather than handed to nodemailer as a string so the credentials
+ * can be percent-decoded deliberately: a password containing `@`, `/` or `:`
+ * must be encoded in the URL, exactly as in MONGODB_URI, and would otherwise be
+ * silently mis-split at the wrong character.
+ *
+ * The port defaults by scheme -- 465 for implicit TLS, 587 for STARTTLS --
+ * because getting `secure` and the port out of step is the classic way to make
+ * a working provider look broken.
+ */
+export function parseSmtpUrl(value: string): SmtpConnection {
+  let url: URL;
+  try {
+    url = new URL(value);
+  } catch {
+    throw new Error('SMTP_URL is not a valid URL (expected smtp:// or smtps://)');
+  }
+
+  if (url.protocol !== 'smtp:' && url.protocol !== 'smtps:') {
+    throw new Error(`SMTP_URL must use smtp:// or smtps://, not ${url.protocol}//`);
+  }
+
+  const secure = url.protocol === 'smtps:';
+
+  return {
+    host: url.hostname,
+    port: Number(url.port) || (secure ? 465 : 587),
+    secure,
+    ...(url.username
+      ? { auth: { user: decodeURIComponent(url.username), pass: decodeURIComponent(url.password) } }
+      : {}),
+  };
+}
+
+/**
+ * One connection pool per process, built lazily.
+ *
+ * Built on first use rather than at module load so importing this file never
+ * opens a socket -- the console transport, and every test, must stay offline.
+ * `nodemailer` is imported dynamically for the same reason: it is a Node-only
+ * package and must not be pulled into a bundle that never sends mail.
+ */
+let transporter: Transporter | null = null;
+
+async function getTransporter(): Promise<Transporter> {
+  if (transporter) return transporter;
+
+  const { createTransport } = await import('nodemailer');
+
+  // A URL rather than a pile of host/port/user/pass variables: one secret to
+  // set, one to rotate, and it is the form every provider documents.
+  //   smtps://user:pass@smtp.provider.com:465   (implicit TLS)
+  //   smtp://user:pass@smtp.provider.com:587    (STARTTLS)
+  transporter = createTransport({
+    ...parseSmtpUrl(env().SMTP_URL),
+    pool: true,
+    // A serverless invocation is short-lived; waiting the 2-minute default on a
+    // dead provider would hold the request open long past the point the user
+    // gave up and pressed the button again.
+    connectionTimeout: 10_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 15_000,
+  });
+
+  return transporter;
+}
+
 async function sendViaSmtp(message: EmailMessage): Promise<void> {
-  // Intentionally not implemented: adding an SMTP client is a dependency and a
-  // deployment decision, not something to guess at. Wire your provider here
-  // (Resend, SES, Postmark, nodemailer) and keep the credentials in SMTP_URL.
-  throw new Error(
-    `SMTP transport is not configured. Set EMAIL_TRANSPORT=console for development, ` +
-      `or implement sendViaSmtp() in src/lib/email/index.ts. (message to ${message.to})`,
-  );
+  const mailer = await getTransporter();
+
+  await mailer.sendMail({
+    from: env().EMAIL_FROM,
+    to: message.to,
+    subject: message.subject,
+    // Plain text only, deliberately -- see the note at the top of this file.
+    text: message.body,
+  });
 }
 
 /**
@@ -92,18 +173,18 @@ export async function sendVerificationEmail(
 
   await sendEmail({
     to,
-    subject: 'Verify your amazon email address',
+    subject: `Verify your ${BRAND_NAME} email address`,
     body: [
       `Hello ${name},`,
       '',
-      'Confirm your email address to finish setting up your amazon account:',
+      `Confirm your email address to finish setting up your ${BRAND_NAME} account:`,
       '',
       link,
       '',
       'This link expires in 24 hours and can be used once.',
       'If you did not create an account, you can ignore this message.',
       '',
-      '-- amazon',
+      `-- ${BRAND_NAME}`,
     ].join('\n'),
   });
 }
@@ -116,17 +197,17 @@ export async function sendOtpEmail(to: string, code: string, ttlMinutes: number)
 
   await sendEmail({
     to,
-    subject: `${code} is your amazon OTP`,
+    subject: `${code} is your ${BRAND_NAME} OTP`,
     body: [
-      `Your amazon one-time password (OTP) is: ${code}`,
+      `Your ${BRAND_NAME} one-time password (OTP) is: ${code}`,
       '',
       `It is valid for ${ttlMinutes} minutes and can be used once.`,
-      'Do not share it with anyone -- amazon will never ask you for it.',
+      `Do not share it with anyone -- ${BRAND_NAME} will never ask you for it.`,
       '',
       'If you did not request this, you can ignore this message; nothing changes',
       'without the code.',
       '',
-      '-- amazon',
+      `-- ${BRAND_NAME}`,
     ].join('\n'),
   });
 }
@@ -140,11 +221,11 @@ export async function sendOtpEmail(to: string, code: string, ttlMinutes: number)
 export async function sendExistingAccountEmail(to: string, name: string): Promise<void> {
   await sendEmail({
     to,
-    subject: 'You already have an amazon account',
+    subject: 'You already have an account',
     body: [
       `Hello ${name},`,
       '',
-      'Someone just tried to create an amazon account with this email address --',
+      'Someone just tried to create an account with this email address --',
       'but you already have one.',
       '',
       `If that was you, simply sign in: ${appUrl('/auth/login')}`,
@@ -153,7 +234,7 @@ export async function sendExistingAccountEmail(to: string, name: string): Promis
       'If this was not you, no action is needed: no account was created and',
       'nothing about yours has changed.',
       '',
-      '-- amazon',
+      `-- ${BRAND_NAME}`,
     ].join('\n'),
   });
 }
@@ -167,11 +248,11 @@ export async function sendPasswordResetEmail(
 
   await sendEmail({
     to,
-    subject: 'Reset your amazon password',
+    subject: `Reset your ${BRAND_NAME} password`,
     body: [
       `Hello ${name},`,
       '',
-      'We received a request to reset your amazon password. Use this link:',
+      `We received a request to reset your ${BRAND_NAME} password. Use this link:`,
       '',
       link,
       '',
@@ -180,7 +261,7 @@ export async function sendPasswordResetEmail(
       'If you did not request this, no action is needed -- your password has not',
       'changed. Someone may have mistyped their address.',
       '',
-      '-- amazon',
+      `-- ${BRAND_NAME}`,
     ].join('\n'),
   });
 }
@@ -202,7 +283,7 @@ export async function sendOrderConfirmationEmail(
       '',
       'You can follow its progress from Your Orders once signed in.',
       '',
-      '-- amazon',
+      `-- ${BRAND_NAME}`,
     ].join('\n'),
   });
 }
@@ -229,7 +310,7 @@ export async function sendOrderCancelledEmail(
       `Your order ${orderNumber} has been cancelled as requested.`,
       refundLine,
       '',
-      '-- amazon',
+      `-- ${BRAND_NAME}`,
     ].join('\n'),
   });
 }
@@ -244,16 +325,16 @@ export async function sendOrderCancelledEmail(
 export async function sendPasswordChangedEmail(to: string, name: string): Promise<void> {
   await sendEmail({
     to,
-    subject: 'Your amazon password was changed',
+    subject: `Your ${BRAND_NAME} password was changed`,
     body: [
       `Hello ${name},`,
       '',
-      'Your amazon password was just changed, and all other devices have been',
+      `Your ${BRAND_NAME} password was just changed, and all other devices have been`,
       'signed out.',
       '',
       'If this was not you, reset your password immediately and contact support.',
       '',
-      '-- amazon',
+      `-- ${BRAND_NAME}`,
     ].join('\n'),
   });
 }
