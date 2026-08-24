@@ -117,8 +117,13 @@ export function resolveProductImages(
   const photos = IMAGE_MANIFEST[matched?.key ?? ''];
   if (!photos || photos.length === 0) return generatedArt(slug);
 
+  // Never ask for more photos than the type actually has. Walking the ring
+  // IMAGES_PER_PRODUCT times regardless meant a type with one photo produced a
+  // three-thumbnail gallery of the same picture, which reads as a broken page
+  // rather than as a short gallery.
   const offset = hash(slug) % photos.length;
-  return Array.from({ length: IMAGES_PER_PRODUCT }, (_, index) => {
+  const count = Math.min(IMAGES_PER_PRODUCT, photos.length);
+  return Array.from({ length: count }, (_, index) => {
     const photo = photos[(offset + index) % photos.length];
     return photo ? photo.path : '';
   }).filter(Boolean);
