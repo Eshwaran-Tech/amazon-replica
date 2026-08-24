@@ -1,8 +1,11 @@
 import type { MetadataRoute } from 'next';
 
+import { SITE_URL } from '@/lib/brand';
 import { getAllProductSlugs, getCategoryTree } from '@/services/catalog';
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
+// Shared with canonicals, Open Graph and JSON-LD so the preferred domain cannot
+// drift between them. See `lib/brand.ts`.
+const baseUrl = SITE_URL;
 
 /**
  * Evaluated per request, not at build time.
