@@ -1,7 +1,6 @@
 import type { Transporter } from 'nodemailer';
 
 import { BRAND_NAME } from '@/lib/brand';
-import { rememberDevOtp } from '@/lib/auth/dev-otp-inbox';
 import { env } from '@/lib/env';
 import { logError } from '@/lib/security/logger';
 
@@ -191,10 +190,6 @@ export async function sendVerificationEmail(
 
 /** One-time password for sign-in or sign-up by email. */
 export async function sendOtpEmail(to: string, code: string, ttlMinutes: number): Promise<void> {
-  // Captured before delivery so the verify screen can show it in development.
-  // A no-op in production -- see `dev-otp-inbox.ts`.
-  rememberDevOtp(to, code);
-
   await sendEmail({
     to,
     subject: `${code} is your ${BRAND_NAME} OTP`,

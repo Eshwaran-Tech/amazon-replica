@@ -1,5 +1,4 @@
 import { BRAND_NAME } from '@/lib/brand';
-import { rememberDevOtp } from '@/lib/auth/dev-otp-inbox';
 import { env } from '@/lib/env';
 import { logError } from '@/lib/security/logger';
 
@@ -44,9 +43,6 @@ export async function sendSms(message: SmsMessage): Promise<void> {
 }
 
 export async function sendOtpSms(to: string, code: string, ttlMinutes: number): Promise<void> {
-  // Same development-only capture as the email path.
-  rememberDevOtp(to, code);
-
   await sendSms({
     to,
     body:

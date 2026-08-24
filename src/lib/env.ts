@@ -62,6 +62,19 @@ const serverEnvSchema = z
     // `console` prints the message to the server log; a real gateway is wired
     // in `src/lib/sms/index.ts` when one is chosen for deployment.
     SMS_TRANSPORT: z.enum(['console']).default('console'),
+
+    // --- Demo ---
+    // Shows the one-time password on the verification page instead of relying
+    // on it being delivered.
+    //
+    // Understand what this trades away before enabling it: anyone can type
+    // somebody else's address, request a code, read it off the screen and sign
+    // in as them. That is account takeover, and no amount of styling changes
+    // it. It exists so a storefront with no mail provider can still be walked
+    // end to end, and it must stay off anywhere real accounts live.
+    //
+    // Off unless set to exactly "true", so a typo fails closed.
+    DEMO_SHOW_OTP: z.enum(['true', 'false']).default('false'),
   })
   .superRefine((env, ctx) => {
     if (env.PAYMENT_PROVIDER === 'stripe') {

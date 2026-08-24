@@ -203,7 +203,7 @@ export async function identifyAction(
   // Passwordless account: the only way in is a code, so send it now.
   const sent = await sendSignInOtp(identifier, context);
   if (!sent.ok) return { ok: false, message: sent.message };
-  await setAuthFlow({ ...flow, otpSent: true });
+  await setAuthFlow({ ...flow, otpSent: true, ...(sent.demoOtp ? { demoOtp: sent.demoOtp } : {}) });
   redirect('/auth/login/otp');
 }
 
@@ -252,7 +252,7 @@ export async function sendSignInOtpAction(
   const sent = await sendSignInOtp(flow.identifier, context);
   if (!sent.ok) return { ok: false, message: sent.message };
 
-  await setAuthFlow({ ...flow, otpSent: true });
+  await setAuthFlow({ ...flow, otpSent: true, ...(sent.demoOtp ? { demoOtp: sent.demoOtp } : {}) });
   if (formData.get('stay') === '1') {
     return { ok: true, message: 'A new code is on its way.' };
   }
@@ -341,6 +341,7 @@ export async function startSignUpAction(
     hasPassword: false,
     name: parsed.data.name,
     otpSent: true,
+    ...(result.demoOtp ? { demoOtp: result.demoOtp } : {}),
     ...(previous?.next ? { next: previous.next } : {}),
   });
   redirect('/auth/register/verify');
@@ -369,6 +370,14 @@ export async function resendSignUpOtpAction(
   const context = await getRequestContext();
   const result = await startSignUp({ identifier: flow.identifier, name: flow.name }, context);
   if (!result.ok) return { ok: false, message: result.message };
+
+  // Re-issuing supersedes the previous code, so the flow has to carry the new
+  // one -- otherwise the on-screen panel would keep showing a code that no
+  // longer verifies.
+  if (result.demoOtp) {
+    await setAuthFlow({ ...flow, otpSent: true, demoOtp: result.demoOtp });
+  }
+
   return { ok: true, message: 'A new code is on its way.' };
 }
 

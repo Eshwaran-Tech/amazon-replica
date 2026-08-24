@@ -1,25 +1,22 @@
-import { peekDevOtp } from '@/lib/auth/dev-otp-inbox';
+import { showOtpOnScreen } from '@/lib/auth/demo-otp';
 
 import { DevOtpPanel } from './dev-otp-panel';
 
 /**
- * The current one-time password, shown in development only.
+ * The current one-time password, shown on the page rather than delivered.
  *
- * There is no email or SMS provider wired into this project -- both transports
- * write to the server log -- so without this a tester has to read the process
- * output to finish signing in, which is impossible when the dev server is not
- * running in a terminal they can see.
+ * A Server Component, so the decision is made on the server and the flag never
+ * reaches the client bundle. Two gates have to agree before a code renders:
+ * `DEMO_SHOW_OTP` must be exactly "true", and the signed flow cookie must
+ * actually carry a code -- which only happens for the browser that asked for
+ * one, in the same fifteen-minute flow.
  *
- * A Server Component, so the code is read on the server and the lookup never
- * exists in the client bundle. `peekDevOtp` returns null when
- * `NODE_ENV=production`, and this renders nothing when it does, so a
- * production build cannot display a code even if this component is left on the
- * page. That double gate is deliberate: a one-time password shown to whoever
- * loads the page is account takeover, not a convenience.
+ * Showing a one-time password to whoever loads the page is account takeover,
+ * not a convenience. This exists for a demonstration deployment with no real
+ * accounts; see `lib/auth/demo-otp.ts`.
  */
-export function DevOtpNotice({ recipient }: { recipient: string }) {
-  const code = peekDevOtp(recipient);
-  if (!code) return null;
+export function DevOtpNotice({ code }: { code: string | null | undefined }) {
+  if (!code || !showOtpOnScreen()) return null;
 
   return <DevOtpPanel code={code} />;
 }

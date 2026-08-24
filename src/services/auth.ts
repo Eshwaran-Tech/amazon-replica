@@ -3,6 +3,7 @@ import { randomBytes } from 'node:crypto';
 import { ObjectId } from 'mongodb';
 
 import { displayIdentifier, parseIdentifier, type Identifier } from '@/lib/auth/identifier';
+import { demoOtpFor } from '@/lib/auth/demo-otp';
 import { OTP_TTL_MINUTES, discardOtp, issueOtp, verifyOtp } from '@/lib/auth/otp';
 import {
   DUMMY_PASSWORD_HASH,
@@ -411,7 +412,8 @@ async function deliverOtp(identifier: Identifier, code: string): Promise<void> {
 }
 
 export type OtpSendResult =
-  | { ok: true; expiresAt: Date }
+  // `demoOtp` is populated only under DEMO_SHOW_OTP -- see `lib/auth/demo-otp`.
+  | { ok: true; expiresAt: Date; demoOtp?: string }
   | { ok: false; code: 'RATE_LIMITED' | 'NOT_FOUND' | 'DISABLED'; message: string };
 
 /**
@@ -453,7 +455,7 @@ export async function sendSignInOtp(
     metadata: { purpose: 'signin', channel: identifier.kind },
   });
 
-  return { ok: true, expiresAt: issued.expiresAt };
+  return { ok: true, expiresAt: issued.expiresAt, ...demoOtpFor(issued.code) };
 }
 
 /**
@@ -543,7 +545,8 @@ export async function signInWithOtp(
 }
 
 export type SignUpStartResult =
-  | { ok: true; expiresAt: Date }
+  // `demoOtp` is populated only under DEMO_SHOW_OTP -- see `lib/auth/demo-otp`.
+  | { ok: true; expiresAt: Date; demoOtp?: string }
   | { ok: false; code: 'RATE_LIMITED' | 'EXISTS'; message: string };
 
 /**
@@ -585,7 +588,7 @@ export async function startSignUp(
     metadata: { purpose: 'signup', channel: input.identifier.kind },
   });
 
-  return { ok: true, expiresAt: issued.expiresAt };
+  return { ok: true, expiresAt: issued.expiresAt, ...demoOtpFor(issued.code) };
 }
 
 /**

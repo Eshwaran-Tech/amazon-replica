@@ -19,10 +19,13 @@ import type { Identifier } from './identifier';
  * history, proxy logs and `Referer` headers, and not in the database, which
  * would turn every visitor who types an identifier into a write.
  *
- * Nothing secret goes in here: no password, no OTP, no session token. It is
- * only the shape of the conversation so far. The signature stops the client
- * from editing it (e.g. flipping `exists` or swapping the identifier after the
- * server checked it); the expiry bounds how long a half-finished flow lingers.
+ * Nothing secret goes in here: no password, no session token. It is only the
+ * shape of the conversation so far. The signature stops the client from editing
+ * it (e.g. flipping `exists` or swapping the identifier after the server
+ * checked it); the expiry bounds how long a half-finished flow lingers.
+ *
+ * The one exception is `demoOtp`, and only when DEMO_SHOW_OTP=true -- see the
+ * note on the field.
  */
 
 const FLOW_TTL_SECONDS = 15 * 60;
@@ -38,6 +41,20 @@ export interface AuthFlow {
   name?: string;
   /** Whether a code has been sent in this flow (drives "resend" copy). */
   otpSent?: boolean;
+  /**
+   * The one-time password, in clear, for DEMO_SHOW_OTP deployments only.
+   *
+   * This cookie is the right carrier for it and the database is not: it is
+   * HttpOnly, signed, expires in fifteen minutes, and above all it exists only
+   * in the browser that asked for the code. The server keeps nothing -- the
+   * `otpCodes` document still stores an HMAC and nothing else -- so enabling
+   * the demo view never turns a database dump into a pile of live codes.
+   *
+   * It also has to be here rather than in a module-level cache, because the
+   * action that sends the code and the request that renders the verify page are
+   * two separate serverless invocations that need not share a process.
+   */
+  demoOtp?: string;
   /** Where to go after sign-in, already validated by `safeRedirectPath`. */
   next?: string;
   /** Issued-at, epoch seconds. */

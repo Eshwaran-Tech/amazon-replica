@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 /**
- * The development one-time password, shown as a notification panel.
+ * The demo one-time password, shown as a notification panel.
  *
  * Fixed to the top-left, above the page, sliding in from beyond the left edge.
  * It shows the code and nothing else: entering the code happens in the verify
@@ -35,13 +35,18 @@ export function DevOtpPanel({ code }: { code: string }) {
   return (
     <div
       role="region"
-      aria-label="Development one-time password"
+      aria-label="Demo one-time password"
       aria-hidden={hidden ? true : undefined}
       onTransitionEnd={() => {
         if (!open) setExited(true);
       }}
       className={cn(
-        'fixed top-4 left-4 z-50 w-[min(17rem,calc(100vw-2rem))] sm:top-6 sm:left-6',
+        // Bottom-left on a phone, top-left from `sm` up. At 390px a top-anchored
+        // panel lands squarely on the card heading -- measured at y16-188 against
+        // a heading at y85-120 -- and leaves only 36px of clearance above the
+        // code inputs. The foot of a phone screen has nothing to cover.
+        'fixed bottom-4 left-4 z-50 w-[min(17rem,calc(100vw-2rem))]',
+        'sm:top-6 sm:bottom-auto sm:left-6',
         'transition-transform duration-[400ms] ease-out motion-reduce:transition-none',
         open ? 'translate-x-0' : '-translate-x-[calc(100%+2rem)]',
         hidden && 'invisible',
@@ -54,7 +59,7 @@ export function DevOtpPanel({ code }: { code: string }) {
         <button
           type="button"
           onClick={() => setOpen(false)}
-          aria-label="Dismiss development code"
+          aria-label="Dismiss demo code"
           tabIndex={hidden ? -1 : 0}
           className="hover:bg-surface focus-visible:outline-accent-500 rounded-lg p-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
         >
@@ -65,8 +70,8 @@ export function DevOtpPanel({ code }: { code: string }) {
       <div className="border-hairline bg-surface rounded-tr-xl rounded-b-xl border p-4 shadow-2xl shadow-black/50">
         <p className="text-ink font-mono text-3xl font-bold tracking-[0.25em]">{code}</p>
         <p className="text-ink-subtle mt-2 text-[11px] leading-relaxed">
-          Development code — no mail provider is configured, so it is shown here instead of being
-          sent.
+          Demo mode — no mail provider is configured, so the code is shown here instead of being
+          sent. Do not use this store for a real account.
         </p>
       </div>
     </div>

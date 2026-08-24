@@ -28,7 +28,7 @@ export default async function OtpStepPage() {
       otpSent={flow.otpSent === true}
       hasPassword={flow.hasPassword}
       csrfField={<CsrfField />}
-      devNotice={<DevOtpNotice recipient={flow.identifier.value} />}
+      devNotice={<DevOtpNotice code={flow.demoOtp} />}
     />
   );
 }

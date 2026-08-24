@@ -26,7 +26,7 @@ export default async function VerifySignUpPage() {
       identifierLabel={displayIdentifier(flow.identifier)}
       channel={flow.identifier.kind}
       csrfField={<CsrfField />}
-      devNotice={<DevOtpNotice recipient={flow.identifier.value} />}
+      devNotice={<DevOtpNotice code={flow.demoOtp} />}
     />
   );
 }
