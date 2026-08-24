@@ -41,10 +41,25 @@ export const BRAND_LEGAL_NAME = process.env.NEXT_PUBLIC_BRAND_LEGAL_NAME?.trim()
  * domain cannot drift between them. A canonical tag pointing at one host while
  * the sitemap lists another is the classic way to split your own ranking.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000').replace(
-  /\/+$/,
-  '',
-);
+function resolveSiteUrl(): string {
+  // `??` would accept an empty string, and an empty origin turns every
+  // canonical into a relative URL -- which silently defeats the whole point of
+  // having one. Treat blank exactly like unset.
+  const configured = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  if (configured) return configured.replace(/\/+$/, '');
+
+  // Vercel injects the project's own production domain, so a deployment can
+  // describe itself correctly even if nobody set the variable above. Host only,
+  // no scheme. The `NEXT_PUBLIC_` copy is the one that survives into the client
+  // bundle, which matters because client components import this module for the
+  // brand name and would otherwise evaluate a different origin than the server.
+  const vercel = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (vercel) return `https://${vercel.replace(/\/+$/, '')}`;
+
+  return 'http://localhost:3000';
+}
+
+export const SITE_URL = resolveSiteUrl();
 
 /** An absolute URL for a path, for canonicals and structured data. */
 export function absoluteUrl(path = '/'): string {
