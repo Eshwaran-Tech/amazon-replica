@@ -35,7 +35,39 @@ import { checkRequestOrigin } from '@/lib/security/origin';
  */
 
 const isDev = process.env.NODE_ENV !== 'production';
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
+
+/** Blank is not a configured value; `??` alone would accept `''` as an origin. */
+function configured(value: string | undefined): string | null {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : null;
+}
+
+const APP_URL = configured(process.env.NEXT_PUBLIC_APP_URL) ?? 'http://localhost:3000';
+
+/**
+ * The other names this same deployment answers to.
+ *
+ * Vercel serves a project on its production alias, on a unique per-deployment
+ * URL and on a branch URL simultaneously. `NEXT_PUBLIC_APP_URL` names only one
+ * of them, so without this every mutation performed from any other name is
+ * rejected as `untrusted-origin` -- sign-in, add-to-cart, checkout, all of it,
+ * with nothing in the UI to explain why.
+ *
+ * These come from the deployment's environment, never from the request, which
+ * is what separates them from the `Host` header the check deliberately
+ * distrusts in production.
+ */
+const PLATFORM_ORIGINS = [
+  process.env.VERCEL_PROJECT_PRODUCTION_URL,
+  process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
+  process.env.VERCEL_URL,
+  process.env.NEXT_PUBLIC_VERCEL_URL,
+  process.env.VERCEL_BRANCH_URL,
+]
+  .map(configured)
+  .filter((host): host is string => host !== null)
+  .map((host) => `https://${host}`);
+
 const PAYMENT_PROVIDER = process.env.PAYMENT_PROVIDER === 'stripe' ? 'stripe' : 'mock';
 
 function isProtectedPath(pathname: string): boolean {
@@ -78,6 +110,7 @@ export function proxy(request: NextRequest): NextResponse {
     referer: request.headers.get('referer'),
     host: request.headers.get('host'),
     appUrl: APP_URL,
+    extraOrigins: PLATFORM_ORIGINS,
     isDev,
   });
 

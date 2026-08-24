@@ -35,23 +35,46 @@ export interface AllowedOriginOptions {
   appUrl: string;
   /** Request `Host` header, only trusted in development. */
   host?: string | null;
+  /**
+   * Additional origins this same deployment is served on, supplied by the
+   * hosting platform rather than by the request. See `checkRequestOrigin`.
+   */
+  extraOrigins?: readonly string[];
   isDev: boolean;
 }
 
 /**
  * The set of origins we accept mutations from.
  *
- * In production this is exactly the configured app URL. The `Host` header is
+ * In production this is the configured app URL plus any `extraOrigins` the
+ * platform reports for this same deployment. The `Host` header is
  * attacker-controllable in some proxy setups, so trusting it in production
  * would let `Host: evil.com` + `Origin: https://evil.com` satisfy its own
  * check. In development we do trust it, because localhost is reached under
  * several names (localhost, 127.0.0.1, a LAN IP for device testing).
+ *
+ * `extraOrigins` is a different case from `host`, and safe for the same reason
+ * `host` is not: it comes from the deployment's own environment, which the
+ * request cannot influence. It exists because a host serves one site under
+ * several names -- on Vercel a project answers on its production alias, its
+ * per-deployment URL and its branch URL at once -- and a single configured
+ * origin makes every mutation from the other names fail closed.
  */
-export function allowedOrigins({ appUrl, host, isDev }: AllowedOriginOptions): Set<string> {
+export function allowedOrigins({
+  appUrl,
+  host,
+  extraOrigins,
+  isDev,
+}: AllowedOriginOptions): Set<string> {
   const origins = new Set<string>();
 
   const canonical = originOf(appUrl);
   if (canonical) origins.add(canonical);
+
+  for (const extra of extraOrigins ?? []) {
+    const parsed = originOf(extra);
+    if (parsed) origins.add(parsed);
+  }
 
   if (isDev && host) {
     origins.add(`http://${host}`);
@@ -67,6 +90,7 @@ export interface OriginCheckInput {
   referer: string | null;
   host: string | null;
   appUrl: string;
+  extraOrigins?: readonly string[];
   isDev: boolean;
 }
 
@@ -88,6 +112,7 @@ export function checkRequestOrigin(input: OriginCheckInput): OriginCheckResult {
   const allowed = allowedOrigins({
     appUrl: input.appUrl,
     host: input.host,
+    extraOrigins: input.extraOrigins,
     isDev: input.isDev,
   });
 
