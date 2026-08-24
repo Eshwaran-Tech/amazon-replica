@@ -68,7 +68,7 @@ const nextConfig: NextConfig = {
 
   // Native/heavy server-only packages must not be traced into the client or
   // serverless bundle by the compiler.
-  serverExternalPackages: ['mongodb', 'bcryptjs'],
+  serverExternalPackages: ['mongodb', 'bcryptjs', 'nodemailer'],
 
   typedRoutes: true,
 
